@@ -4,9 +4,9 @@
 
 %%
 % Book metadata
-\title{A Tufte-Style Book\thanks{Thanks to Edward R.~Tufte for his inspiration.}}
-\author[The Tufte-LaTeX Developers]{The Tufte-LaTeX\ Developers}
-\publisher{Publisher of This Book}
+\title{Hypercompression}
+\author{Charles Holbrow}
+%\publisher{Publisher of This Book}
 
 %%
 % If they're installed, use Bergamo and Chantilly from www.fontsite.com.
@@ -35,21 +35,9 @@
 \usepackage{fancyvrb}
 \fvset{fontsize=\normalsize}
 
-
 %%
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
-
-%%
-% Shortcut for my currently unknown thesis title.
-\newcommand{\thesis}{Hypercompression\xspace}
-
-% Prints the month name (e.g., January) and the year (e.g., 2008)
-\newcommand{\monthyear}{%
-  \ifcase\month\or January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or
-  December\fi\space\number\year
-}
 
 % Inserts a blank page
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
@@ -74,40 +62,58 @@
 % Front matter
 \frontmatter
 
-% r.3 full title page
+% Full title page
 \maketitle
 
-\end{fullwidth}
-
-% r.4 contents
+% Contents
 \tableofcontents
 
-% r.5 introduction
+% Start the main matter (normal chapters)
+\mainmatter
+
+% Introduction
 \cleardoublepage
-\chapter*{Introduction}
-\newthought{In 2004,} the Culture 2000 Programme created by the European union approved a 99510 \EUR{} grant to an Italian Multimedia firm for a project called Virtual Electronic Poem (VEP)\cite{eu2004}. The project proposed to create a virtual reality simulation in which users could experience rendered audio and video of the famous Gesamtkunstwerk created for the Phillips Pavilion at the 1958 World Expo in Brussels. 
+\chapter{Introduction}
+\label{ch:introduction}
+\newthought{In 2004,} the Culture 2000 Programme created by the 
+European union approved a 99510\EUR{} grant to an Italian Multimedia 
+firm for a project called Virtual Electronic Poem (VEP)\cite{eu2004}. 
+The project proposed to create a virtual reality simulation in which 
+users could experience rendered audio and video of the famous
+Gesamtkunstwerk created for the Phillips Pavilion at the 1958 World
+Expo in Brussels. 
 
-The goal of the project is included in the Culture 2000 Programme report:
-The project will reproduce the experience created by the Philips pavilion at the Brussels Expo
-Universelle in 1958. 
+The goal of the project is included in the Culture 2000 Programme
+report: The project will reproduce the experience created by the
+Philips pavilion at the Brussels Expo Universelle in 1958.
 
-Give Details? Explain all the parts that were involved with the original pavilion, explain all the resources that were reviewed to figure out what the thing actually looked like. 
+\TODO{}Give Details? Explain all the parts that were involved with the
+original pavilion, explain all the resources that were reviewed to
+figure out what the thing actually looked like.
 
-This project was so involved, that the pricinple investigator coined the term "Archeology of Multimedia" to describe the experience of recovering\cite{TODO}.
+This project was so involved, that the principal investigator coined
+the term "Archeology of Multimedia" to describe the experience of
+recovering\cite{TODO}.
 
-Virtual reality technology has changed enough between 2004 and 2015, that reviving the VEP project would probably take an additional multimedia archeology expedition.
+Virtual reality technology has changed enough between 2004 and 2015,
+that reviving the VEP project would probably take an additional
+multimedia archeology expedition.
 
-The problem of preservation described above informs the structure and strategy in this thesis. 
+The problem of preservation described above informs the structure and
+strategy in this thesis. 
 
-Explain the need for audio systems as computer systems? Cite Granularity. Describe what fields I draw from. Describe how fields can go deep, but Anti Disciplinary is unbounded. Describe how this could only happen at the media lab. Detail how I will granularize?
+Explain the need for audio systems as computer systems? Cite
+Granularity. Describe what fields I draw from. Describe how fields can
+go deep, but Anti Disciplinary is unbounded. Describe how this could
+only happen at the media lab. Detail how I will granularize?
+
+\section{This it the Title}
+\label{sec:this-it-title}
+Wow this is the new section@!!!!!
+
 
 \section{Hypercompression}
 How it fits into audio engineering, compression, how it fits into this project. 
-
-
-%%
-% Start the main matter (normal chapters)
-\mainmatter
 
 
 \chapter{The Design of Tufte's Books}
@@ -124,7 +130,7 @@ matter).
 
 Tufte's books primarily use two typefaces: Bembo and Gill Sans.  Bembo is used
 for the headings and body text, while Gill Sans is used for the title page and
-opening epigraphs in \thesis.
+opening epigraphs in \title.
 
 \chapter[Chapter2]{Chapter 2!!}
 \label{ch:ch2}
@@ -168,3 +174,8 @@ The following is a list of all of the errors, warnings, and other messages gener
 
 \end{document}
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
