@@ -52,10 +52,14 @@
 \newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
 \newcommand{\hairsp}{\hspace{1pt}}% hair space
 \newcommand{\hquad}{\hskip0.5em\relax}% half quad space
-\newcommand{\TODO}{\textcolor{red}{\bf TODO!}\xspace}
+\newcommand{\TODO}[1]{\textcolor{red}{\bf TODO:#1}\xspace}
 \newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace}
 \newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace}
 \newcommand{\na}{\quad--}% used in tables for N/A cells
+
+% Title of my thesis project
+
+\newcommand{\thesis}{Hypercompression\xspace}
 
 \begin{document}
 
@@ -75,6 +79,45 @@
 \cleardoublepage
 \chapter{Introduction}
 \label{ch:introduction}
+
+\begin{fullwidth}
+  \newthought{At the Media Lab}, we celebrate the study and practice
+  of projects that exist outside of established academic
+  disciplines. The Media Lab, and the media have described this
+  approach as interdisciplinary, cross-disciplinary,
+  anti-disciplinary, or post-disciplinary - emphasizing the clich\'{e}
+  that as traditional academics narrow their focus, and become experts
+  in a given field, they must learn \textit{more and more about less
+    and less}, and eventually know \textit{everything about
+    nothing}.
+
+  \TODO{maybe move specialization/communication up here.}
+
+  In contrast, \TODO{media lab projects run the risk of being broad
+    but not deep. Focus brings depth}. \thesis is truly a Media Lab project. It draws from music,
+  mathematics, computer science, acoustics, audio engineering and mixing,
+  sound reinforcement, multimedia production, live
+  performance. \TODO{Something about how I want to bring fields together}
+
+  - Framed with Historical Context
+  - Framework for multimedia documentation Approach/Computer Systems
+  - Describe the Mathematics 
+  - Build the Software
+  - Live multimedia performance
+  - Concert playback. 
+  - Educational Implications
+
+  - Sal Khan's talk about students who get stuck. 
+  - specialization makes it hard for different fields to communicate
+  with each other and learn from each other. 
+  - Think about documentation in terms of Systems, Granulatiry
+  - Noticed how very simple concepts are portrayed 
+  - Leave bridges to other disciplines 
+  
+
+Tension between depth and breadth
+\end{fullwidth}
+
 \newthought{In 2004,} the Culture 2000 Programme created by the 
 European union approved a 99510\EUR{} grant to an Italian Multimedia 
 firm for a project called Virtual Electronic Poem (VEP)\cite{eu2004}. 
@@ -87,13 +130,13 @@ The goal of the project is included in the Culture 2000 Programme
 report: The project will reproduce the experience created by the
 Philips pavilion at the Brussels Expo Universelle in 1958.
 
-\TODO{}Give Details? Explain all the parts that were involved with the
+Give Details? Explain all the parts that were involved with the
 original pavilion, explain all the resources that were reviewed to
 figure out what the thing actually looked like.
 
 This project was so involved, that the principal investigator coined
 the term "Archeology of Multimedia" to describe the experience of
-recovering\cite{TODO}.
+recovering\TODO{cite}.
 
 Virtual reality technology has changed enough between 2004 and 2015,
 that reviving the VEP project would probably take an additional
@@ -105,7 +148,7 @@ strategy in this thesis.
 Explain the need for audio systems as computer systems? Cite
 Granularity. Describe what fields I draw from. Describe how fields can
 go deep, but Anti Disciplinary is unbounded. Describe how this could
-only happen at the media lab. Detail how I will granularize?
+only happen at the media lab. Detail how I will granular-ize?
 
 \section{This it the Title}
 \label{sec:this-it-title}
@@ -130,7 +173,7 @@ matter).
 
 Tufte's books primarily use two typefaces: Bembo and Gill Sans.  Bembo is used
 for the headings and body text, while Gill Sans is used for the title page and
-opening epigraphs in \title.
+opening epigraphs in \thesis.
 
 \chapter[Chapter2]{Chapter 2!!}
 \label{ch:ch2}
