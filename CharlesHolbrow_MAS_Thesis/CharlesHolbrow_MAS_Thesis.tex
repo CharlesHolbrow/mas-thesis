@@ -43,6 +43,8 @@
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 
 \usepackage{units}
+% Control the formatting of lists
+\usepackage{enumitem}
 
 % Typesets the font size, leading, and measure in the form of 10/12x26 pc.
 \newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}}
@@ -92,10 +94,10 @@
     nothing}.
 \end{fullwidth}
 
-\newthought{\thesis} is truly a Media Lab project. It draws from
+\thesis is truly a Media Lab project. It draws from
 music, mathematics, computer science, acoustics, audio engineering and
 mixing, sound reinforcement, multimedia production, and live
-performance. A natural tension exists between breadth and depth: Where
+performance. \TODO{Connect these ideas better} A natural tension exists between breadth and depth: Where
 the \textit{depth} of a strictly disciplinary approach provides
 language and abstractions that enable us to describe content and
 communicate at a high level, the \textit{breadth} of the anti-disciplinary
@@ -107,22 +109,34 @@ established disciplines. It proposes a strategy for such
 documentation, and employs this strategy by documenting the theory,
 implementation, and application of \thesis.
 
-
-
 \section{Compression and Hypercompression}
 \label{sec:compression-and-hypercompression}
 
-A traditional dynamic range compressor is among the most powerful and
-% \sidenote after period, not before, because it is for the sentence,
-% not the word.
-% http://graphicdesign.stackexchange.com/questions/15342/footnote-endnote-references-before-or-after-punctuation-comma-full-stop-perio
-flexible tools in the audio engineer's toolkit.\sidenote{Be aware of
-  the diference between audio data compression and audio dynamic range
+A traditional dynamic range compressor\marginnote{Be aware of the
+  diference between audio data compression and audio dynamic range
   compression. Data compression is the practice of reducing the
-  filesize of digitally encoded audio data. In this thesis, I use
-  \textit{compression} to mean \textit{dynamic range compression}.}
+  filesize of digitally encoded audio data. A dynamic range compressor
+  is one tool used by audio engineers to parametrically manipulate the
+  amplitude of an audio signal. In this thesis,
+  \textit{compression} refers to \textit{dynamic range compression}.}
+is one of the most powerful and flexible tools in the audio engineer's
+toolkit. A basic compressor can be thought of as an automatic volume
+control that simply reduces the level of an audio signal when the
+signal exceeds a threshold. By carefully adjusting the threshold, the
+reduction amount, and the speed at which the compressor reacts, a
+skilled audio engineer can use compression to increase perceived
+loudness, improve intelligibility, augment articulation, smooth a
+performance, shape transients, extract ambience, de-ess vocals,
+balance multiple signals, and add distortion.\cite{Case2007}
 
-Compressors are 
+\subsection{Surround Compression}
+\label{sec:surround-compression}
+
+Compression is well understood and documented for mono and stereo
+audio content.\cite{Giannoulis2012, Blesser1969, Case2007, Katz2007}
+How can such a simple effect accomplish such diverse results?  The
+theory, technique and applications of compression are expertly
+described in Alex Case's excellent book, \textit{Sound FX}.
 
 \section{Structure}
 \label{sec:structure}
@@ -179,67 +193,6 @@ Explain the need for audio systems as computer systems? Cite
 Granularity. Describe what fields I draw from. Describe how fields can
 go deep, but Anti Disciplinary is unbounded. Describe how this could
 only happen at the media lab. Detail how I will granular-ize?
-
-\section{This it the Title}
-\label{sec:this-it-title}
-Wow this is the new section@!!!!!
-
-
-\section{Hypercompression}
-How it fits into audio engineering, compression, how it fits into this project. 
-
-
-\chapter{The Design of Tufte's Books}
-\label{ch:tufte-design}
-
-
-\newthought{The pages} of a book are usually divided into three major
-sections: the front matter (also called preliminary matter or prelim), the
-main matter (the core text of the book), and the back matter (or end
-matter).
-
-\section{Typefaces}\label{sec:typefaces1}\index{typefaces}
-\index{fonts|see{typefaces}}
-
-Tufte's books primarily use two typefaces: Bembo and Gill Sans.  Bembo is used
-for the headings and body text, while Gill Sans is used for the title page and
-opening epigraphs in \thesis.
-
-\chapter[Chapter2]{Chapter 2!!}
-\label{ch:ch2}
-
-\section{Sidenotes}\label{sec:sidenotes}
-One of the most prominent and distinctive features of this style is the
-extensive use of sidenotes.
-
-\section{References}
-References are placed alongside their citations as sidenotes,
-as well.  This can be accomplished using the normalcite command
-
-\section{Figures and Tables}\label{sec:figures-and-tables}
-Images and graphics play an integral role in Tufte's work.
-
-\section{Full-width text blocks}
-
-\section{Typography}\label{sec:typography}
-
-\subsection{Typefaces}\label{sec:typefaces}\index{typefaces}
-If the Palatino, \textsf{Helvetica}, and \texttt{Bera Mono} typefaces are installed, this style
-will use them automatically.  Otherwise, we'll fall back on the Computer Modern
-typefaces.
-
-\subsection{Letterspacing}\label{sec:letterspacing}
-This document class includes two new commands and some improvements on
-existing commands for letterspacing.
-
-\section{Document Class Options}\label{sec:options}
-
-\chapter{Troubleshooting and Support}
-\label{ch:troubleshooting}
-
-\section{Errors, Warnings, and Informational Messages}\label{sec:tl-messages}
-The following is a list of all of the errors, warnings, and other messages generated by the classes and a brief description of their meanings.
-
 
 
 \backmatter
