@@ -92,7 +92,7 @@
   while narrowing their focus, they learn \textit{more and more about
     less and less}, and eventually know \textit{everything about
     nothing}.  \thesis is truly a Media Lab project. It documents the
-  creative process during the design, development, and performance of
+  creative process throughout the design, development, and performance of
   a new type of audio signal processor. In doing so, it draws from
   music, mathematics, computer science, acoustics, audio engineering
   and mixing, sound reinforcement, multimedia production, and live
@@ -108,34 +108,42 @@ and communicate at a high level, the \textit{breadth} of the
 anti-disciplinary approach invites us to partner with collaborators
 with diverse backgrounds and abilities. The challenge is to describe
 \thesis so that it is accessible to readers from all disciplines. This
-document proposes the motivation for documenting media that exists
+thesis proposes the motivation for documenting media that exists
 outside of established disciplines. It proposes a strategy for such
 documentation, and employs this strategy by documenting the theory,
 implementation, and application of \thesis.
 
 \paragraph{Compression and Hypercompression}
 
-\marginnote{Be aware of the
-  diference between audio data compression and audio dynamic range
-  compression. Data compression is the practice of reducing the
-  filesize of digitally encoded audio data. A dynamic range compressor
-  is one tool used by audio engineers to parametrically manipulate the
-  amplitude of an audio signal. In this thesis, \textit{compression}
-  refers to \textit{dynamic range compression}.}
-
-A traditional dynamic range compressor is one of the most powerful and
-flexible tools in the audio engineer's toolkit. A basic compressor can
-be thought of as an automatic volume control that simply reduces the
-level of an audio signal when the signal exceeds a threshold. By
-carefully adjusting the threshold, the reduction amount, and the rate
-at which the compressor reacts, a skilled audio engineer can use
+A traditional dynamic range 
+\marginnote{Be aware of the diference between audio data compression
+  and audio dynamic range compression. Data compression is the
+  practice of reducing the filesize of digitally encoded audio data. A
+  dynamic range compressor is one tool used by audio engineers to
+  parametrically manipulate the amplitude of an audio signal. In this
+  thesis, \textit{compression} refers to \textit{dynamic range
+    compression}.}
+compressor is one of the most powerful and flexible tools in the audio
+engineer's toolkit.  A basic compressor can be thought of as an
+automatic volume control that simply reduces the level of an audio
+signal when the signal exceeds a threshold. By carefully adjusting the
+threshold, the input signals, the reduction amount, and the rate at
+which the compressor reacts, a skilled audio engineer can use
 compression to increase perceived loudness, improve intelligibility,
 augment articulation, smooth a performance, shape transients, extract
 ambience, de-ess vocals, balance multiple signals, and add
-distortion.\cite{Case2007} While compression of mono and stereo audio is
-well documented and understood,\cite{Giannoulis2012, Blesser1969,
-  Katz2007} \thesis adds a \TODO{spatial degree of freedom}
+distortion.\cite{Case2007}
 
+While compression of mono and stereo audio is well documented and
+understood,\cite{Giannoulis2012, Blesser1969, Katz2007, Case2007}
+surround sound compression is relatively less explored.  \thesis
+expands on traditional audio compression model by adding a degree of
+spatial control. This design introduces two additional high level
+spatial parameters: \textbf{link angle} and \textbf{spread}. These
+parameters extend the domain of the traditional compressor to include
+surround sound spatial manipulation in addition to dynamics
+processing, and unlock new creative possibilities for surround sound
+designers.
 
 \section{Structure}
 \label{sec:structure}
@@ -199,9 +207,9 @@ only happen at the media lab. Detail how I will granular-ize?
 \section*{Acknowledgements}
 \label{sec:acknowledgements}
 
-Thanks to Tod Machover, for his continuous support and encouragement,
+Thanks to Tod Machover, for your continuous support and encouragement,
 for sharing your process, and for help and support integrating \thesis
-into \textit{Of Experience}. 
+into \textit{Of Experience}.
 
 Thanks to James Andy Moorer and Joe Paradiso for support, guidance and
 mentorship.\TODO{verify spelling}
@@ -214,8 +222,8 @@ Thanks to Wonshik Choi and Niyom Lue for your infinite patience,
 guidance, and for welcoming me to MIT in 2008. Only you could have
 taught a music major to enjoy linux, DSP, and spectroscopy.
 
-Thanks to Shawn Drost for selling me on Hack Reactor, and giving me
-confidence as a software developer. 
+Thanks to Shawn Drost for directly and indirectly giving me confidence
+as a software developer.
 
 Thanks to my UMass Lowell Piano teachers for taking chance with me,
 and putting up with me for four years. Anthony Mele, Elizabeth
@@ -229,21 +237,21 @@ I needed some screams.
 
 Thanks to Ben Bloomberg for being my peer and my mentor at the same
 time. Thanks for bringing me into the Opera group in 2008 and bringing
-me back in 2014. Thanks for way too many other things. 
+me back in 2014.
 
-Thanks to Helen Corless for being amazing supportive even when I am 
-in the absolute pits of grad student existence. Thank you for
-reminding me what music about every day, and for challenging me like
+Thanks to Helen Corless for being amazing supportive even when I am in
+the absolute pits of grad student existence. Thank you for always
+reminding me what music is really about, and for challenging me like
 no one else can.
 
 Thanks to my grandparents for leading by example, and teaching
-kindness and dedication, and endless support in education.
+kindness and dedication, and for endless support in education.
 
 Thanks to Hilary, Giles, and Felicity for always inspiring me with
 kindness, honesty, and wisdom. 
 
 And thanks to my parents, Gwen and Mark for forcing me to get an
-education before I was wise enough to know I wanted one. Thank you for
+education before I was smart enough to know I wanted one. Thank you for
 all your love and support in everything ever I have ever done.
 
 \bibliography{library}
