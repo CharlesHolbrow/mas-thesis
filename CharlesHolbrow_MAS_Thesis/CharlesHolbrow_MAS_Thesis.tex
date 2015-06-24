@@ -113,9 +113,7 @@ outside of established disciplines. It proposes a strategy for such
 documentation, and employs this strategy by documenting the theory,
 implementation, and application of \thesis.
 
-\paragraph{Compression and Hypercompression}
-
-A traditional dynamic range 
+\paragraph{Compression and Hypercompression} A traditional
 \marginnote{Be aware of the diference between audio data compression
   and audio dynamic range compression. Data compression is the
   practice of reducing the filesize of digitally encoded audio data. A
@@ -123,21 +121,21 @@ A traditional dynamic range
   parametrically manipulate the amplitude of an audio signal. In this
   thesis, \textit{compression} refers to \textit{dynamic range
     compression}.}
-compressor is one of the most powerful and flexible tools in the audio
-engineer's toolkit.  A basic compressor can be thought of as an
-automatic volume control that simply reduces the level of an audio
-signal when the signal exceeds a threshold. By carefully adjusting the
-threshold, the input signals, the reduction amount, and the rate at
-which the compressor reacts, a skilled audio engineer can use
-compression to increase perceived loudness, improve intelligibility,
-augment articulation, smooth a performance, shape transients, extract
-ambience, de-ess vocals, balance multiple signals, and add
-distortion.\cite{Case2007}
+dynamic range compressor is one of the most powerful and flexible
+tools in the audio engineer's toolkit.  A basic compressor can be
+thought of as an automatic volume control that simply reduces the
+level of an audio signal when the signal exceeds a threshold. By
+carefully adjusting the threshold, the input signals, the reduction
+amount, and the rate at which the compressor reacts, a skilled audio
+engineer can use compression to increase perceived loudness, improve
+intelligibility, augment articulation, smooth a performance, shape
+transients, extract ambience, de-ess vocals, balance multiple signals,
+and add distortion.\cite{Case2007}
 
 While compression of mono and stereo audio is well documented and
 understood,\cite{Giannoulis2012, Blesser1969, Katz2007, Case2007}
 surround sound compression is relatively less explored.  \thesis
-expands on traditional audio compression model by adding a degree of
+expands on traditional audio compression model by adding 
 spatial control. This design introduces two additional high level
 spatial parameters: \textbf{link angle} and \textbf{spread}. These
 parameters extend the domain of the traditional compressor to include
@@ -145,31 +143,45 @@ surround sound spatial manipulation in addition to dynamics
 processing, and unlock new creative possibilities for surround sound
 designers.
 
+\paragraph{Performance}
+\TODO{Comments about live performance}
+
+
 \section{Structure}
 \label{sec:structure}
+\TODO{I'll fill this out more as I progress, but this is basically the
+  chapter structure I'm imagining. Building the software likely wont
+  have enough content for a whole chapter, so I may merge it with the
+  math chapter}
+\begin{enumerate}
+\item Introduction and  Historical Context % this should go first, as
+                                % it primes for the movitation
+\item motivation
+\item Framework for multimedia documentation Approach/Computer Systems
+\item Describe the Mathematics 
+\item Build the Software
+\item Live multimedia performance
+\item Concert playback recording. 
+\item Conclusion/Educational Implications
+\end{enumerate}
 
-  - Framed with Historical Context
-  - Framework for multimedia documentation Approach/Computer Systems
-  - Describe the Mathematics 
-  - Build the Software
-  - Live multimedia performance
-  - Concert playback recording. 
-  - Educational Implications
+\section{Context}
+\label{sec:context}
 
+\newthought{The Phillips Pavilion}, a Gesamtkunstwerk stands out as an
+inspiration, a reference, and a guide for projects that successfully
+disregard the conventional disciplinary approach to the creative
+design process. The pavilion was a commissioned by Phillips
+Corporation for the Brussels World's Fair in 1958.\cite{Zvonare} When
+the architectural offices of Le Corbusier, Le Corbusier replied,
+saying: ``I will not make a pavilion for you but an Electronic Poem and
+a vessel containing the poem; light, color image, rhythm and sound
+joined together in an organic synthesis.''\cite{Lopez2011}
 
-  - Sal Khan's talk about students who get stuck. 
-    - Talk about the expectations for this paper - what should you
-    already understand? Basic Audio theory. 
-  - specialization makes it hard for different fields to communicate
-  with each other and learn from each other. 
-  - Think about documentation in terms of Systems, Granulatiry
-  - Noticed how very simple concepts are portrayed 
-  - Leave bridges to other disciplines 
-  
+\TODO{Le Corbusier passed to Iannis Xenakis, show metastatis scores
+  and pavillion designes. Link to his thoughts on architecture} 
 
-Tension between depth and breadth
-
-\newthought{In 2004,} the Culture 2000 Programme created by the 
+\newthought{In 2004}, the Culture 2000 Programme created by the 
 European union approved a 99510\EUR{} grant to an Italian Multimedia 
 firm for a project called Virtual Electronic Poem (VEP)\cite{eu2004}. 
 The project proposed to create a virtual reality simulation in which 
@@ -201,6 +213,22 @@ Granularity. Describe what fields I draw from. Describe how fields can
 go deep, but Anti Disciplinary is unbounded. Describe how this could
 only happen at the media lab. Detail how I will granular-ize?
 
+
+
+\section{Motivation}
+\label{sec:motivation}
+
+  - Sal Khan's talk about students who get stuck. 
+  - Talk about the expectations for this paper - what should you
+    already understand? Basic Audio theory. 
+  - specialization makes it hard for different fields to communicate
+  with each other and learn from each other.
+  - Think about documentation in terms of Systems, Granulatiry
+  - Noticed how very simple concepts are portrayed 
+  - Leave behind bridges between disciplines
+  - set builder notation, and un-googleable
+  questions. IE. Gessamtkunstwerk is googleable, and does not need a
+  citation. 
 
 \backmatter
 
