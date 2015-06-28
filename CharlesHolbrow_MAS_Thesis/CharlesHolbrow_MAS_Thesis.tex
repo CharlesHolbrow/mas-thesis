@@ -77,28 +77,62 @@
 % Start the main matter (normal chapters)
 \mainmatter
 
+\chapter{Abstract}
+\label{cha:abstract}
+
+\marginnote{\TODO{ Abstract is copy/pasted from another section, and
+    should probably be re-written from scratch}} While compression of
+mono and stereo audio is well documented and
+understood,\cite{Giannoulis2012, Blesser1969} surround sound
+compression is relatively less explored.  \thesis expands on
+traditional audio compression model by adding spatial control. This
+design introduces two additional high level spatial parameters:
+\textbf{link angle} and \textbf{spread}. These parameters extend the
+domain of the traditional compressor to include surround sound spatial
+manipulation in addition to dynamics processing, and unlock new
+creative possibilities for surround sound designers.
+
+
 % Introduction
 \cleardoublepage
 \chapter{Introduction}
 \label{ch:introduction}
 
-\begin{fullwidth}
-  \newthought{At the Media Lab}, we celebrate the study and practice
-  of projects that exist outside of established academic
-  disciplines. The Media Lab, and the media have described this
-  approach as interdisciplinary, cross-disciplinary,
-  anti-disciplinary, or post-disciplinary - emphasizing the clich\'{e}
-  that traditional academics must become experts in their field, and
-  while narrowing their focus, they learn \textit{more and more about
-    less and less}, and eventually know \textit{everything about
-    nothing}.  \thesis is truly a Media Lab project. It documents the
-  creative process throughout the design, development, and performance of
-  a new type of audio signal processor. In doing so, it draws from
-  music, mathematics, computer science, acoustics, audio engineering
-  and mixing, sound reinforcement, multimedia production, and live
-  performance.
+We usually think of audio compression in terms of \emph{reduction}. We
+use compression to reduce the dynamic range. Record labels use
+compression as a weapon in the \emph{loudness war}\cite{Deruty2014a},
+resulting in some of today's recordings utilizing no more dynamic
+range than a 1909 Edison cylinder.\cite{Katz2007} 
 
-\end{fullwidth}
+A deaper study of compression reveals its more subtle and artistic
+applications. A skilled audio engineer can use compression to improve
+intelligibility, augment articulation, smooth a performance, shape
+transients, extract ambience, de-ess vocals, balance multiple signals,
+or even add distortion.\cite{Case2007} The most effective way to use a
+compressor is to think of it as tool for \emph{temporal shaping},
+rather than a tool for \emph{dynamic reduction}. \thesis expands the
+traditional model of a compressor to include \emph{spatial
+  shaping}. While unconventional, spatial processing is a very natural
+fit for the compression paradigm. We can think of sound as a medium
+that exists in time just as easily as we can think of sound as
+soemthing that exists in space. Converting measurement of sound from
+the cycles per second (in the temporal domain) to wavelength (in the
+spatial domain) is common objective in acoustics and audio engineering
+practices.\TODO{cite sound reinforecement handbook??}
+
+\paragraph{Universality} At the MIT Media Lab, we celebrate the study
+and practice of projects that exist outside of established academic
+disciplines. The Media Lab, and the media have described this approach
+as interdisciplinary, cross-disciplinary, anti-disciplinary, or
+post-disciplinary - emphasizing the clich\'{e} that traditional
+academics must become experts in their field, and while narrowing
+their focus, they learn \textit{more and more about less and less},
+and eventually know \textit{everything about nothing}.  \thesis is
+truly a Media Lab project. It documents the creative process
+throughout the design, development, and performance of a new type of
+audio signal processor. In doing so, it draws from music, mathematics,
+computer science, acoustics, audio engineering and mixing, sound
+reinforcement, multimedia production, and live performance.
 
 \paragraph{Breadth and Depth} How can we describe a project with such
 broad subject material?  A natural tension exists between breadth and
@@ -113,39 +147,8 @@ outside of established disciplines. It proposes a strategy for such
 documentation, and employs this strategy by documenting the theory,
 implementation, and application of \thesis.
 
-\paragraph{Compression and Hypercompression} A traditional
-\marginnote{Be aware of the diference between audio data compression
-  and audio dynamic range compression. Data compression is the
-  practice of reducing the filesize of digitally encoded audio data. A
-  dynamic range compressor is one tool used by audio engineers to
-  parametrically manipulate the amplitude of an audio signal. In this
-  thesis, \textit{compression} refers to \textit{dynamic range
-    compression}.}
-dynamic range compressor is one of the most powerful and flexible
-tools in the audio engineer's toolkit.  A basic compressor can be
-thought of as an automatic volume control that simply reduces the
-level of an audio signal when the signal exceeds a threshold. By
-carefully adjusting the threshold, the input signals, the reduction
-amount, and the rate at which the compressor reacts, a skilled audio
-engineer can use compression to increase perceived loudness, improve
-intelligibility, augment articulation, smooth a performance, shape
-transients, extract ambience, de-ess vocals, balance multiple signals,
-and add distortion.\cite{Case2007}
-
-While compression of mono and stereo audio is well documented and
-understood,\cite{Giannoulis2012, Blesser1969, Katz2007, Case2007}
-surround sound compression is relatively less explored.  \thesis
-expands on traditional audio compression model by adding 
-spatial control. This design introduces two additional high level
-spatial parameters: \textbf{link angle} and \textbf{spread}. These
-parameters extend the domain of the traditional compressor to include
-surround sound spatial manipulation in addition to dynamics
-processing, and unlock new creative possibilities for surround sound
-designers.
-
 \paragraph{Performance}
 \TODO{Comments about live performance}
-
 
 \section{Structure}
 \label{sec:structure}
@@ -217,16 +220,15 @@ and to Le Corbusier's architecture firm in 1947.
 Xenakis was born in Romania in 1922, and moved to Greece in 1932. He
 left school at the age of 16, and spent his time reading about
 astronomy, archeology, ancient literature, and
-mathematics.\cite{Hoffmann2015} He was admitted to the Polytechnic
-Institute in Athens in 1940, where he studied music, counterpoint, and
-engineering. While attending the Polytechnic Institute, he fought with
-the resistance against the Nazi Invasion in Greece. He was jailed and
-tortured multiple times for his involvement with the resistance, and
-eventually sentenced to death for terrorism, but managed to
-escape\cite{Simms2014}. In 1946 he received his degree in
-engineering from the Polytechnic Institute, and
-left Greece the following year, using a forged
-passport.\cite[-24]{Prendergast2014}
+mathematics.\cite[]{Hoffmann2015} He was admitted to the
+Polytechnic Institute in Athens in 1940, where he studied music,
+counterpoint, and engineering. While attending the Polytechnic
+Institute, he fought with the resistance against the Nazi Invasion in
+Greece. He was jailed and tortured multiple times for his involvement
+with the resistance, and eventually sentenced to death for terrorism,
+but managed to escape\cite[]{Simms2014}. In 1946 he received his
+degree in engineering from the Polytechnic Institute, and left Greece
+the following year, using a forged passport.\cite[]{Prendergast2014}
 
 Xenakis began working for Le Corbusier in 1948, but he continuted to
 study and write music. While Xenakis was searching for a music mentor,
@@ -235,7 +237,6 @@ he approached Oliver Messiaen\sidenote{Messiaen was a well known
   birdsong into his music.}, and asked if he should study harmony or
 counterpoint. Messiaen later described his conversation with
 Xenakis:\cite{Service2013}
-
 \begin{quotation}
   I think one should study harmony and counterpoint. But this was a
   man so much out of the ordinary that I said: \begin{quote}No, you
@@ -243,7 +244,6 @@ Xenakis:\cite{Service2013}
     an architect and having studied special mathematics. Take
     advantage of these things. Do them in your music.\end{quote}
 \end{quotation}
-
 Ultimately, Messiaen was rejecting Xenakis as a student, but we can
 see how Xenakis did draw from disparate skills in his composition. The
 score for his 1945 composition \textit{Metastasis}
@@ -336,13 +336,14 @@ only happen at the media lab. Detail how I will granular-ize?
 
 In the Spring of 1976, Xenakis was defending his doctoral thesis at
 the University of Paris. A translation of his defense includes this
-statement:\cite{russolo1986art}
+statement:
 \begin{quotation}
-The artist-conceptor will have to be knowledgeable and inventive in
-such varied domains as mathematics, logic, physics, chemistry,
-biology, genetics, palentology (for the evolution of forms), the human
-sciences, and history; in short, a sort of universality, but one based
-opon, guided by and oriented toward forms and architectures.
+  ``The artist-conceptor will have to be knowledgeable and inventive
+  in such varied domains as mathematics, logic, physics, chemistry,
+  biology, genetics, palentology (for the evolution of forms), the
+  human sciences, and history; in short, a sort of universality, but
+  one based opon, guided by and oriented toward forms and
+  architectures.'' \cite{russolo1986art}
 \end{quotation}
 
 
@@ -364,8 +365,8 @@ music.
 This is where I want to make a contrubution. By drawing from music,
 mathematics, computer science, acoustics, audio engineering and
 mixing, sound reinforcement, multimedia production, and live
-performance, we can create tools that indiscriminately compose with
-space and sound.
+performance, we can create tools that allow us to indiscriminately
+compose with space and sound.
 
 \backmatter
 
