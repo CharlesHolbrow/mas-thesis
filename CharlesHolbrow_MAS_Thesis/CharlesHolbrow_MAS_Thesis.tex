@@ -59,8 +59,10 @@
 \newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace}
 \newcommand{\na}{\quad--}% used in tables for N/A cells
 
-% Title of my thesis project
+% Number parts and chapters
+\setcounter{secnumdepth}{0}
 
+% Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}
 
 \begin{document}
@@ -77,8 +79,8 @@
 % Start the main matter (normal chapters)
 \mainmatter
 
-\chapter{Abstract}
-\label{cha:abstract}
+\chapter*{Abstract}
+\label{ch:abstract}
 
 \marginnote{\TODO{ Abstract is copy/pasted from another section, and
     should probably be re-written from scratch}} While compression of
@@ -99,26 +101,28 @@ creative possibilities for surround sound designers.
 \label{ch:introduction}
 
 We usually think of audio compression in terms of \emph{reduction}. We
-use compression to reduce the dynamic range. Record labels use
+use compression to reduce the dynamic range.  Record labels use
 compression as a weapon in the \emph{loudness war}\cite{Deruty2014a},
 resulting in some of today's recordings utilizing no more dynamic
-range than a 1909 Edison cylinder.\cite{Katz2007} 
+range than a 1909 Edison cylinder.\cite{Katz2007} A deaper study of
+compression reveals more subtle and artistic applications. A skilled
+audio engineer can use compression to improve intelligibility, augment
+articulation, smooth a performance, shape transients, extract
+ambience, de-ess vocals, balance multiple signals, or even add
+distortion.\cite{Case2007} At its best, the compressor is a tool for
+\emph{temporal shaping} first, and a tool for \emph{dynamic
+  reduction} second.
 
-A deaper study of compression reveals its more subtle and artistic
-applications. A skilled audio engineer can use compression to improve
-intelligibility, augment articulation, smooth a performance, shape
-transients, extract ambience, de-ess vocals, balance multiple signals,
-or even add distortion.\cite{Case2007} The most effective way to use a
-compressor is to think of it as tool for \emph{temporal shaping},
-rather than a tool for \emph{dynamic reduction}. \thesis expands the
-traditional model of a compressor to include \emph{spatial
-  shaping}. While unconventional, spatial processing is a very natural
-fit for the compression paradigm. We can think of sound as a medium
-that exists in time just as easily as we can think of sound as
-soemthing that exists in space. Converting measurement of sound from
-the cycles per second (in the temporal domain) to wavelength (in the
-spatial domain) is common objective in acoustics and audio engineering
-practices.\TODO{cite sound reinforecement handbook??}
+\thesis expands the traditional model of a compressor to include
+\emph{spatial shaping}. While unconventional, spatial processing is a
+very natural fit for the compression paradigm. We can think of sound
+as a medium that exists in time just as easily as we can think of
+sound as soemthing that exists in space.\sidenote{Converting
+  measurement of sound from the cycles per second (in the temporal
+  domain) to wavelength (in the spatial domain) is common objective in
+  acoustics and audio engineering practices. See \textit{The Sound
+    Reinforcement Handbook} by G. Davis for examples.} The
+Hypercompressor described in detail in \autoref{ch:hypercompressor}.
 
 \paragraph{Universality} At the MIT Media Lab, we celebrate the study
 and practice of projects that exist outside of established academic
@@ -149,27 +153,6 @@ implementation, and application of \thesis.
 
 \paragraph{Performance}
 \TODO{Comments about live performance}
-
-\section{Structure}
-\label{sec:structure}
-\TODO{I'll fill this out more as I progress, but this is basically the
-  chapter structure I'm imagining. Building the software likely won't
-  have enough content for a whole chapter, so I may merge it with the
-  math chapter}
-\begin{enumerate}
-\item Introduction and  Historical Context % context primes for motivation
-\item Motivation
-\item Framework for multimedia documentation Approach/Computer Systems
-\item Describe the Mathematics. % Note that Wikipedia states that
-                                % Xenakis pioneered the use of
-                                % Set-theory in music. this is a nice
-                                % tie in to Set Builder
-                                % Notation, which when seen is ungoogleable
-\item Build the Software
-\item Live multimedia performance
-\item Concert playback recording. 
-\item Conclusion/Educational Implications
-\end{enumerate}
 
 \section{Context}
 \label{sec:context}
@@ -268,6 +251,8 @@ passing through one entrance, and leaving through another. Thinking
 the design of the entire city of Chandigarh would be the masterpiece
 of his Architectural career,\cite{Flint2013} he delegated the design
 of the pavilion building to Xenakis.\cite{Clarke2012}
+
+
 
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{LeCorbusierDraw.pdf}
@@ -375,6 +360,8 @@ mathematics, computer science, acoustics, audio engineering and
 mixing, sound reinforcement, multimedia production, and live
 performance, we can create tools that allow us to indiscriminately
 compose with space and sound.
+
+\include{Hypercompressor}
 
 \backmatter
 
