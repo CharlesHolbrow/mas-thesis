@@ -2,7 +2,31 @@
 \chapter{The Hypercompressor}
 \label{ch:hypercompressor}
 
-This is how it works
+\section{Ambisonics}
+\label{sec:ambisonics}
+
+\subsection{Spherical Harmonics}
+\label{sec:spherical-harmonics}
+
+We know that we can construct any band limited signal by summing a
+finite number harmonic sine waves.\sidenote{The best explaination
+  I've found of how a function may be described in the frequency
+  domain or the time domain can be found at \TODO{link better
+    explained site}} For example, by summing even order sine harmonics
+at a given frequency f (f, 2f, 4f, 6f, etc) , we generate a square
+wave with fundamental frequency f. As the order increases, so does the
+resolution of our square wave.
+
+By summing sine wave harmonics, we can generate any continuous
+function defined over one dimension. Similarly, by summing \emph{Spherical
+  Harmonics}, we can generate any function defined over the surface of
+a sphere. As the order of harmonic increases, the so does the
+resolution of our output on the surface of the sphere. While it's
+quite simple to generate sine harmonics (1f, 2f, 3f, 4f...),
+generating spherical harmonics is more involved\TODO{cite, links in
+  Kronlacher's spatial transforms for the alteration of ambisonic recordings}.
+
+
 
 %%% Local Variables:
 %%% mode: latex
