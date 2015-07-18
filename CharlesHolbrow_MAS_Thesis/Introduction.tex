@@ -1,0 +1,401 @@
+% Introduction
+\cleardoublepage
+\chapter{Introduction}
+\label{ch:introduction}
+\begin{fullwidth}
+  \newthought{In the 6th century B.C.} Pythagoras discovered that by
+  dividing resonating string into simple mathematical ratios produced
+  harmonious intervals, while arbitrary ratios produced dissonance.
+  His observation is probably the first of the many explicit parallels
+  that have been identified after his time. Today, we describe musical
+  pitches, as integers within a given tuning system. We describe the
+  tuning system with a mathematical formula that relates frequency to
+  pitch. Musical time, rhythm and meter are commonly described
+  numerically. Musical Transposition and inversion mirror mathematical
+  functions, and borrow their names directly from mathematics. 
+\end{fullwidth}
+
+As computers, amplifiers, and electronics become our primary tools for
+creating manipulating, and performing music, mathematics and music
+also become more interconnected. Nearly every modern musical
+recording, broadcast, and stream is the sumation of many digital
+recordings that have been individually discretized, sampled
+mathematically encoded, decoded, and digitally processed numerous
+times before ever reaching our ears. We might be tempted to describe
+music today as applied mathematics, but doing so betrays a fundamental
+quality of music: Musicality does not correspond to mathematical
+elegance or precision. A musicain will diverge from a musical score to
+accomplish a particular artistic objective. A vocalist does not
+abruptly change a pitch, but gently and carefuly lands on a pitch. A
+jazz musician might play slightly \emph{behind the beat}. A classical
+performer knows how to hold a fermata \emph{just long enough}. These
+intentional human artifacts are characterised more by a \emph{feeling}
+than by a formula.
+
+The computer's inability to understand feeling has led to new genres
+of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
+  features formulaic and repetative grooves locked to a temporal grid,
+  and incorporates aggressive use of digital pitch correction
+  exagerating a robotic quality.}, Black MIDI\sidenote[][-3mm]{Black
+  MIDI is a musical genre that uses low fidelity audio samplers with a
+  large number of midi notes over a short time. A single 3 minute
+  Black MIDI track is likely to have over 100,000 MIDI notes. The name
+  refers to the solid black appearance of the piano score.}, and
+Demoscene\sidenote{Demoscene music celebrates the computationally
+  efficient digital synthesis of electronic music and audio
+  visulizations.}, but these styles of music feature (rather than fix)
+the inhuman nature of computers. If we want to integrate a computer
+into the performance or production of truely expressive music, we must
+capture percieved feelings formulaically, and program the computer to
+reproduce them. This thesis describes three different but related
+projects that confront this challenge from contrasting perspectives:
+\refmod, \polytempic, and \thesis.
+
+\section{\refmod}
+\label{sec:refmod-intro}
+\newthought {Music and space} are intimately connected. This project
+explores how we can compose music using acoustic reflections in
+architectural space as a medium. \refmod is a software tool that lets
+us design and experiment with abstract acoustic lenses or ``sound
+mirrors'' in 2 dimensions. It is directly inspired by the music and
+architecture of Iannis Xenakis, a 20th century composer, music
+theorist, architect and engineer. His collected works provide a guide
+and perspective to all the projects in this thesis. Building on
+concepts here, we reveal objectives, motivation, and inspiration for
+the following projects.
+
+\section{\polytempic}
+\label{sec:polytempic-intro}
+
+\newthought{Music and Time} are inseperable. All music flows through
+time, and depends on temporal constructs - the most common being meter
+and tempo. While accelerating or decelerating tempo are common in many
+styles of music, and polyrhythms and are a familiar musical construct,
+music with multiple simultaneous tempos or \textit{polytempic music}
+is less common. A few examples of modern music with simultaneous
+shifting tempos do exist, but is is difficult for musicians to
+accurately perform multiple tempi in parallel. Software is an obvious
+choice for composing and audition complex and challenging rhythms, but
+modern compositional software makes this difficult. \polytempic
+describes a strategy for composing music with multiple simultaneous
+tempos that accelearate and decelerate relative to each other. In
+\autoref{ch:polytempic} we derrive an equation for smoothly ramping
+ramping tempi to converge and diverge at desired musical divisions.
+
+\section{\thesis}
+\label{sec:hypercompression-intro}
+\marginnote{In this thesis, compression is used to describe dynamic
+  range compression, as opposed to data compression.} We usually think
+of compression in terms of \emph{reduction}: We use data compression
+to reduce bit-rates and file sizes, audio compression to reduce
+dynamic range. Record labels use dynamic range compression as a weapon
+in the \emph{loudness war}\cite{Deruty2014a}, resulting in some of
+today's music recordings utilizing no more dynamic range than a 1909
+Edison cylinder.\cite{Katz2007}. A deaper study of dynamic range
+compression reveals more subtle and artistic applications. A skilled
+audio engineer applies compression to audio with the intention to
+improve intelligibility, augment articulation, smooth a performance,
+shape transients, extract ambience, de-ess vocals, balance multiple
+signals, or even add distortion.\cite{Case2007} At its best, the
+compressor is a tool for \emph{temporal shaping}, rather than a tool
+for \emph{dynamic reduction}.
+
+\thesis expands the traditional model of a dynamic range compressor to
+include \emph{spatial shaping}. While unconventional, spatial
+processing is a very natural fit for the compression paradigm. We can
+think of sound as a medium that exists in time just as easily as we
+can think of sound as soemthing that exists in
+space.\sidenote{Converting measurement of sound from the cycles per
+  second (in the temporal domain) to wavelength (in the spatial
+  domain) is common objective in acoustics and audio engineering
+  practices. See \textit{The Sound Reinforcement Handbook} by G. Davis
+  for examples.} The Hypercompressor described in detail in
+\autoref{ch:hypercompressor}.
+
+\paragraph{Performance}
+\thesis was used in the live performance of \textit{De
+  L'Exp\'{e}rience}, a new musical work by composer Tod Machover for
+Narrator, Organ, and Electronics. During the premier at the Maison
+symphonique de Montr\'{e}al, \thesis was used to balance the
+electronics with the organ and the acoustic space.
+
+\section{Context}
+\label{sec:context}
+
+\newthought{The Phillips Pavilion} stands out as an inspiration, a
+reference, and a guide for projects that successfully disregard the
+conventional disciplinary approach to the creative design process. The
+pavilion was a commissioned by Phillips Corporation for the Brussels
+World's Fair in 1958.\cite{Zvonar1999} When the architectural offices of
+Le Corbusier received the commission, Le Corbusier replied, saying:
+``I will not make a pavilion for you but an Electronic Poem and a
+vessel containing the poem; light, color image, rhythm and sound
+joined together in an organic synthesis.''\cite{Lopez2011} Indeed,
+the pavilion embodied Le Corbusier's description, and the resulting
+Gesamtkunstwerk included:\cite{Lombardo2009}
+\begin{enumerate}
+\item A concrete pavilion, designed by architect and composer Iannis
+  Xenakis
+\item \textit{Interlude Sonoire} (later renamed \textit{Concret PH}), a
+  tape music composition by Iannis Xenakis, approximately 2 minutes
+  long, played while the audience transitioned
+\item A three channel, 8 minute tape music composition, by French-born
+  composer Edgard Var\`{e}se
+\item A system for spatialized audio across at least 350 loudspeakers
+  distributed throughout the pavilion
+\item An assortment of visual effects, designed by Le Corbusier in
+  collaboration with Philips art director Louis Kalff
+\item Video consisting mostly of black and white still images,
+  projected on two walls inside the pavilion
+\item A system for synchronizing playback of audio and video playback,
+  with light effects and audio spatialization throughout the
+  experience
+\end{enumerate} 
+
+It is a little surprising that Le Corbusier chose Iannis Xenakis, a
+young engineer with no formal architectural training to design the
+pavilion building, and compose a part of the music. While the
+relationship between Le Corbusier and Xenakis would deteriorate as a
+result of their work on Philips Pavilion, there was probably no one
+better equipped than Xenakis to merge the fields of music, mathematics
+and architecture. To understand Xenakis' impact on the project, we
+have to review the influences and experiences that led him to Paris
+and to Le Corbusier's architecture firm in 1947.
+
+\subsection{The Influence of Iannis Xenakis}
+\label{sec:influence-xenakis}
+
+Xenakis was born in Romania in 1922, and moved to Greece in 1932. He
+left school at the age of 16, and spent his time reading about
+astronomy, archeology, ancient literature, and
+mathematics.\cite[]{Hoffmann2015} He was admitted to the
+Polytechnic Institute in Athens in 1940, where he studied music,
+counterpoint, and engineering. While attending the Polytechnic
+Institute, he fought with the resistance against the Nazi Invasion in
+Greece. He was jailed and tortured multiple times for his involvement
+with the resistance, and eventually sentenced to death for terrorism,
+but managed to escape.\cite[]{Simms2014} In 1946 he received his
+degree in engineering from the Polytechnic Institute, and left Greece
+the following year, using a forged passport.\cite[]{Prendergast2014}
+
+Xenakis began working for Le Corbusier in 1948, but he continuted to
+study and write music. While Xenakis was searching for a music mentor,
+he approached Oliver Messiaen\sidenote{Messiaen was a well known
+  french composer known for rhythmic complexity, and transcribing
+  birdsong into his music.}, and asked if he should study harmony or
+counterpoint. Messiaen later described his conversation with
+Xenakis:
+
+\begin{quotation}``I think one should study harmony and
+  counterpoint. But this was a man so much out of the ordinary that I
+  said: No, you are almost 30, you have the good fortune of being
+  Greek, of being an architect and having studied special
+  mathematics. Take advantage of these things. Do them in your
+  music.''\cite{Service2013}
+\end{quotation}
+
+Ultimately, Messiaen was rejecting Xenakis as a student, but we can
+see how Xenakis did draw from disparate skills in his composition. The
+score for his 1945 composition \textit{Metastasis}
+(figure~\ref{fig:metastasis}), resembles an architectural blueprint as
+much as it does a music score.
+
+\begin{figure*}[h]
+  \includegraphics[width=\linewidth]{XenakisMetastasis.jpg}
+  \caption{Excerpt from Iannis Xenakis' composition,
+    \textit{Metastasis} (1954), measures 309-314. This score in this
+    image was then transcribed to sheet music for the orchestral
+    performance.}
+  \label{fig:metastasis}
+\end{figure*}
+
+In 1956, Le Corbusier was focusing much of his attention on a larger
+project; Chandigarh, a city in India on the edge of the Himalayan
+plains. When he was approached by Louis Kalff and asked to build a
+pavillion for the 1958 World's Fair in Brussels, he immediately
+accepted. Kalff wanted the pavilion to showcase the sound and lighting
+potential of Philips' technologies. Le Corbusier determined that
+the shape of the building should resemble a stomach, with the audience
+entering through one entrance, and exiting through another. Thinking
+the design of the entire city of Chandigarh would be the masterpiece
+of his Architectural career,\cite{Flint2013} he delegated the design
+of the pavilion building to Xenakis.\cite{Clarke2012}
+
+\paragraph{Polymath} The architectural evolution of the pavillion from
+Le Corbusier's early designs (figure~\ref{fig:le-corbusier-sketch})
+through Xenakis' iterations (figure~\ref{fig:xenakis-draw}),
+illustrates the impact that Xenakis had on the project. The
+\textit{Philips Technical Review}\cite{philips1958} gives a
+wonderfully detailed account of Xenakis' process:
+\begin{enumerate}
+\item Xenakis was aware that parallel walls, or concave spherical
+  walls would negatively impact audio perceptibility due to repeated
+  or localized acoustic reflections.
+\item To acomodate musical purpose of the space he decided to explore
+  surfaces with varying curvature...
+\item ...leading him to consider ruled
+  surfaces\sidenote{\TODO{Explain}} such as the conoid and hyperbolic
+  parabaloid.
+\end{enumerate}
+We see Xenakis utilizing the drafting skills that he learned at the
+Polytechnic Instutute and continuted to develop while working with Le
+Corbusier. He also understood the mathematical focumation of the ruled
+surfaces that make up the structure. These surfaces even look familiar
+from the Metastasis score (figure~\ref{fig:metastasis}).
+
+\TODO{The important thing is to understand how Xenakis could not have
+synthesized such a progressive and creative structure if he had been
+trained in only a single discipline... we see the value of his
+interdisciplinary background}
+
+\begin{figure*}[h]
+  \includegraphics[width=\linewidth]{LeCorbusierDraw.pdf}
+  \caption{Le Corbusier's design sketches for the Philips Pavilion,
+    September \textendash{} October, 1956 (\textcircled{c} 2012
+    Artists Rights Society, New York/ADAGP, Paris/FLC)}
+  \label{fig:le-corbusier-sketch}
+\end{figure*}
+
+\begin{figure*}[h]
+  \includegraphics[width=\linewidth]{PhilipsDrawings.jpg}
+  \caption{Xenakis' early drawings of the Philips Pavilion as
+    documented in the \textit{1958 Philips Technical Review} \TODO{cite}}
+  \label{fig:xenakis-draw}
+\end{figure*}
+
+
+\section{Architecture and Music in Space and Time}
+\label{sec:introduction-conclusion}
+
+In his 1963 book \textit{Formalized Music}, Xenakis describes how
+developments in music theory mimic equivalent developments in
+philosophy, mathematics, and the sciences. Polato, for example,
+believed that all events transpire as determinted by cause and
+effect. While Plato and Aristotle both described causality in their
+writing, it was not until the 17th century that controlled experiments
+and mathematics coroborated the theory.\sidenote{In 1687, Isaac Newton
+  published \textit{Philosophi\ae{} Naturalis Principia Mathematica}
+  (\textit{Mathematical Principles of Natural Philosophy}), in which
+  he compiled the 3 laws of motion that set the foundation for the
+  study of \emph{classical mechanics}.}  Similarly, historical music
+follows deterministic progressions, and music theory employs causal
+rules to describe counterpoint, tonality, and harmonic movement.
+
+Causality was largely used to describe physical phenomena until the
+19th century when statistical theories in physics began to include
+probabilistic notions.\sidenote{The Maxwell-Boltzmann distribution,
+  which was first derived by James Clerk Maxwell in 1860, describes
+  the probability distribution for the speed of a particle within an
+  idealized gas. For more see
+  \url{http://plato.stanford.edu/entries/statphys-statmech/}} Xenkis
+noticed that more contemporary fields like \emph{probability theory}
+and \emph{fuzzy logic} generalize and expand on the antecedent
+theories of causality.
+
+Xenakis thought that music composition should naturally follow the
+progression that physics did, with the theory of music generalizing
+and expanding on causal rules that had existed previously. Indeed,
+starting in the late 19th century, and early 20th century, composers
+like Strauss and Debussy began to bend the existing rules of music
+theory, composing music that branched away from the causal and tonal
+theories of the time. With the rise of serialism\sidenote{\TODO{Brief
+    Serialism Explianation}} and indeterminate
+music\sidenote{\TODO{Brief Indeterminate Music explaination}},
+composers such as Strauss, Debussy, Stockhausen, Boulez, John Cage,
+Aaron Copland, and B\'{e}la Bart\'{o}k began to use probability and
+chance in composition, the same way that physicists were using
+probability to describe the material world. However, to Xenakis'
+mathematical mind, serial music was no less causal than the music it
+intended to supersede. He described serial music as embodying
+``virtually absolute determinism.''\cite{xenakis1992formalized}
+Xenakis saw music theory as a sub-set of mathematics and
+algebra. While musicians have a different vocabulary, they also use
+mathematical principles to describe and compose music. Because he
+understood mathematics as well as music, he was able to identify how
+even in serialism and indeterminate music, composers were only utilizing a
+small subset of algebraic theory. In his own music, Xenakis wanted to
+generalize the and expand the causal framework that musicians and
+theorists had been using to compose and understand music. This
+paralleled the developments in phyisics and mathematics that helped
+him to form his opinions about music theory.  As a nod to
+\emph{chance} or \emph{stochos} xenakis coined the term
+\emph{stochastic music} to describe this development.
+
+In the Spring of 1976, Xenakis was defending his doctoral thesis at
+the University of Paris. A translation of his defense includes this
+statement:
+\begin{quotation}
+  ``The artist-conceptor will have to be knowledgeable and inventive
+  in such varied domains as mathematics, logic, physics, chemistry,
+  biology, genetics, palentology (for the evolution of forms), the
+  human sciences, and history; in short, a sort of
+  \emph{universality}, but one based opon, guided by and oriented
+  toward forms and architectures.'' \cite{russolo1986art}
+\end{quotation}
+
+From Xenakis' drawings we can deduce that he used the same tools,
+skills, and philosophy to imagine and concive both music and
+space. His approach elevated both forms by blurring the distinction
+between the two. Maybe if we had kept using pen and paper to design
+buildings and write music, the reality today would be closer to the
+ideal that Xenakis imagined. Today, software for creating architecture
+and composing music both favor corners to curves, and static pitches
+to glissandi. More importantly, the software skills that we use to
+design and maniuplate space are not transferable to the composition of
+music.
+
+This is where I want to make a contrubution. By drawing from music,
+mathematics, computer science, acoustics, audio engineering and
+mixing, sound reinforcement, multimedia production, and live
+performance, we can create tools that allow us to indiscriminately
+compose with space and sound.
+
+\section{Universality}
+\label{sec:universality}
+
+At the MIT Media Lab, we celebrate the study and practice of projects
+that exist outside of established academic disciplines. The Media Lab
+(and the media) have described this approach as interdisciplinary,
+cross-disciplinary, anti-disciplinary, or post-disciplinary -
+emphasizing the clich\'{e} that traditional academics must become
+experts in their field, and while narrowing their focus, they learn
+\textit{more and more about less and less}, and eventually know
+\textit{everything about nothing}.  \thesis is truly a Media Lab
+project. It documents the creative process throughout the design,
+development, and performance of a new type of audio signal
+processor. In doing so, it draws from music, mathematics, computer
+science, acoustics, audio engineering and mixing, sound reinforcement,
+multimedia production, and live performance. How can we describe and
+document a project with such broad subject material?  
+
+Within a single
+discipline, there is an accepted hierarcy of concepts, and we are
+expected to develop a \emph{deep} understanding that penetrates this
+hierarchy. We expect students to be literate in algebra, geometry and
+calculus before studying physics. When we describe a physics problem,
+we depend on an established collection of language, notation, and
+theory.
+
+This example reveals the curious tension between breadth and
+depth: The \textit{depth} of a disciplinary approach provides the
+language and abstraction that enable us to describe content and
+communicate at a high level. Depth is essential for solving
+non-trivial problems. However, solutions to complex real-world
+questions always span multiple disciplines.
+
+It appears we need breadth \emph{and} depth simultaneously. 
+
+The challenge is to describe \thesis so that it is accessible to
+readers from all disciplines. This thesis proposes the motivation for
+documenting media that exists outside of established disciplines. It
+proposes a strategy for such documentation, and employs this strategy
+by documenting the theory, implementation, and application of \thesis.
+
+
+\TODO{This could segway into ``strategy'' section. I've already
+  written some of this. It could also segway into ``motivation'', }
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "CharlesHolbrow_MAS_Thesis"
+%%% End:
