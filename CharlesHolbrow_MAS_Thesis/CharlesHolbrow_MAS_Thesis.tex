@@ -64,6 +64,8 @@
 
 % Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}
+\newcommand{\polytempic}{Polytempic Transform\xspace}
+\newcommand{\refmod}{Reflection Modeler\xspace}
 
 \begin{document}
 
@@ -99,84 +101,122 @@ creative possibilities for surround sound designers.
 \cleardoublepage
 \chapter{Introduction}
 \label{ch:introduction}
-
 \begin{fullwidth}
-  \newthought{In the 6th century B.C.} Pythagoras is though to have discovered that
-  by dividing resonating string into simple mathematical ratios
-  produced harmonious intervals, while arbitrary ratios produced
-  dissonance. His observation is probably the first of the many
-  explicit parallels that have been identified after his time. Today,
-  we describe musical pitches, as integers within a given tuning
-  system. We describe the tuning system with a mathematical formula
-  that relates frequency to pitch. Musical time, rhythm and meter are
-  commonly described numerically. Musical Transposition and inversion
-  mirror mathematical functions, and borrow their names directly from
-  mathematics.
+  \newthought{In the 6th century B.C.} Pythagoras discovered that by
+  dividing resonating string into simple mathematical ratios produced
+  harmonious intervals, while arbitrary ratios produced dissonance.
+  His observation is probably the first of the many explicit parallels
+  that have been identified after his time. Today, we describe musical
+  pitches, as integers within a given tuning system. We describe the
+  tuning system with a mathematical formula that relates frequency to
+  pitch. Musical time, rhythm and meter are commonly described
+  numerically. Musical Transposition and inversion mirror mathematical
+  functions, and borrow their names directly from mathematics. 
 \end{fullwidth}
 
-As computers, amplifiers and electronics become our primary tools for
+As computers, amplifiers, and electronics become our primary tools for
 creating manipulating, and performing music, mathematics and music
-have become more interconnected. Nearly every modern musical
+also become more interconnected. Nearly every modern musical
 recording, broadcast, and stream is the sumation of many digital
 recordings that have been individually discretized, sampled
-mathematically encoded, and digitally processed numerous times before
-ever reaching our ears. We might be tempted to describe music as
-applied mathematics, but doing so betrays a fundamental quality of
-music: Musical beauty does not correspond to mathematical elegance or
-accuracy. A musicain will diverge from a musical score to accomplish a
-particular artistic objective. A vocalist does not abruptly change a
-pitch, but gently and carefuly lands on a pitch. A jazz musician might
-play slightly \emph{behind the beat}. A classical performer knows how
-to hold a fermata \emph{just long enough}. These intentional human
-artifacts are characterised more by a \emph{feeling} than by a
-formula.
+mathematically encoded, decoded, and digitally processed numerous
+times before ever reaching our ears. We might be tempted to describe
+music today as applied mathematics, but doing so betrays a fundamental
+quality of music: Musicality does not correspond to mathematical
+elegance or precision. A musicain will diverge from a musical score to
+accomplish a particular artistic objective. A vocalist does not
+abruptly change a pitch, but gently and carefuly lands on a pitch. A
+jazz musician might play slightly \emph{behind the beat}. A classical
+performer knows how to hold a fermata \emph{just long enough}. These
+intentional human artifacts are characterised more by a \emph{feeling}
+than by a formula.
 
-The computer's inability to understand feeling, opened possibilities
-for new genres of music like EDM\sidenote[][-30mm]{EDM (Electronic
-  Dance Music) features formulaic grooves perfectly locked to a grid,
-  and often aggressive use of digital pitch correction exagerating a
-  robotic quality.}, Black MIDI\sidenote[][-12mm]{Black MIDI is a musical genre
-  that uses low fidelity audio samplers with a large number of midi
-  notes over a short time. A single 3 minute Black MIDI track is
-  likely to have over 100,000 MIDI notes. The name refers to the solid
-  black appearance of the piano score.}, and Demoscene
-Music\sidenote{Demoscene music celebrates the computationally
-  efficient digital synthesis of electronic music.}. These styles of
-music feature (rather than fix) the unfeeling nature of computers. If
-we want computer to produce truely expressive music we must try to
-capture percieved feelings formulaically, and instruct compters to
-reproduce them.
+The computer's inability to understand feeling has led to new genres
+of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
+  features formulaic and repetative grooves locked to a temporal grid,
+  and incorporates aggressive use of digital pitch correction
+  exagerating a robotic quality.}, Black MIDI\sidenote[][-3mm]{Black
+  MIDI is a musical genre that uses low fidelity audio samplers with a
+  large number of midi notes over a short time. A single 3 minute
+  Black MIDI track is likely to have over 100,000 MIDI notes. The name
+  refers to the solid black appearance of the piano score.}, and
+Demoscene\sidenote{Demoscene music celebrates the computationally
+  efficient digital synthesis of electronic music and audio
+  visulizations.}, but these styles of music feature (rather than fix)
+the inhuman nature of computers. If we want to integrate a computer
+into the performance or production of truely expressive music, we must
+capture percieved feelings formulaically, and program the computer to
+reproduce them. This thesis describes three different but related
+projects that confront this challenge from contrasting perspectives:
+\refmod, \polytempic, and \thesis.
 
+\section{\refmod}
+\label{sec:refmod-intro}
+\newthought {Music and space} are intimately connected. This project
+explores how we can compose music using acoustic reflections in
+architectural space as a medium. \refmod is a software tool that lets
+us design and experiment with abstract acoustic lenses or ``sound
+mirrors'' in 2 dimensions. It is directly inspired by the music and
+architecture of Iannis Xenakis, a 20th century composer, music
+theorist, architect and engineer. His collected works provide a guide
+and perspective to all the projects in this thesis. Building on
+concepts here, we reveal objectives, motivation, and inspiration for
+the following projects.
 
-\section{Hypercompression}
+\section{\polytempic}
+\label{sec:polytempic-intro}
+
+\newthought{Music and Time} are inseperable. All music flows through
+time, and depends on temporal constructs - the most common being meter
+and tempo. While accelerating or decelerating tempo are common in many
+styles of music, and polyrhythms and are a familiar musical construct,
+music with multiple simultaneous tempos or \textit{polytempic music}
+is less common. A few examples of modern music with simultaneous
+shifting tempos do exist, but is is difficult for musicians to
+accurately perform multiple tempi in parallel. Software is an obvious
+choice for composing and audition complex and challenging rhythms, but
+modern compositional software makes this difficult. \polytempic
+describes a strategy for composing music with multiple simultaneous
+tempos that accelearate and decelerate relative to each other. In
+\autoref{ch:polytempic} we derrive an equation for smoothly ramping
+ramping tempi to converge and diverge at desired musical divisions.
+
+\section{\thesis}
 \label{sec:hypercompression-intro}
-We usually think of compression in terms of \emph{reduction}: We use
-data compression to reduce bit-rates and file sizes, audio compression
-to reduce dynamic range. Record labels even use compression as a
-weapon in the \emph{loudness war}\cite{Deruty2014a}, resulting in some
-of today's music recordings utilizing no more dynamic range than a
-1909 Edison cylinder.\cite{Katz2007} A deaper study of compression
-reveals more subtle and artistic applications. A skilled audio
-engineer applies compression to audio with the intention to improve
-intelligibility, augment articulation, smooth a performance, shape
-transients, extract ambience, de-ess vocals, balance multiple signals,
-or even add distortion.\cite{Case2007} At its best, the compressor is
-a tool for \emph{temporal shaping} first, and not a tool for \emph{dynamic
-  reduction} second.
+\marginnote{In this thesis, compression is used to describe dynamic
+  range compression, as opposed to data compression.} We usually think
+of compression in terms of \emph{reduction}: We use data compression
+to reduce bit-rates and file sizes, audio compression to reduce
+dynamic range. Record labels use dynamic range compression as a weapon
+in the \emph{loudness war}\cite{Deruty2014a}, resulting in some of
+today's music recordings utilizing no more dynamic range than a 1909
+Edison cylinder.\cite{Katz2007}. A deaper study of dynamic range
+compression reveals more subtle and artistic applications. A skilled
+audio engineer applies compression to audio with the intention to
+improve intelligibility, augment articulation, smooth a performance,
+shape transients, extract ambience, de-ess vocals, balance multiple
+signals, or even add distortion.\cite{Case2007} At its best, the
+compressor is a tool for \emph{temporal shaping}, rather than a tool
+for \emph{dynamic reduction}.
 
-\thesis expands the traditional model of a compressor to include
-\emph{spatial shaping}. While unconventional, spatial processing is a
-very natural fit for the compression paradigm. We can think of sound
-as a medium that exists in time just as easily as we can think of
-sound as soemthing that exists in space.\sidenote{Converting
-  measurement of sound from the cycles per second (in the temporal
-  domain) to wavelength (in the spatial domain) is common objective in
-  acoustics and audio engineering practices. See \textit{The Sound
-    Reinforcement Handbook} by G. Davis for examples.} The
-Hypercompressor described in detail in \autoref{ch:hypercompressor}.
+\thesis expands the traditional model of a dynamic range compressor to
+include \emph{spatial shaping}. While unconventional, spatial
+processing is a very natural fit for the compression paradigm. We can
+think of sound as a medium that exists in time just as easily as we
+can think of sound as soemthing that exists in
+space.\sidenote{Converting measurement of sound from the cycles per
+  second (in the temporal domain) to wavelength (in the spatial
+  domain) is common objective in acoustics and audio engineering
+  practices. See \textit{The Sound Reinforcement Handbook} by G. Davis
+  for examples.} The Hypercompressor described in detail in
+\autoref{ch:hypercompressor}.
 
 \paragraph{Performance}
-\TODO{Comments about live performance}
+\thesis was used in the live performance of \textit{De
+  L'Exp\'{e}rience}, a new musical work by composer Tod Machover for
+Narrator, Organ, and Electronics. During the premier at the Maison
+symphonique de Montr\'{e}al, \thesis was used to balance the
+electronics with the organ and the acoustic space.
 
 \section{Context}
 \label{sec:context}
@@ -262,8 +302,9 @@ much as it does a music score.
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{XenakisMetastasis.jpg}
   \caption{Excerpt from Iannis Xenakis' composition,
-    \textit{Metastasis} (1954), measures 309-314. This score was then
-    transcribed to sheet music for the orchestral performance.}
+    \textit{Metastasis} (1954), measures 309-314. This score in this
+    image was then transcribed to sheet music for the orchestral
+    performance.}
   \label{fig:metastasis}
 \end{figure*}
 
@@ -453,6 +494,7 @@ by documenting the theory, implementation, and application of \thesis.
 
 \TODO{This could segway into ``strategy'' section. I've already
   written some of this. It could also segway into ``motivation'', }
+\include{Polytempic}
 \include{Hypercompressor}
 
 \backmatter
