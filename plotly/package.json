@@ -1,0 +1,15 @@
+{
+  "name": "tempoToyPlotly",
+  "version": "0.0.0",
+  "description": "Draw Charts for Tempo Toy nime paper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Charles Holbrow",
+  "license": "ISC",
+  "dependencies": {
+    "plotly": "^0.2.15",
+    "underscore": "^1.7.0"
+  }
+}
