@@ -80,10 +80,15 @@ var titleFontSize = 22
 var axisLineWidth = 2;
 var tempoColor = black;
 var beatsColor = grey;
-var axisTitleFontSize = 18;
-var axisTickFontSizeX = 16;
+var axisTitleFontSize = 15;
+var axisTickFontSizeX = 15;
 var axisTickFontSizeY = 12;
 
+var config = {
+  x1Low: 12,
+  x1High: 21,
+  height: 220
+};
 
 var plotly = require('plotly')('cholbrow', apiKey);
 
@@ -97,7 +102,7 @@ var baseDatum = {
 };
 
 // sequence var used in layout to determine how tall to make the graph
-var sequence = _.range(14, 22);
+var sequence = _.range(config.x1Low, config.x1High + 1);
 var data = _(sequence).map(function(transitionBeats, index){
   var changingBeats = generate(90, 120, 16, transitionBeats);
   return _.defaults({
@@ -121,7 +126,7 @@ var layout = {
   // title: chartTitle,
   titlefont: {size: titleFontSize},
   width: 720,
-  height: 220,
+  height: config.height,
   showlegend: false,
   margin: {
     b:45,
