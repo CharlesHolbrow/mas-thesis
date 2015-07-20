@@ -76,18 +76,21 @@ var orange = "ff7f0e";
 var lightGrey = "bfbfbf";
 var grey = "808080";
 var black = "000000";
-var titleFontSize = 22
+var titleFontSize = 44
 var axisLineWidth = 2;
 var tempoColor = black;
 var beatsColor = grey;
-var axisTitleFontSize = 15;
-var axisTickFontSizeX = 15;
-var axisTickFontSizeY = 12;
+var axisTitleFontSize = 30;
+var axisTickFontSizeX = 30;
+var axisTickFontSizeY = 24;
+var annotationFontSize = 24;
+var dotSize = 10;
 
 var config = {
   x1Low: 12,
-  x1High: 21,
-  height: 220
+  x1High: 20,
+  height: 400,
+  width: 1440
 };
 
 var plotly = require('plotly')('cholbrow', apiKey);
@@ -96,8 +99,8 @@ var baseDatum = {
   type: "scatter",
   mode: "markers",
   marker:{
+    size: dotSize,
     color:tempoColor,
-    width:2,
   }
 };
 
@@ -115,8 +118,8 @@ var staticData = _(baseDatum).extend({
   x: staticBeatsDisplayData,
   y: _(staticBeatsDisplayData).map(function(){return sequence[0] - 1}),
   marker:{
+    size: dotSize,
     color: beatsColor,
-    width:2
   }
 });
 
@@ -125,14 +128,14 @@ data.push(staticData);
 var layout = {
   // title: chartTitle,
   titlefont: {size: titleFontSize},
-  width: 720,
+  width: config.width,
   height: config.height,
   showlegend: false,
   margin: {
-    b:45,
-    t:60,
-    l:60,
-    r:30,
+    b:90,
+    t:120,
+    l:120,
+    r:60,
   },
   xaxis: {
     title: "Time, Measured in Beats at " + initialBpm + " BPM",
@@ -165,19 +168,21 @@ var layout = {
   },
   annotations: [
     {
+      font:{size:annotationFontSize},
       x: 0,
       y: sequence[sequence.length-1] + 0.4,
       xref: "x",
       yref: "y",
       text: "Begin Tempo Ramp from 90 BPM",
       showarrow: true,
-      arrowhead: 2,
+      arrowhead: 2, // integer, choose an arrow style
       arrowsize: 1,
-      arrowwidth: 2,
+      arrowwidth: 3,
       ax: 0,
-      ay: -32
+      ay: -64
     },
     {
+      font:{size:annotationFontSize},
       x: end,
       y: sequence[sequence.length -1] + 0.4,
       xref: "x",
@@ -186,9 +191,9 @@ var layout = {
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
-      arrowwidth: 2,
+      arrowwidth: 3,
       ax: 0,
-      ay: -32
+      ay: -64
     }
   ]
 };

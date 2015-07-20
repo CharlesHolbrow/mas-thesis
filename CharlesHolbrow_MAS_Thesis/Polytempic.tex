@@ -3,7 +3,7 @@
 \label{ch:polytempic}
 In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw how
 Xenakix was using ruled surfaces to create swarms of notes that move
-together to create stochastic sonorities. The goal of \polytempic is
+together, creating stochastic sonorities. The goal of \polytempic is
 to enable composition with swarms of tempo modulations that move in
 correlated, cohesive patterns. Music with two or more simultaneous
 tempos (polytempic music) is itself not a new concept, and many
@@ -15,7 +15,7 @@ recordings back at variable rates. However, it is difficult to control
 the exact point (or phase) when de-synchronized tape becomes
 re-aligned. Performative music with simultaneous tempi that accelerate
 and decelearate realtive to each other is unusual, but does exist. In
-a 1971 interview Composer Steve Reich described how he made the
+a 1971 interview composer Steve Reich described how he made the
 transition to performative polytempic music after working on his tape
 music composition, \textit{Come Out}:
 \begin{quotation}
@@ -83,8 +83,8 @@ example shown in figure~\ref{fig:basic-tempo-change}:
 \end{itemize}
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{basic-tempo-transition.png}
-  \caption[Tempo Transition]{Tempo Transition from 90 BPM
-    to 120 BPM }
+  \caption[Tempo Transition]{Tempo Transition from 90~BPM
+    to 120~BPM}
   \label{fig:basic-tempo-change}
 \end{figure*}
 
@@ -98,7 +98,7 @@ problem. If we have a function that describes our tempo (or rate), we
 can integrate that function, and the result will tell us our number of
 beats elapsed (or position). Given the above considerations, we define
 our tempo curve in terms of 5 constants:
-\\[5mm]
+\hfill\break
 \begin{fullwidth}
 \begin{itemize}
   \item Time $t_0=0$, when the tempo transition begins
@@ -109,6 +109,7 @@ our tempo curve in terms of 5 constants:
     $t_0$ and $t_1$, $x_1$
 \end{itemize}
 \end{fullwidth}
+\hfill\break
 The tension of the tempo curve determines how many beats elapse during
 the transition period. The curve is well-defined for some starting
 acceleration $a_0$ and finishing acceleration $a_1$, so we define the
@@ -119,7 +120,7 @@ describe our tempo acceleration as:
     \ddot{x}_1 = a_0 + a_1t_1
 \end{equation}
 Integrating linear acceleration (\ref{accel}) yields a quadratic
-velocity curve. The velocity curve describes the tempo (in beats per
+velocity curve (\ref{bpm}). The velocity curve describes the tempo (in beats per
 minute)\marginnote{We must specify the same time units for input
   variables like $t_1$ and $\dot{x_1}$. I prefer \textit{minutes} for
   $t_1$ and \textit{beats per minute} for $\dot{x_1}$ over
@@ -153,16 +154,34 @@ acceleration. Once we have $a_0$ we can solve (\ref{bpm}) for $a_1$, and
 evaluate (\ref{bpm}) with $a_1$ and $a_0$ to describe our changing tempo 
 with respect to time.
 
+\section{Stochastic Transitions}
+\label{sec:polytempic-implementation}
+Equiped with out equations from the previous section, it is quite
+simple to create swarms of parallel tempos that are correlated and
+complex. In figure~\ref{fig:polytempic-transition} we build on the
+previous example. Here, each additional tempo curve is calculated the
+same way, except $x_1$ (number of beats in our accelerating tempo
+during the transition) is incremented for each additional tempo line. 
+\begin{figure*}[h!]
+  \includegraphics[width=\linewidth]{stochastic-tempi.png}
+  \caption{Stochastic Tempo Transition from 90~BPM to 120~BPM. Black
+    dots are beats in our changing tempi. Grey dots are static
+    beats at the original tempo. $12 \geq x_1 \leq 20$}
+  \label{fig:polytempic-transition}
+\end{figure*}\hfill\break
+This pattern clearly exhibits controlled chance, and that Xenakis
+would describe as \emph{stochastic}. On the very first beat at $t=0$,
+all parallel parts are aligned. Beats 2 and 3 can be heard as discrete
+rythmic events, but become increasingly indistinct. The end of beat 4
+then overlaps with the beginning of beat 5 as individual beats slide
+into psuedo random noise before returning to order around what would
+have been beat 13 if the tempo had continued at the original rate. 
+
 \section{Implementation}
 \label{sec:polytempic-implementation}
 
 Bryn Bliska Tide
 
-\begin{figure*}[h]
-  \includegraphics[width=\linewidth]{stochastic-tempi.png}
-  \caption{Stochastic Tempo Transition from 90bpm to 120bpm}
-  \label{fig:metastasis}
-\end{figure*}
 
 
 \section{Polytempic Music and Polymetric Music}

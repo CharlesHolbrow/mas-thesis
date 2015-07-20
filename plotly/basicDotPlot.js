@@ -68,11 +68,12 @@ var titleFontSize = 22
 var axisLineWidth = 2;
 var tempoColor = black;
 var beatsColor = grey;
-var axisTitleFontSize = 18;
-var axisTickFontSize = 16;
-var layoutMarginTopBottom = 80;
-var layoutMarginLeftRight = 10;
 
+var axisTitleFontSize = 30;
+var axisTickFontSizeX = 30;
+var axisTickFontSizeY = 24;
+var annotationFontSize = 24;
+var dotSize = 12;
 
 
 var plotly = require('plotly')('cholbrow', apiKey);
@@ -84,8 +85,8 @@ var data = [
     name: "Changing Beats",
     mode: "markers",
     marker:{
+      size: dotSize,
       color:tempoColor,
-      width:2,
     }
   },
   {
@@ -93,10 +94,10 @@ var data = [
     y: _(changingBeatsRelativeToStaticBeats).map(function(){return 0}),
     type: "scatter",
     name: "Static Beats",
-    mode:"markers",
-    marker:{
-      color:beatsColor,
-      width:2,
+    mode: "markers",
+    marker: {
+      color: beatsColor,
+      size: dotSize,
     }
   }
 ];
@@ -107,17 +108,19 @@ var chartTitle = initialBpm + " BPM to " + finalBpm + " BPM over " +
 var layout = {
   // title: chartTitle,
   titlefont: {size: titleFontSize},
-  width: 700,
-  height: 200,
-  margin: {b:layoutMarginTopBottom, t:layoutMarginTopBottom, l:layoutMarginLeftRight, r:layoutMarginLeftRight},
+  width: 1440,
+  height: 300,
+  margin: {b:120, t:120, l:60, r:60},
+  legend: {
+    font:{size:annotationFontSize}
+  },
   xaxis: {
-
     title: "Time, Measured in Beats at " + initialBpm + " BPM",
     // zeroline on the xaxis is the vertical zero line
     zeroline: false,
     showline: false,
-    // titlefont: {color: beatsColor, size: axisTitleFontSize},
-    tickfont: {color: beatsColor, size: axisTickFontSize},
+    titlefont: {color: beatsColor, size: axisTitleFontSize},
+    tickfont: {color: beatsColor, size: axisTickFontSizeX},
     autotick: false,
     tick0: -4,
     dtick: 4,
@@ -128,7 +131,7 @@ var layout = {
     dtick: 10,
     title: "",
     titlefont: {color: tempoColor, size: axisTitleFontSize},
-    tickfont: {color: tempoColor, size: axisTickFontSize},
+    tickfont: {color: tempoColor, size: axisTickFontSizeY},
     showline: false,
     linecolor: tempoColor,
     linewidth: axisLineWidth,
@@ -142,30 +145,32 @@ var layout = {
   },
   annotations: [
     {
+      font:{size:annotationFontSize},
       x: 0,
-      y: 1,
+      y: 1.4,
       xref: "x",
       yref: "y",
       text: "Begin Tempo Ramp",
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
-      arrowwidth: 2,
+      arrowwidth: 3,
       ax: 0,
-      ay: -32
+      ay: -64
     },
     {
+      font:{size:annotationFontSize},
       x: end,
-      y: 1,
+      y: 1.4,
       xref: "x",
       yref: "y",
       text: "Arrive at " + finalBpm + " BPM After Exactly " + beatsInChangingTempo + " Beats",
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
-      arrowwidth: 2,
+      arrowwidth: 3,
       ax: 0,
-      ay: -32
+      ay: -64
     }
   ]
 };
