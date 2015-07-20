@@ -1,7 +1,7 @@
 
-\chapter{Time Domain Manipulation: \polytempic}
+\chapter{Time Domain: \polytempic}
 \label{ch:polytempic}
-In \autoref{ch:introduction} (figure~\ref{fig:metastasis}) we saw how
+In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw how
 Xenakix was using ruled surfaces to create swarms of notes that move
 together to create stochastic sonorities. The goal of \polytempic is
 to enable composition with swarms of tempo modulations that move in
@@ -63,19 +63,41 @@ where:
     points. At each point of convergence the phase of the meter within
     the tempo can be set.
 \end{enumerate}
-For example we might have 2 snare drum players. Both begin playing the
-same beat at the same tempo, but one player gradually decelerates
-relative to the other. We want to define a continous tempo curve such
-that one drummer accelerates to four-thirds the original rate. So far,
-we can accomplish this with a simple linear tempo acceleration, but we
-have an additional constraint. We want the tempo transition to
-complete exactly when \emph{both} drummers are on a down-beat. We want
-to define the exact number of beats that our drummer uses to complete
-the tempo transition, \emph{and} the exact number of beats that elapse
-for the first drummer playing a steady beat.
+Consider the following example shown in figure~\ref{fig:basic-tempo-change}:
+\begin{itemize}
+\item Assume we have 2 snare drum players. Both begin playing the same
+  beat at 90 BPM in common time.
+\item One player gradually accelerates relative to the other. We want
+  to define a continous tempo curve such that one drummer accelerates
+  to 120 BPM.
+\item So far, we can easily accomplish this with a simple linear tempo
+  acceleration. However, we want the tempo transition to complete
+  exactly when \emph{both} drummers are on a down-beat, so the the
+  combined effect is a 3 over 4 rhythmic pattern.
+\item We want the accelerating drummer to reach the new tempo after exactly 20
+  beats.
+\item We also want the acceleration to complete in exactly 16 beats of
+  the original tempo, so the drumer playing a constant tempo, and the
+  the accelerating drummer are playing together.
+\end{itemize}
+\begin{figure*}[h]
+  \includegraphics[width=\linewidth]{basic-tempo-transition.png}
+  \caption[Tempo Transition]{Stochastic Tempo Transition from 90 BPM
+    to 120 BPM }
+  \label{fig:basic-tempo-change}
+\end{figure*}
 
 \section{Solution}
 \label{sec:polytempic-solution}
+The problem is framed from two different perspectives. We are
+interested in both the number of beats elapsed in the static tempo
+\emph{and} in the changing tempo, and the absolute tempo. If we think
+of the number of beats elapsed as our \emph{position}, and the tempo
+as our \emph{rate}, we see how this resembles a physics problem. If we
+have a function that describes our tempo (or rate), we can integrate
+that function, and the result will tell us our number of beats elapsed
+(or position). 
+
 Given the above considerations, we define our tempo curve in terms of
 5 constants:
 \\[5mm]
@@ -128,6 +150,7 @@ Evaluating (\ref{a0-result}) with our constants gives us our starting
 acceleration. Once we have $a_0$ we can solve (\ref{bpm}) for $a_1$, and 
 evaluate (\ref{bpm}) with $a_1$ and $a_0$ to describe our changing tempo 
 with respect to time.
+
 
 \section{Implementation}
 \label{sec:polytempic-implementation}

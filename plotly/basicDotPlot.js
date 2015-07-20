@@ -159,7 +159,7 @@ var layout = {
       y: 1,
       xref: "x",
       yref: "y",
-      text: "Arrive at " + finalBpm + " BPM after exactly " + beatsInChangingTempo + " beats",
+      text: "Arrive at " + finalBpm + " BPM After Exactly " + beatsInChangingTempo + " Beats",
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
