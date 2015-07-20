@@ -63,43 +63,41 @@ where:
     points. At each point of convergence the phase of the meter within
     the tempo can be set.
 \end{enumerate}
-Consider the following example shown in figure~\ref{fig:basic-tempo-change}:
+We start by defining a single tempo transition. Consider the following
+example shown in figure~\ref{fig:basic-tempo-change}:
 \begin{itemize}
 \item Assume we have 2 snare drum players. Both begin playing the same
   beat at 90 BPM in common time.
-\item One player gradually accelerates relative to the other. We want
+\item One performer gradually accelerates relative to the other. We want
   to define a continous tempo curve such that one drummer accelerates
   to 120 BPM.
 \item So far, we can easily accomplish this with a simple linear tempo
   acceleration. However, we want the tempo transition to complete
   exactly when \emph{both} drummers are on a down-beat, so the the
   combined effect is a 3 over 4 rhythmic pattern.
-\item We want the accelerating drummer to reach the new tempo after exactly 20
-  beats.
+\item We want the accelerating drummer to reach the new tempo after
+  exactly 20 beats.
 \item We also want the acceleration to complete in exactly 16 beats of
   the original tempo, so the drumer playing a constant tempo, and the
   the accelerating drummer are playing together.
 \end{itemize}
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{basic-tempo-transition.png}
-  \caption[Tempo Transition]{Stochastic Tempo Transition from 90 BPM
+  \caption[Tempo Transition]{Tempo Transition from 90 BPM
     to 120 BPM }
   \label{fig:basic-tempo-change}
 \end{figure*}
 
 \section{Solution}
 \label{sec:polytempic-solution}
-The problem is framed from two different perspectives. We are
-interested in both the number of beats elapsed in the static tempo
-\emph{and} in the changing tempo, and the absolute tempo. If we think
-of the number of beats elapsed as our \emph{position}, and the tempo
-as our \emph{rate}, we see how this resembles a physics problem. If we
-have a function that describes our tempo (or rate), we can integrate
-that function, and the result will tell us our number of beats elapsed
-(or position). 
-
-Given the above considerations, we define our tempo curve in terms of
-5 constants:
+We are interested in both the number of beats elapsed in the static
+tempo \emph{and} in the changing tempo, and the absolute tempo. Let us
+think of the number of beats elapsed as our \emph{position}, and the
+tempo as our \emph{rate}, we see how this resembles a physics
+problem. If we have a function that describes our tempo (or rate), we
+can integrate that function, and the result will tell us our number of
+beats elapsed (or position). Given the above considerations, we define
+our tempo curve in terms of 5 constants:
 \\[5mm]
 \begin{fullwidth}
 \begin{itemize}
@@ -107,22 +105,26 @@ Given the above considerations, we define our tempo curve in terms of
   \item A known time, $t_1$, when the tempo transition ends
   \item A known starting tempo, $\dot{x}_0$
   \item A known finishing tempo, $\dot{x}_1$
-  \item The number of beats elapsed in the changing tempo between $t_0$ and $t_1$, $x_1$
+  \item The number of beats elapsed in the changing tempo between
+    $t_0$ and $t_1$, $x_1$
 \end{itemize}
 \end{fullwidth}
-\\[5mm]
-The tension of the tempo curve determines how many beats elapse during 
-the transition period. The curve is well-defined for some starting 
-acceleration $a_0$ and finishing acceleration $a_1$, so we define the curve 
-in terms of linear acceleration. Using Newton's notation we can describe our 
-tempo acceleration as:
+The tension of the tempo curve determines how many beats elapse during
+the transition period. The curve is well-defined for some starting
+acceleration $a_0$ and finishing acceleration $a_1$, so we define the
+curve in terms of linear acceleration. Using Newtonian notation we can
+describe our tempo acceleration as:
 \begin{equation}
 	\label{accel}
     \ddot{x}_1 = a_0 + a_1t_1
 \end{equation}
-We integrate linear acceleration (\ref{accel}), resulting in a parabolic 
-velocity curve. The velocity curve describes the tempo (in beats per minute) 
-with respect to time.
+Integrating linear acceleration (\ref{accel}) yields a quadratic
+velocity curve. The velocity curve describes the tempo (in beats per
+minute)\marginnote{We must specify the same time units for input
+  variables like $t_1$ and $\dot{x_1}$. I prefer \textit{minutes} for
+  $t_1$ and \textit{beats per minute} for $\dot{x_1}$ over
+  \textit{seconds} and \textit{beats per second}} with respect to
+time.
 \begin{equation}
 	\label{bpm}
     \dot{x}_1 = \dot{x}_0 + a_0t_1 + \frac{a_1t_1^2}{2}
@@ -150,7 +152,6 @@ Evaluating (\ref{a0-result}) with our constants gives us our starting
 acceleration. Once we have $a_0$ we can solve (\ref{bpm}) for $a_1$, and 
 evaluate (\ref{bpm}) with $a_1$ and $a_0$ to describe our changing tempo 
 with respect to time.
-
 
 \section{Implementation}
 \label{sec:polytempic-implementation}
