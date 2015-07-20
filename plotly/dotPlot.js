@@ -120,11 +120,11 @@ data.push(staticData);
 var layout = {
   // title: chartTitle,
   titlefont: {size: titleFontSize},
-  width: 800,
-  height: 235,
+  width: 720,
+  height: 220,
   showlegend: false,
   margin: {
-    b:60,
+    b:45,
     t:60,
     l:60,
     r:30,
@@ -139,6 +139,7 @@ var layout = {
     autotick: false,
     tick0: -4,
     dtick: 4,
+    range: [-5, 20.2]
   },
   yaxis: {
     // autotick: false,
