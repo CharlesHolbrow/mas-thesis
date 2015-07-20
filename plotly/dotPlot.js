@@ -4,58 +4,70 @@ if (!apiKey) throw new Error('pass api key as command line argument');
 
 _ = require('underscore');
 
-initialBpm = v0 = 90;
-finalBpm = v1 = 120;
-durationInBeatsAtInitialTempo = 16;
-durationInMinutes = t = durationInBeatsAtInitialTempo / initialBpm;
-beatsInChangingTempo = b1 = p1 = 20;
+var generate = function(initialBpm, finalBpm, durationInBeatsAtInitialTempo, beatsInChangingTempo){
+  var v0, v1, durationInMinutes;
+  var t, b1, p1;
+  var initialAcceleration, a0, finalAcceleration, a1;
 
-initialAcceleration = a0 = ((6 * b1) - (2 * t) * (v1 + (2 * v0))) / (t * t);
-finalAcceleration = a1 = (v0 - v1 + (initialAcceleration * t)) * (-2/(t * t));
+  v0 = initialBpm;
+  v1 = finalBpm;
+  
+  durationInMinutes = t = durationInBeatsAtInitialTempo / initialBpm;
+  b1 = p1 = beatsInChangingTempo;
 
-// resolution of our time
-resolution = 9000;
-// array of times (in minutes) at which we will sample our curves
-time = _(_.range(resolution + 1)).map(function(val){return val / resolution * durationInMinutes});
+  initialAcceleration = a0 = ((6 * b1) - (2 * t) * (v1 + (2 * v0))) / (t * t);
+  finalAcceleration = a1 = (v0 - v1 + (initialAcceleration * t)) * (-2/(t * t));
 
-// array of how many beats have elapsed relative to time
-beatsElapsed = _(time).map(function(t){
-  return 0 + (v0 * t) + (a0 * t * t)/2 + (a1 * t * t * t)/6;
-});
+  // resolution of our time
+  var resolution = 9000;
+  var safety = 100; //sample a little extra, so we don't cut off last beat because of floating point stuff
+  // array of times (in minutes) at which we will sample our curves
+  time = _(_.range(resolution + safety)).map(function(val){return val / resolution * durationInMinutes});
 
-// array of current tempo, sampled <resolution> times
-bpm = _(time).map(function(t){
-  return v0 + (a0 * t) + (a1 * t * t)/2;
-});
+  // array of how many beats have elapsed relative to time
+  beatsElapsed = _(time).map(function(t){
+    return 0 + (v0 * t) + (a0 * t * t)/2 + (a1 * t * t * t)/6;
+  });
+  // array of current tempo, sampled <resolution> times
+  bpm = _(time).map(function(t){
+    return v0 + (a0 * t) + (a1 * t * t)/2;
+  });
 
-staticBeats = _(time).map(function(t){
-  return initialBpm * t;
-});
+  staticBeats = _(time).map(function(t){
+    return initialBpm * t;
+  });
 
-// keys: beat number
-// values: [timeInMinutes, accuracy]
-firstBeats = {};
-_(beatsElapsed).each(function(val, index){
-  t = time[index]
-  beat = Math.floor(val);
-  // do we already have a time for this beat?
-  if (firstBeats[beat]) return;
-  firstBeats[beat] = [t, val];
-});
+  // keys: beat number
+  // values: [timeInMinutes, accuracy]
+  firstBeats = {};
+  _(beatsElapsed).each(function(val, index){
+    t = time[index]
+    beat = Math.floor(val);
+    // do we already have a time for this beat?
+    if (firstBeats[beat]) return;
+    firstBeats[beat] = [t, val];
+  });
 
-var changingBeatsRelativeToStaticBeats = _(firstBeats).map(function(val){return val[0] * initialBpm});
+  var changingBeatsRelativeToStaticBeats = _(firstBeats).map(function(val){return val[0] * initialBpm});
 
-// prepend a fake measure of 4/4
-var pre = [-4, -2, -3, -1];
-var changingBeatsRelativeToStaticBeats = pre.concat(changingBeatsRelativeToStaticBeats);
-var staticBeatsDisplayData = pre.concat(_.range(durationInBeatsAtInitialTempo + 1));
-// Append a fake measure
-var end = staticBeatsDisplayData[staticBeatsDisplayData.length - 1]
-var post = [end+1,end+2,end+3,end+4];
-staticBeatsDisplayData = staticBeatsDisplayData.concat(post);
-var oneBeatRealtiveToStatic = aBeat = initialBpm / finalBpm;
-post = [end + aBeat * 1, end + aBeat * 2, end + aBeat * 3, end + aBeat * 4];
-changingBeatsRelativeToStaticBeats = changingBeatsRelativeToStaticBeats.concat(post);
+  // prepend a fake measure of 4/4
+  var pre = [-4, -2, -3, -1];
+  var changingBeatsRelativeToStaticBeats = pre.concat(changingBeatsRelativeToStaticBeats);
+  staticBeatsDisplayData = pre.concat(_.range(durationInBeatsAtInitialTempo + 1));  // hack: global var
+  // Append a fake measure
+  end = staticBeatsDisplayData[staticBeatsDisplayData.length - 1] // hack: global var
+  var post = [end+1,end+2,end+3,end+4];
+  staticBeatsDisplayData = staticBeatsDisplayData.concat(post);
+  var oneBeatRealtiveToStatic = aBeat = initialBpm / finalBpm;
+  post = [end + aBeat * 1, end + aBeat * 2, end + aBeat * 3, end + aBeat * 4];
+  changingBeatsRelativeToStaticBeats = changingBeatsRelativeToStaticBeats.concat(post);
+  return changingBeatsRelativeToStaticBeats;
+};
+
+var initialBpm = 90
+changingBeatsRelativeToStaticBeats = generate(initialBpm, 120, 16, 20);
+changingBeatsRelativeToStaticBeats2 = generate(initialBpm, 120, 16, 21);
+
 
 
 var blue = "1f77b4";
@@ -69,84 +81,89 @@ var axisLineWidth = 2;
 var tempoColor = black;
 var beatsColor = grey;
 var axisTitleFontSize = 18;
-var axisTickFontSize = 16;
-var layoutMarginTopBottom = 80;
-var layoutMarginLeftRight = 10;
-
+var axisTickFontSizeX = 16;
+var axisTickFontSizeY = 12;
 
 
 var plotly = require('plotly')('cholbrow', apiKey);
-var data = [
-  {
-    x: changingBeatsRelativeToStaticBeats,
-    y: _(changingBeatsRelativeToStaticBeats).map(function(){return 1}),
-    type: "scatter",
-    name: "Changing Beats",
-    mode: "markers",
-    marker:{
-      color:tempoColor,
-      width:2,
-    }
-  },
-  {
-    x: staticBeatsDisplayData,
-    y: _(changingBeatsRelativeToStaticBeats).map(function(){return 0}),
-    type: "scatter",
-    name: "Static Beats",
-    mode:"markers",
-    marker:{
-      color:beatsColor,
-      width:2,
-    }
-  }
-];
 
-var chartTitle = initialBpm + " BPM to " + finalBpm + " BPM over " +
-  beatsInChangingTempo + ":" + durationInBeatsAtInitialTempo + " Beats";
+var baseDatum = {
+  type: "scatter",
+  mode: "markers",
+  marker:{
+    color:tempoColor,
+    width:2,
+  }
+};
+
+// sequence var used in layout to determine how tall to make the graph
+var sequence = _.range(14, 22);
+var data = _(sequence).map(function(transitionBeats, index){
+  var changingBeats = generate(90, 120, 16, transitionBeats);
+  return _.defaults({
+    x: changingBeats,
+    y: _(changingBeats).map(function(){return transitionBeats})
+  }, baseDatum);
+});
+
+var staticData = _(baseDatum).extend({
+  x: staticBeatsDisplayData,
+  y: _(staticBeatsDisplayData).map(function(){return sequence[0] - 1}),
+  marker:{
+    color: beatsColor,
+    width:2
+  }
+});
+
+data.push(staticData);
 
 var layout = {
   // title: chartTitle,
   titlefont: {size: titleFontSize},
-  width: 700,
-  height: 200,
-  margin: {b:layoutMarginTopBottom, t:layoutMarginTopBottom, l:layoutMarginLeftRight, r:layoutMarginLeftRight},
+  width: 800,
+  height: 235,
+  showlegend: false,
+  margin: {
+    b:60,
+    t:60,
+    l:60,
+    r:30,
+  },
   xaxis: {
-
     title: "Time, Measured in Beats at " + initialBpm + " BPM",
     // zeroline on the xaxis is the vertical zero line
     zeroline: false,
     showline: false,
-    // titlefont: {color: beatsColor, size: axisTitleFontSize},
-    tickfont: {color: beatsColor, size: axisTickFontSize},
+    titlefont: {color: beatsColor, size: axisTitleFontSize},
+    tickfont: {color: beatsColor, size: axisTickFontSizeX},
     autotick: false,
     tick0: -4,
     dtick: 4,
   },
   yaxis: {
-    autotick: false,
-    tick0: -3,
-    dtick: 10,
-    title: "",
+    // autotick: false,
+    tick0: 14,
+    dtick: 2,
+    title: "Beats During Transition",
     titlefont: {color: tempoColor, size: axisTitleFontSize},
-    tickfont: {color: tempoColor, size: axisTickFontSize},
+    tickfont: {color: tempoColor, size: axisTickFontSizeY},
     showline: false,
     linecolor: tempoColor,
     linewidth: axisLineWidth,
     side: 'left',
-    range: [-1, 2],
-    showticks: false,
-    // zeroline on the y axis horizontal line
-    zeroline: false,
+    range: [sequence[0] - 1.5, sequence[sequence.length-1] + 0.5], // static beats is one below lowest
+    // showticks: false,
+    zeroline: false, // zeroline on the y axis horizontal line
     zerolinewidth: axisLineWidth,
     zerolinecolor: black,
   },
   annotations: [
     {
       x: 0,
-      y: 1,
+      y: sequence[sequence.length-1] + 0.4,
       xref: "x",
       yref: "y",
-      text: "Begin Tempo Ramp",
+      text: "Begin Tempo Ramp from 90 bpm",
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
@@ -156,10 +173,10 @@ var layout = {
     },
     {
       x: end,
-      y: 1,
+      y: sequence[sequence.length -1] + 0.4,
       xref: "x",
       yref: "y",
-      text: "Arrive at " + finalBpm + " BPM after exactly " + beatsInChangingTempo + " beats",
+      text: "Tempo Acceleration Complete at 120 bpm",
       showarrow: true,
       arrowhead: 2,
       arrowsize: 1,
@@ -171,11 +188,11 @@ var layout = {
 };
 
 var graphOptions = {
-  filename: "tempo toy syncopation",
+  filename: "Stochastic Tempi",
   fileopt: "overwrite",
   layout: layout
 };
 plotly.plot(data, graphOptions, function (err, msg) {
   console.log('err:', err);
-  console.log(msg);
+  console.log('res:', msg);
 });
