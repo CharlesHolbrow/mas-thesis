@@ -59,11 +59,44 @@
 \newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace}
 \newcommand{\na}{\quad--}% used in tables for N/A cells
 
+ % This block sets up a command for printing an epigraph with 2
+ % arguments - the quote and the author
+\newcommand{\openFM}[3]{
+\begin{fullwidth}
+\rmfamily\huge
+
+\noindent\allcaps{\textbf{#1}}\\ % The title
+\rmfamily\LARGE
+\noindent{#2} % The subtitle
+\begin{spacing}{5}
+\sffamily
+\end{spacing}
+\noindent{#3}
+\end{fullwidth}
+}
+
+% This block sets up a command for printing an epigraph with 2
+% arguments - the quote and the author
+\newcommand{\openAFM}[3]{
+\begin{fullwidth}
+\rmfamily\huge
+
+\noindent\allcaps{\textbf{#1}}\\ % The title
+\rmfamily\LARGE
+\noindent{#2} % The subtitle
+\begin{spacing}{2.5}
+\sffamily
+\end{spacing}
+\noindent{#3}
+\end{fullwidth}
+}
+
 % Number parts and chapters
 \setcounter{secnumdepth}{0}
 
 % Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}
+\newcommand{\subtitle}{\TODO{Optional Subtitle}}
 \newcommand{\polytempic}{Stochastic Tempo Transforms\xspace}
 \newcommand{\refmod}{Reflection Modeler\xspace}
 
@@ -71,37 +104,34 @@
 
 % Front matter
 \frontmatter
-
 % Full title page
-\maketitle
-
-% Contents
-\tableofcontents
-
-% Start the main matter (normal chapters)
-\mainmatter
+\include{Title}
 
 \chapter*{Abstract}
 \label{ch:abstract}
 
 \marginnote{\TODO{ Abstract is copy/pasted from another section, and
-    should probably be re-written from scratch}} While compression of
-mono and stereo audio is well documented and
-understood,\cite{Giannoulis2012, Blesser1969} surround sound
-compression is relatively less explored.  \thesis expands on
-traditional audio compression model by adding spatial control. This
-design introduces two additional high level spatial parameters:
-\textbf{link angle} and \textbf{spread}. These parameters extend the
-domain of the traditional compressor to include surround sound spatial
-manipulation in addition to dynamics processing, and unlock new
-creative possibilities for surround sound designers.
+    is really just a placeholder}} While compression of mono and
+stereo audio is well documented and understood,\cite{Giannoulis2012,
+  Blesser1969} surround sound compression is relatively less explored.
+\thesis expands on traditional audio compression model by adding
+spatial control. This design introduces two additional high level
+spatial parameters: \textbf{link angle} and \textbf{spread}. These
+parameters extend the domain of the traditional compressor to include
+surround sound spatial manipulation in addition to dynamics
+processing, and unlock new creative possibilities for surround sound
+designers.
 
+\include{Readers}
+
+
+\mainmatter
+\tableofcontents
 \include{Introduction}
 \include{Polytempic}
 \include{Hypercompressor}
 
 \backmatter
-
 \include{Acknowledgements}
 
 \bibliography{library}
