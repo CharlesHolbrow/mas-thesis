@@ -64,7 +64,7 @@ where:
     the tempo can be set.
 \end{enumerate}
 We start by defining a single tempo transition. Consider the following
-example shown in figure~\ref{fig:basic-tempo-change}:
+example (shown in figure~\ref{fig:basic-tempo-change}):
 \begin{itemize}
 \item Assume we have 2 snare drum players. Both begin playing the same
   beat at 90 BPM in common time.
@@ -74,7 +74,9 @@ example shown in figure~\ref{fig:basic-tempo-change}:
 \item So far, we can easily accomplish this with a simple linear tempo
   acceleration. However, we want the tempo transition to complete
   exactly when \emph{both} drummers are on a down-beat, so the the
-  combined effect is a 3 over 4 rhythmic pattern.
+  combined effect is a 3 over 4 rhythmic pattern. \textbf{Linear
+    acceleration results in the transition completing at an arbitrary
+    phase.}
 \item We want the accelerating drummer to reach the new tempo after
   exactly 20 beats.
 \item We also want the acceleration to complete in exactly 16 beats of
