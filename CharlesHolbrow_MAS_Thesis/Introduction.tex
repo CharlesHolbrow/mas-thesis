@@ -20,16 +20,16 @@ also become more interconnected. Nearly every modern musical
 recording, broadcast, and stream is the summation of many digital
 recordings that have been individually discretized, sampled
 mathematically encoded, decoded, and digitally processed numerous
-times before ever reaching our ears. We might be tempted to describe
-music today as applied mathematics, but doing so betrays a fundamental
-quality of music: Musicality does not correspond to mathematical
-elegance or precision. A musician will diverge from a musical score to
-accomplish a particular artistic objective. A vocalist does not
-abruptly change a pitch, but gently and carefully lands on a pitch. A
-jazz musician might play slightly \emph{behind the beat}. A classical
-performer knows how to hold a fermata \emph{just long enough}. These
-intentional human artifacts are characterized more by a \emph{feeling}
-than by a formula.
+times before ever reaching our ears.\cite{Case2007} We might be
+tempted to describe music today as applied mathematics, but doing so
+betrays a fundamental quality of music: Musicality does not correspond
+to mathematical elegance or precision. A musician will diverge from a
+musical score to accomplish a particular artistic objective. A
+vocalist does not abruptly change a pitch, but gently and carefully
+lands on a pitch. A jazz musician might play slightly \emph{behind the
+  beat}. A classical performer knows how to hold a fermata \emph{just
+  long enough}. These intentional human artifacts are characterized
+more by a \emph{feeling} than by a formula.
 
 The computer's inability to understand feeling has led to new genres
 of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
@@ -42,10 +42,10 @@ of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
   refers to the solid black appearance of the piano score.}, and
 Demoscene\sidenote{Demoscene music celebrates digital synthesis of
   compositionally complex electronic music and audio visualizations,
-  using low level software interfaces including the design of the
-  actual synthesizer as part of the composition.}, but these styles
-of music feature (rather than fix) the inhuman nature of computers. If
-we want to integrate a computer into the performance or production of
+  using low level software interfaces, and including the design of the
+  music synthesizer as part of the composition.}, but these styles of
+music feature (rather than fix) the inhuman nature of computers. If we
+want to integrate a computer into the performance or production of
 truly expressive music, we must capture perceived feelings
 formulaically, and program the computer to reproduce them. This thesis
 describes three different but related projects that confront this
@@ -70,18 +70,19 @@ the following projects.
 
 \newthought{Music and Time} are inseparable. All music flows through
 time, and depends on temporal constructs - the most common being meter
-and tempo. While accelerating or decelerating tempo are common in many
-styles of music, and polyrhythms and are a familiar musical construct,
-music with multiple simultaneous tempos or \textit{polytempic music}
-is less common. A few examples of modern music with simultaneous
-shifting tempos do exist, but is is difficult for musicians to
-accurately perform multiple tempi in parallel. Software is an obvious
-choice for composing and audition complex and challenging rhythms, but
-modern compositional software makes this difficult. \polytempic
-describes a strategy for composing music with multiple simultaneous
-tempos that accelerate and decelerate relative to each other. In
-\autoref{ch:polytempic} we derive an equation for smoothly ramping
-ramping tempi to converge and diverge at desired musical divisions.
+and tempo. Accelerating or decelerating tempo are common in many
+styles of music, as are polyrhythms.  Music with multiple simultaneous
+tempos or \textit{polytempic music} is less common, but still many
+examples can be found. Few examples of music with simultaneous tempi
+that shift relative to each other exist, and it is difficult for
+musicians to accurately perform multiple tempi in parallel. Software
+is an obvious choice for composing and audition complex and
+challenging rhythms, but modern compositional software makes this
+difficult. \polytempic describes a strategy for composing music with
+multiple simultaneous tempos that accelerate and decelerate relative
+to each other. In \autoref{ch:polytempic} we derive an equation for
+smoothly ramping ramping tempi to converge and diverge at desired
+musical divisions.
 
 \section{\thesis}
 \label{sec:hypercompression-intro}
