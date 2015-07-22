@@ -2,16 +2,17 @@
 \chapter{Introduction}
 \label{ch:introduction}
 \begin{fullwidth}
-  \newthought{In the 6th century B.C.} Pythagoras discovered that by
-  dividing resonating string into simple mathematical ratios produced
-  harmonious intervals, while arbitrary ratios produced dissonance.
-  His observation is probably the first of the many explicit parallels
-  that have been identified after his time. Today, we describe musical
-  pitches, as integers within a given tuning system. We describe the
-  tuning system with a mathematical formula that relates frequency to
-  pitch. Musical time, rhythm and meter are commonly described
-  numerically. Musical Transposition and inversion mirror mathematical
-  functions, and borrow their names directly from mathematics. 
+  \newthought{In the 6th century B.C.} Pythagoras discovered that
+  dividing a resonating string into simple mathematical ratios
+  produced harmonious musical intervals, while arbitrary ratios
+  produced dissonance.  His observation is probably the first of the
+  many explicit parallels between math and music that have been
+  identified after his time. Today, we describe musical pitches, as
+  integers within a given tuning system. We describe the tuning system
+  with a mathematical formula that relates frequency to pitch. Musical
+  time, rhythm and meter are commonly described numerically. Musical
+  Transposition and inversion mirror mathematical functions, and
+  borrow their names directly from mathematics.
 \end{fullwidth}
 
 As computers, amplifiers, and electronics become our primary tools for
@@ -26,10 +27,10 @@ betrays a fundamental quality of music: Musicality does not correspond
 to mathematical elegance or precision. A musician will diverge from a
 musical score to accomplish a particular artistic objective. A
 vocalist does not abruptly change a pitch, but gently and carefully
-lands on a pitch. A jazz musician might play slightly \emph{behind the
-  beat}. A classical performer knows how to hold a fermata \emph{just
-  long enough}. These intentional human artifacts are characterized
-more by a \emph{feeling} than by a formula.
+lands on a pitch. A jazz musician might play slightly behind the
+beat. A classical performer knows how to hold a fermata just long
+enough. These intentional human artifacts are characterized more by a
+feeling than by a formula.
 
 The computer's inability to understand feeling has led to new genres
 of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
@@ -37,7 +38,7 @@ of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music) often
   and incorporates aggressive use of digital pitch correction
   exaggerating a robotic quality.}, Black MIDI\sidenote[][-3mm]{Black
   MIDI is a musical genre that uses low fidelity audio samplers with a
-  large number of midi notes over a short time. A single 3 minute
+  large number of MIDI notes over a short time. A single 3 minute
   Black MIDI track is likely to have over 100,000 MIDI notes. The name
   refers to the solid black appearance of the piano score.}, and
 Demoscene\sidenote{Demoscene music celebrates digital synthesis of
@@ -61,9 +62,7 @@ us design and experiment with abstract acoustic lenses or ``sound
 mirrors'' in 2 dimensions. It is directly inspired by the music and
 architecture of Iannis Xenakis, a 20th century composer, music
 theorist, architect and engineer. His collected works provide a guide
-and perspective to all the projects in this thesis. Building on
-concepts here, we reveal objectives, motivation, and inspiration for
-the following projects.
+and perspective to all the projects in this thesis.
 
 \section{\polytempic}
 \label{sec:polytempic-intro}
@@ -76,35 +75,40 @@ tempos or \textit{polytempic music} is less common, but still many
 examples can be found. Few examples of music with simultaneous tempi
 that shift relative to each other exist, and it is difficult for
 musicians to accurately perform multiple tempi in parallel. Software
-is an obvious choice for composing and audition complex and
-challenging rhythms, but modern compositional software makes this
-difficult. \polytempic describes a strategy for composing music with
-multiple simultaneous tempos that accelerate and decelerate relative
-to each other. In \autoref{ch:polytempic} we derive an equation for
-smoothly ramping ramping tempi to converge and diverge at desired
-musical divisions.
+is an obvious choice for composing complex and challenging rhythms,
+but modern compositional software makes this difficult. \polytempic
+describes a strategy for composing music with multiple simultaneous
+tempos that accelerate and decelerate relative to each other. In
+\autoref{ch:polytempic} we derive an equation for smoothly ramping
+tempi to converge and diverge as musical events within a score. We
+show how this equation can be as a stochastic process to compose
+previously inaccessible sonorities. 
 
+\marginnote[10mm]{Unless noted otherwise, ``compression'' is used in this
+  thesis to describe dynamic range compression, as opposed to data
+  compression.}
 \section{\thesis}
 \label{sec:hypercompression-intro}
-\marginnote{Unless noted otherwise, ``compression'' is used in this
-  thesis to describe dynamic range compression, as opposed to data
-  compression.} \newthought{We usually think of compression} in terms of
+\newthought{We usually think of compression} in terms of
 \emph{reduction}: We use data compression to reduce bit-rates and file
 sizes, audio compression to reduce dynamic range. Record labels use
 dynamic range compression as a weapon in the \emph{loudness
-  war}\cite{Deruty2014a}, resulting in some of today's music
-recordings utilizing no more dynamic range than a 1909 Edison
-cylinder.\cite{Katz2007}. A deeper study of dynamic range compression
-reveals more subtle and artistic applications. A skilled audio
-engineer applies compression to audio with the intention to improve
-intelligibility, augment articulation, smooth a performance, shape
-transients, extract ambience, de-ess vocals, balance multiple signals,
-or even add distortion.\cite{Case2007} At its best, the compressor is
-a tool for \emph{temporal shaping}, rather than a tool for
-\emph{dynamic reduction}.
+  war}\sidenote{``Loudness War'' is the popular name given to the
+  trend of lincreasing of percieved loudness in music recordings.
+  Record labels attempt to make their music louder than the
+  competition, at the expense of audio fidelity}\cite{Deruty2014a},
+resulting in some of today's music recordings utilizing no more
+dynamic range than a 1909 Edison cylinder.\cite{Katz2007}. A deeper
+study of dynamic range compression reveals more subtle and artistic
+applications. A skilled audio engineer applies compression to audio
+with the intention to improve intelligibility, augment articulation,
+smooth a performance, shape transients, extract ambience, de-ess
+vocals, balance multiple signals, or even add
+distortion.\cite{Case2007} At its best, the compressor is a tool for
+temporal shaping, rather than a tool for dynamic reduction.
 
 \thesis expands the traditional model of a dynamic range compressor to
-include \emph{spatial shaping}. While unconventional, spatial
+include spatial shaping. While unconventional, spatial
 processing is a very natural fit for the compression paradigm. We can
 think of sound as a medium that exists in time just as easily as we
 can think of sound as something that exists in
@@ -112,7 +116,8 @@ space.\sidenote{Converting measurement of sound from the cycles per
   second (in the temporal domain) to wavelength (in the spatial
   domain) is common objective in acoustics and audio engineering
   practices. See \textit{The Sound Reinforcement Handbook} by G. Davis
-  for examples.} The Hypercompressor described in detail in
+  for examples.} The mathematics and implementation of the
+Hypercompressor are described in detail in
 \autoref{ch:hypercompressor}.
 
 \paragraph{Performance}
@@ -143,7 +148,8 @@ Gesamtkunstwerk included:\cite{Lombardo2009}
   Xenakis
 \item \textit{Interlude Sonoire} (later renamed \textit{Concret PH}), a
   tape music composition by Iannis Xenakis, approximately 2 minutes
-  long, played while the audience transitioned
+  long, played between performances, while one audience left and
+  pavillion, and the next audience another arrived.
 \item A three channel, 8 minute tape music composition, by French-born
   composer Edgard Var\`{e}se
 \item A system for spatialized audio across at least 350 loudspeakers

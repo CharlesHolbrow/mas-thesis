@@ -3,7 +3,7 @@ Add Chandelier Stuff to Intro.
 Lots of Spatial Sound stuff in Hyper compression section. Use material
 from thesis proposal
 
-Tod's quote in Tempo Toy
+Tod's quote in Tempo Toy - http://www.dallasobserver.com/arts/an-interview-with-tod-machover-the-worlds-most-wired-composer-7086600
 
 Ref Mod-  Email from Ben: Did you see this?  acoustic mirrors in
 England
