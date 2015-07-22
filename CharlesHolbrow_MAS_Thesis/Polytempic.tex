@@ -1,15 +1,40 @@
-
 \chapter{Time Domain: \polytempic}
 \label{ch:polytempic}
-In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw how
-Xenakix was using ruled surfaces to create swarms of notes that move
-together, creating stochastic sonorities. The goal of \polytempic is
-to enable composition with swarms of tempo modulations that move in
+After World War II,\marginnote{Works by Italian composer Luciano Berio illustrate the
+  complexity of post-war contemporary music. Beginning in 1958, Berio
+  wrote a series of works he called \textit{Sequenza}. Each was a
+  highly of highly technical composition written for a virtuostic
+  soloists. Each was for a different instrument ranging from flute to
+  guitar to accordion.  In Sequenza~IV, for piano, Berio juxtaposes
+  thirty-second note quintuplets, sextuplets, and septuplets (each
+  with a different dynamic), over just a few measures.} 
+there was an revival of complexity in contemporary
+music composition.  As performers developed the virtuostic skills
+required to play the music, composers also wrote increasingly
+difficult scores to challenge the performers.\cite{grout2006} One
+composer writing very complex music in this period was Elliot Carter.
+
+
+Paper: realtime representation of 
+Paper: Stochos: Software for Real-Time Synthesis of Stochastic Music
+
+
+
+
+John Cage: Chance Music
+Karlheinz Stockhausen, Pierre Boulez, Luciano Berio: Aleatoric music
+Eliot Carter: Polymetric Modulation. 
+
+
+In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw
+how Xenakix was using ruled surfaces to create swarms of notes that
+move together, creating stochastic sonorities. The goal of \polytempic
+is to enable composition with swarms of tempo modulations that move in
 correlated, cohesive patterns. Music with two or more simultaneous
 tempos (polytempic music) is itself not a new concept, and many
 examples of polytemic music exist\cite{Greschak2003}. Slightly less
 comon is polytempic music where continuous tempo accelerations or
-deccelerations are defined relative to each other.  This style of music
+deccelerations are defined relative to each other. This style of music
 is well suited to tape music, because tape machines can play
 recordings back at variable rates. However, it is difficult to control
 the exact point (or phase) when de-synchronized tape becomes
@@ -184,17 +209,24 @@ before returning to complete syncronicity at $t=16$.
 \section{\textit{Tide}: A Musical Example}
 \label{sec:polytempic-implementation}
 
+\section{Future Directions}
+\label{sec:polytempic-future-directions}
 \polytempic started with a question asked by musician and composer
 Bryn Bliska. She wanted compositional constructs like the one in
 figure~\ref{fig:basic-tempo-change} in her music, but found that it
 was not posible to do accurately inside of current digital audio
 workstations (DAWs). Flexible DAWs like Cockos Reaper and MOTU Digital
-Performer include workarounds for auditioning tracks or objects with
-unique simultaneous tempi, and individual tempos can even be automated
-relative to each other. However, the the precise non-linear tempo
-curves that are required for the syncopated musical content to
+Performer include features for auditioning tracks or music-objects
+with unique simultaneous tempi, and individual tempos can even be
+automated relative to each other. However, the the precise non-linear
+tempo curves that are required for the syncopated musical content to
 syncronize correctly after a transition completes, are not possible in
-any audio sequencing software we tried. 
+any DAWs we tried. 
+
+At the time, neither Bryn nor I knew that Tod Machover had initially
+turned to computer music to solve exactly this problem. 
+
+The equations derived here are an a partial solution to 
 
 \section{Polytempic Music and Polymetric Music}
 \label{sec:polytempic-vs-polymetric}
@@ -204,14 +236,6 @@ Other notable composers
 of the time include John Cage, who wrote wrote what he called, Chance
 Music, and Stockhausen, Boulez and Berio who wrote aleatoric music.
 
-
-Eliot Carter: Polymetric Modulation. 
-Steve Reich: Piano Phase
-Paper: realtime representation of 
-Paper: Stochos: Software for Real-Time Synthesis of Stochastic Music
-
-John Cage: Chance Music
-Karlheinz Stockhausen, Pierre Boulez, Luciano Berio: Aleatoric music
 
 \section{Contribution}
 \label{sec:polytempic-contribution}
