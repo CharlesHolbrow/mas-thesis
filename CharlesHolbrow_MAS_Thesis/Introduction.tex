@@ -94,18 +94,18 @@ previously inaccessible sonorities.
 sizes, audio compression to reduce dynamic range. Record labels use
 dynamic range compression as a weapon in the \emph{loudness
   war}\sidenote{``Loudness War'' is the popular name given to the
-  trend of lincreasing of percieved loudness in music recordings.
-  Record labels attempt to make their music louder than the
-  competition, at the expense of audio fidelity}\cite{Deruty2014a},
-resulting in some of today's music recordings utilizing no more
-dynamic range than a 1909 Edison cylinder.\cite{Katz2007}. A deeper
-study of dynamic range compression reveals more subtle and artistic
-applications. A skilled audio engineer applies compression to audio
-with the intention to improve intelligibility, augment articulation,
-smooth a performance, shape transients, extract ambience, de-ess
-vocals, balance multiple signals, or even add
-distortion.\cite{Case2007} At its best, the compressor is a tool for
-temporal shaping, rather than a tool for dynamic reduction.
+  trend of increasing percieved loudness in music recordings.
+  Beginning in the 1990s, record labels have attempted to make their
+  music louder than the competition, at the expense of audio
+  fidelity}\cite{Deruty2014a}, resulting in some of today's music
+recordings utilizing no more dynamic range than a 1909 Edison
+cylinder.\cite{Katz2007}. A deeper study of dynamic range compression
+reveals more subtle and artistic applications. A skilled audio
+engineer applies compression to audio with the intention to improve
+intelligibility, augment articulation, smooth a performance, shape
+transients, extract ambience, de-ess vocals, balance multiple signals,
+or even add distortion.\cite{Case2007} At its best, the compressor is
+a tool for temporal shaping, rather than a tool for dynamic reduction.
 
 \thesis expands the traditional model of a dynamic range compressor to
 include spatial shaping. While unconventional, spatial
@@ -117,8 +117,7 @@ space.\sidenote{Converting measurement of sound from the cycles per
   domain) is common objective in acoustics and audio engineering
   practices. See \textit{The Sound Reinforcement Handbook} by G. Davis
   for examples.} The mathematics and implementation of the
-Hypercompressor are described in detail in
-\autoref{ch:hypercompressor}.
+Hypercompressor are described in detail in \autoref{ch:hypercompressor}.
 
 \paragraph{Performance}
 \thesis was used in the live performance of \textit{De
@@ -127,82 +126,24 @@ Narrator, Organ, and Electronics. During the premier at the Maison
 symphonique de Montr\'{e}al in Canada, \thesis was used to blend the
 electronics with the organ and the acoustic space. In
 \autoref{ch:hypercompressor} we also describe how Hypercompression fit
-into this performance. 
+into this performance.
 
-\section{Context}
+\section{Historical Context}
 \label{sec:context}
-
-\newthought{The Phillips Pavilion} stands out as an inspiration, a
-reference, and a guide for projects that successfully disregard the
-conventional disciplinary approach to the creative design process. The
-pavilion was a commissioned by Phillips Corporation for the Brussels
-World's Fair in 1958.\cite{Zvonar1999} When the architectural offices of
-Le Corbusier received the commission, Le Corbusier replied, saying:
-``I will not make a pavilion for you but an Electronic Poem and a
-vessel containing the poem; light, color image, rhythm and sound
-joined together in an organic synthesis.''\cite{Lopez2011} Indeed,
-the pavilion embodied Le Corbusier's description, and the resulting
-Gesamtkunstwerk included:\cite{Lombardo2009}
-\begin{enumerate}
-\item A concrete pavilion, designed by architect and composer Iannis
-  Xenakis
-\item \textit{Interlude Sonoire} (later renamed \textit{Concret PH}), a
-  tape music composition by Iannis Xenakis, approximately 2 minutes
-  long, played between performances, while one audience left and
-  pavillion, and the next audience another arrived.
-\item A three channel, 8 minute tape music composition, by French-born
-  composer Edgard Var\`{e}se
-\item A system for spatialized audio across at least 350 loudspeakers
-  distributed throughout the pavilion
-\item An assortment of visual effects, designed by Le Corbusier in
-  collaboration with Philips art director Louis Kalff
-\item Video consisting mostly of black and white still images,
-  projected on two walls inside the pavilion
-\item A system for synchronizing playback of audio and video playback,
-  with light effects and audio spatialization throughout the
-  experience
-\end{enumerate} 
-
-\begin{figure*}[h]
-  \includegraphics[width=\linewidth]{PhilipsPavilion-TechnicalReview-01.pdf}
-  \caption{The Philips Pavilion at the 1958 Brussels World Fair as
-    shown in Volume 20 of the \textit{Philips Technical Review}, 1959}
-  \label{fig:philips-pavilion-photo}
-\end{figure*}
-
-It is a little surprising that Le Corbusier chose Iannis Xenakis, a
-young engineer with no formal architectural training to design the
-pavilion building, and compose a part of the music. While the
-relationship between Le Corbusier and Xenakis would deteriorate as a
-result of their work on Philips Pavilion, there was probably no one
-better equipped than Xenakis to merge the fields of music, mathematics
-and architecture. To understand Xenakis' impact on the project, we
-have to review the influences and experiences that led him to Paris
-and to Le Corbusier's architecture firm in 1947.
-
-\subsection{The Influence of Iannis Xenakis}
-\label{sec:influence-xenakis}
-
-Xenakis was born in Romania in 1922, and moved to Greece in 1932. He
-left school at the age of 16, and spent his time reading about
-astronomy, archeology, ancient literature, and
-mathematics.\cite[]{Hoffmann2015} He was admitted to the
-Polytechnic Institute in Athens in 1940, where he studied music,
-counterpoint, and engineering. While attending the Polytechnic
-Institute, he fought with the resistance against the Nazi Invasion in
-Greece. He was jailed and tortured multiple times for his involvement
-with the resistance, and eventually sentenced to death for terrorism,
-but managed to escape.\cite[]{Simms2014} In 1946 he received his
-degree in engineering from the Polytechnic Institute, and left Greece
-the following year, using a forged passport.\cite[]{Prendergast2014}
-
-Xenakis began working for Le Corbusier in 1948, but he continued to
-study and write music. While Xenakis was searching for a music mentor,
-he approached Oliver Messiaen\sidenote{Messiaen was a well known
-  french composer known for rhythmic complexity, and transcribing
-  birdsong into his music.}, and asked if he should study harmony or
-counterpoint. Messiaen later described his conversation with
-Xenakis:
+These projects build on the work and ideas of Iannis Xenakis, a 20th
+century composer, architect, and engineer. Xenakis spent his youth
+reading about astronomy, archeology, ancient literature, and
+mathematics.\cite[]{Hoffmann2015} In 1940 he was admitted to the
+Polytechnic Institute in Athens, Greece, where he studied music and
+engineering. By 1948, Xenakis had graduated form the University, and
+moved to France where he began to work for the french architect, Le
+Corbusier. The job put his engineering skills to use, but he wanted to
+continute studying and writing music.  While searching for a music
+mentor, he approached Oliver Messiaen\sidenote{Messiaen was a well
+  known french composer known for rhythmic complexity, and
+  transcribing birdsong into his music.}, and asked if he should study
+harmony or counterpoint. Messiaen later described his conversation
+with Xenakis:
 \begin{quotation}``I think one should study harmony and
   counterpoint. But this was a man so much out of the ordinary that I
   said: No, you are almost 30, you have the good fortune of being
@@ -214,7 +155,7 @@ Ultimately, Messiaen was rejecting Xenakis as a student, but we can
 see how Xenakis did draw from disparate skills in his composition. The
 score for his 1945 composition \textit{Metastasis}
 (figure~\ref{fig:metastasis}), resembles an architectural blueprint as
-much as it does a music score.
+much as it does a musical score.
 
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{XenakisMetastasis.jpg}
@@ -225,38 +166,73 @@ much as it does a music score.
   \label{fig:metastasis}
 \end{figure*}
 
-In 1956, Le Corbusier was focusing much of his attention on a larger
-project; Chandigarh, a city in India on the edge of the Himalayan
-plains. When he was approached by Louis Kalff and asked to build a
-pavilion for the 1958 World's Fair in Brussels, he immediately
-accepted. Kalff wanted the pavilion to showcase the sound and lighting
-potential of Philips' technologies. Le Corbusier determined that
-the shape of the building should resemble a stomach, with the audience
-entering through one entrance, and exiting through another. Thinking
-the design of the entire city of Chandigarh would be the masterpiece
-of his Architectural career,\cite{Flint2013} he delegated the design
-of the pavilion building to Xenakis.\cite{Clarke2012}
+\subsection{The Philips Pavilion}
+\label{sec:philips-pavilion-1}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{PhilipsPavilion-TechnicalReview-01.pdf}
+  \caption{The Philips Pavilion at the 1958 Brussels World Fair as
+    shown in Volume 20 of the \textit{Philips Technical Review}, 1959}
+  \label{fig:philips-pavilion-photo}
+\end{figure}
+In 1956, Le Corbusier was approached by Louis Kalff (Artistic Director
+for the Philips corporation) and asked to build a pavilion for the
+1958 World's Fair in Brussels. The pavilion was to showcase the sound
+and lighting potential of Philips' technologies. Le Corbusier
+immediately accepted, and replied, saying:
+\begin{quotation}
+  ``I will not make a pavilion for you but an Electronic Poem and a
+  vessel containing the poem; light, color image, rhythm and sound
+  joined together in an organic synthesis.''\cite{Lopez2011} 
+\end{quotation}
+The final product lived up to Le Corbusier's initial description. It
+included:\cite{Lombardo2009}
+\begin{enumerate}
+\item A concrete pavilion, designed by architect and composer Iannis
+  Xenakis
+\item \textit{Interlude Sonoire} (later renamed \textit{Concret PH}), a
+  tape music composition by Iannis Xenakis, approximately 2 minutes
+  long, played between performances, while one audience left and
+  pavillion, and the next audience another arrived.
+\item A three channel, 8 minute tape music composition, by French-born
+  composer Edgard Var\`{e}se
+\item A system for spatialized audio across at least 350 loudspeakers
+  distributed throughout the pavilion
+\item An assortment of colored lighting effects, designed by Le Corbusier in
+  collaboration with Philips art director Louis Kalff
+\item Video consisting mostly of black and white still images,
+  projected on two walls inside the pavilion
+\item A system for synchronizing playback of audio and video,
+  with the light effects and audio spatialization throughout the
+  experience
+\end{enumerate} 
 
-\paragraph{Polymath} The architectural evolution of the pavilion from
-Le Corbusier's early designs (figure~\ref{fig:le-corbusier-sketch})
-through Xenakis' iterations (figure~\ref{fig:xenakis-draw}),
-illustrates the impact that Xenakis had on the project. The
-\textit{Philips Technical Review}\cite{philips1958} gives a
-wonderfully detailed account of Xenakis' process:
+\paragraph{The Role Iannis Xenakis} During the initial design stage,
+Le Corbusier determined that the shape of the pavilion building should
+resemble a stomach, with the audience entering through one entrance,
+and exiting through another. He completed initial sketches of the
+pavilion layout, and then delegated the remainder of the design to
+Xenakis.\cite{Clarke2012}
+
+The architectural evolution of the pavilion from Le Corbusier's early
+designs (figure~\ref{fig:le-corbusier-sketch}) through Xenakis'
+iterations (figure~\ref{fig:xenakis-draw}), illustrates the impact
+that Xenakis had on the project. An article in the \textit{Philips
+  Technical Review}\cite{philips1958} gives a wonderfully detailed
+account of Xenakis' process:
 \begin{enumerate}
 \item Xenakis was aware that parallel walls, or concave spherical
   walls would negatively impact audio perceptibility due to repeated
   or localized acoustic reflections.
-\item To accommodate musical purpose of the space he decided to explore
-  surfaces with varying curvature...
+\item To accommodate musical purpose of the space he decided to
+  explore surfaces with varying curvature...
 \item 
   \begin{marginfigure}
     \includegraphics{hyperbolic-paraboloid}
-    \caption{A ruled surface. For a surface to be considered ``ruled'' every point on
-      the surface must be on a straight line, and that line must lie
-      on the surface. In Xenakis' time ruled surfaces were useful in
-      architecture, because they simplified the construction of curved
-      surfaces by using straight beams.}
+    \caption{A ruled surface. For a surface to be considered ``ruled''
+      every point on the surface must be on a straight line, and that
+      line must lie on the surface. In Xenakis' time ruled surfaces
+      were useful in architecture, because they simplified the
+      construction of curved surfaces by using straight beams.}
     \label{fig:ruled-surface}
   \end{marginfigure}...leading him to consider ruled surfaces such as
   the conoid and hyperbolic paraboloid. 
@@ -271,37 +247,38 @@ the philips pavilion was inspired by his work on
 \textit{Metastasis}. We begin to see the value of Xenakis' training in
 different fields.
 
-\begin{figure*}[h]
+\begin{figure}[]
   \includegraphics[width=\linewidth]{LeCorbusierDraw.pdf}
   \caption{Le Corbusier's design sketches for the Philips Pavilion,
     September \textendash{} October, 1956 (\textcircled{c} 2012
     Artists Rights Society, New York/ADAGP, Paris/FLC)}
   \label{fig:le-corbusier-sketch}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[h]
-  \includegraphics[width=\linewidth]{PhilipsDrawings.jpg}
+\begin{figure}[]
+  \includegraphics[]{PhilipsDrawings.jpg}
   \caption{Xenakis' early drawings of the Philips Pavilion as
     documented in the \textit{1958 Philips Technical Review}.}
   \label{fig:xenakis-draw}
-\end{figure*}
+\end{figure}
 
 \section{Architecture and Music in Space and Time}
 \label{sec:introduction-conclusion}
 
-In \textit{Formalized Music}, Xenakis describes how developments in
-music theory mimic equivalent developments in philosophy, mathematics,
-and the sciences. Plato, for example, believed that all events
-transpire as determined by cause and effect. While Plato and
-Aristotle both described causality in their writing, it was not until
-the 17th century that controlled experiments and mathematics
-corroborated the theory.\sidenote{In 1687, Isaac Newton published
-  \textit{Philosophi\ae{} Naturalis Principia Mathematica}
-  (\textit{Mathematical Principles of Natural Philosophy}), in which
-  he compiled the 3 laws of motion that set the foundation for the
-  study of \emph{classical mechanics}.}  Similarly, historical music
-follows deterministic progressions, and music theory employs causal
-rules to describe counterpoint, tonality, and harmonic movement.
+In \textit{Formalized Music},\cite{xenakis1992formalized} Xenakis
+describes how developments in music theory mimic equivalent
+developments in philosophy, mathematics, and the sciences. Plato, for
+example, believed that all events transpire as determined by cause and
+effect. While Plato and Aristotle both described causality in their
+writing, it was not until the 17th century that controlled experiments
+and mathematics corroborated the theory.\sidenote{In 1687, Isaac
+  Newton published \textit{Philosophi\ae{} Naturalis Principia
+    Mathematica} (\textit{Mathematical Principles of Natural
+    Philosophy}), in which he compiled the 3 laws of motion that set
+  the foundation for the study of \emph{classical mechanics}.}
+Similarly, historical music follows deterministic progressions, and
+music theory employs causal rules to describe counterpoint, tonality,
+and harmonic movement.
 
 Causality was largely used to describe physical phenomena until the
 19th century when statistical theories in physics began to include
@@ -314,7 +291,7 @@ noticed that more contemporary fields like \emph{probability theory}
 and \emph{fuzzy logic} generalize and expand on the antecedent
 theories of causality.
 
-Xenakis thought that music composition should naturally follow the
+Xenakis thought that  buildingmusic composition should naturally follow the
 progression that physics did, with the theory of music generalizing
 and expanding on causal rules that had existed previously. Indeed,
 starting in the late 19th century, and early 20th century, composers
@@ -347,11 +324,11 @@ mathematics that helped him to form his opinions about music theory.
 As a reference to \emph{chance} or \emph{stochos} Xenakis coined the term
 \emph{stochastic music} to describe his development.
 
-In \textit{Formalized Music},\cite{xenakis1992formalized} Xenakis
-formally explains stochastic music. It should be noted that some
-authors have interpreted his description more explicitly. In
-\textit{Audible Design}, Trevor Wishart, describes the stochastic
-process used to compose stochastic music as:
+In \textit{Formalized Music}, Xenakis formally explains stochastic
+music. It should be noted that some authors have interpreted his
+description more explicitly. In \textit{Audible Design}, Trevor
+Wishart, describes the stochastic process used to compose stochastic
+music as:
 \begin{quotation}
   ``A process in which the probabilities of proceeding from one state,
   or set of states. to another, is defined. The temporal evolution of
@@ -400,7 +377,6 @@ indiscriminately compose with space and sound.
 
 \section{Universality}
 \label{sec:universality}
-
 At the MIT Media Lab, we celebrate the study and practice of projects
 that exist outside of established academic disciplines. The Media Lab
 (and the media) have described this approach as interdisciplinary,
@@ -414,14 +390,13 @@ development, and performance of a new type of audio signal
 processor. In doing so, it draws from music, mathematics, computer
 science, acoustics, audio engineering and mixing, sound reinforcement,
 multimedia production, and live performance. How can we describe and
-document a project with such broad subject material?
-
-Within a single discipline, there is an accepted hierarchy of concepts,
-and we are expected to develop a \emph{deep} understanding that
-penetrates this hierarchy. We expect students to be literate in
-algebra, geometry and calculus before studying physics. When we
-describe a physics problem, we depend on an established collection of
-language, notation, and theory.
+document a project with such broad subject material? Within a single
+discipline, there is an accepted hierarchy of concepts, and we are
+expected to develop a \emph{deep} understanding that penetrates this
+hierarchy. We expect students to be literate in algebra, geometry and
+calculus before studying physics. When we describe a physics problem,
+we depend on an established collection of language, notation, and
+theory.
 
 This example reveals the curious tension between breadth and depth:
 The \textit{depth} of a disciplinary approach provides the language
