@@ -22,5 +22,12 @@ music was arefully composed, but smaller details were left to
 chance, essetially reducing the impact of the mathematics of chance on
 the composition. Xenakis had the opposite reaction. Xenakis saw how we
 could mathematically paramaterize chance, and create sonorities that
-arise from statistical means without depending on chance. 
+arise from statistical means without depending on pure chance. 
 
+# If there's time:
+THe Architecture and Music in Space and Time section is too long. put
+it somewhere else?
+
+# Also in Ref Mod 
+We know that Xenakis turned to curved surfaces because he wanted to
+avoid x
