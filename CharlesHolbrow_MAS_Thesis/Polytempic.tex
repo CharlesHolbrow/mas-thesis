@@ -36,10 +36,8 @@ We can see how this insight led Machover to begin programming
 computers to make sound, to IRCAM in Paris, and Finally to the MIT
 Media Lab where the \polytempic was developed. 
 
-Paper: realtime representation of 
-Paper: Stochos: Software for Real-Time Synthesis of Stochastic Music
-
-
+\section{Stochos}
+\label{sec:polytempic-stochos}
 In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw
 how Xenakix was using ruled surfaces to create swarms of notes that
 move together, creating stochastic sonorities. The goal of \polytempic
@@ -220,51 +218,45 @@ to slide into psuedo random noise. By beat 13 of the static tempo, the
 chaos of the many accelerating tempi begin to settle back into order
 before returning to complete syncronicity at $t=16$.
 
-\section{\textit{Tide}: A Musical Example}
-\label{sec:polytempic-implementation}
+\section{Prior Work}
+\label{sec:polytempic-prior-work}
+Many commercial and research projects deal with different ways to
+manipulate rhytm and tempo. Flexible digital audio workstations (DAWs)
+like Cockos Reaper\sidenote{\url{http://www.reaper.fm}} and MOTU
+Digital
+Performer\sidenote{\url{http://www.motu.com/products/software/dp}}
+include features for auditioning tracks or music-objects with unique
+simultaneous tempi, and individual tempos can even be automated
+relative to each other. However, the the precise non-linear tempo
+curves that are required for the syncopated musical content to
+syncronize correctly after a transition completes, are not possible in
+any DAW we tried. Audio programming languages like
+Max\sidenote{https://cycling74.com/products/max/} and
+SuperCollider\sidenote{http://supercollider.github.io/} could be used
+to create tempo swarms, but require equations like the ones defined in
+section~\ref{sec:polytempic-solution}. One project, \textit{Realtime
+  Represenation and Gestural Control lf Musical
+  Polytempi}\cite{Nash2008} demonstrates an interface for generating
+Polytempic music, but is not intended or capable of generating
+coordinated or stochastic tempi swarms.  \textit{The Beatbug
+  Network}\cite{Weinberg2002} is described as a multi-user interface
+for creating stochastic music, but is focused on ``beats'' or musical
+rhythmic patterns and timbres, rather than
+tempi. \textit{Stochos}\cite{Bokesoy2003} is a software synthesizer
+for generating sound using random mathematical distributions, but is
+also not designed to work with simultaneous tempos or even work as a
+rhythm generator.
+
 
 \section{Future Directions}
 \label{sec:polytempic-future-directions}
 \polytempic started with a question asked by musician and composer
 Bryn Bliska. She wanted compositional constructs like the one in
 figure~\ref{fig:basic-tempo-change} in her music, but found that it
-was not posible to do accurately inside of current digital audio
-workstations (DAWs). Flexible DAWs like Cockos Reaper and MOTU Digital
-Performer include features for auditioning tracks or music-objects
-with unique simultaneous tempi, and individual tempos can even be
-automated relative to each other. However, the the precise non-linear
-tempo curves that are required for the syncopated musical content to
-syncronize correctly after a transition completes, are not possible in
-any DAWs we tried. 
-
-At the time, neither Bryn nor I knew that Tod Machover had initially
-turned to computer music to solve exactly this problem. 
-
+was not posible to do accurately with currently available tools. At
+the time, neither Bryn nor I knew that Tod Machover had initially
+turned to computer music to solve exactly this problem.
 The equations derived here are an a partial solution to 
-
-\section{Polytempic Music and Polymetric Music}
-\label{sec:polytempic-vs-polymetric}
-It is easy to confuse poly tempic music with polymetric music.  Pieces
-where multiple meter
-Other notable composers
-of the time include John Cage, who wrote wrote what he called, Chance
-Music, and Stockhausen, Boulez and Berio who wrote aleatoric music.
-
-
-\section{Contribution}
-\label{sec:polytempic-contribution}
-
-and finishes the tempo transition slightly different tempos.
-
-To audition stochastic tempo transitions, we can create software tools
-that promt musicians with visual cues or aural cues, 
-More 
-
-For example we 
-
-Xenakis was among a group of
-20th century composers who were searching for ways to push the
-boundaries of established music composition.
 
 
 %%% Local Variables:
