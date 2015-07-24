@@ -91,8 +91,8 @@ var dotSize = 6;
 
 var config = {
   x1Low: 10,
-  x1High: 60,
-  height: 800,
+  x1High: 170,
+  height: 1700,
   width: 1440
 };
 
@@ -141,7 +141,7 @@ var layout = {
     r:60,
   },
   xaxis: {
-    title: "Time, Measured in Beats at Initial Tempo",
+    title: "",
     // zeroline on the xaxis is the vertical zero line
     zeroline: false,
     showline: false,
@@ -150,13 +150,17 @@ var layout = {
     autotick: false,
     tick0: -4,
     dtick: 4,
-    range: [-0.5, 40]
+    range: [-0.5, 40],
+    ticks: '',
+    showticklabels: false
   },
   yaxis: {
-    // autotick: false,
+    autotick: false,
+    showticklabels: false,
+    ticks:"",
     tick0: 10,
     dtick: 10,
-    title: "Beats During Transition",
+    title: "",
     titlefont: {color: tempoColor, size: axisTitleFontSize},
     tickfont: {color: tempoColor, size: axisTickFontSizeY},
     showline: false,
