@@ -1,29 +1,71 @@
-
 \chapter{The Hypercompressor}
 \label{ch:hypercompressor}
 
+The idea for Hypercompression came during the development of Vocal
+Vibrations.\cite{Holbrow2014}
+
 \section{Ambisonics}
 \label{sec:ambisonics}
+Ambisonics is a technique for encoding and decoding three-dimensional
+surround sound audio.\cite{Gerzon1985} Ambisonics differs from other
+surround sound formats like $5.1$ and $7.1$ in that it does not depend
+on a particular speaker configuration. An ambisonic recording can be
+decoded on any surround sound speaker configuration without
+disarranging the spatial contents of the audio recording. Ambisonic recordings
+use \textit{spherical harmonics} to encode three-dimensional surround
+sound audio.
 
 \subsection{Spherical Harmonics}
 \label{sec:spherical-harmonics}
+We know that we can construct any monophonic audio waveform by summing
+a (possibly infinite) number harmonic sine waves (fourier
+series).\sidenote{An excelent description of the transormation between
+  the time domain and frequency domain can be fount at
+  \url{http://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/}}
+For example, by summing odd \textit{order} sine harmonics at a given
+frequency $f$, $(1f, 3f, 5f, 7f, \ldots )$, we generate a square wave with
+fundamental frequency $f$. As the order increases, so does the
+temporal resolution of our square wave.
 
-We know that we can construct any band limited signal by summing a
-finite number harmonic sine waves.\sidenote{The best explaination
-  I've found of how a function may be described in the frequency
-  domain or the time domain can be found at \TODO{link better
-    explained site}} For example, by summing even order sine harmonics
-at a given frequency f (f, 2f, 4f, 6f, etc) , we generate a square
-wave with fundamental frequency f. As the order increases, so does the
-resolution of our square wave.
+By summing sinusoidal harmonics, we can generate any continuous
+waveform defined over one dimension. Similarly, by summing
+\emph{spherical harmonics}, we can generate any continous shape
+defined over the surface of a three-dimensional sphere. Where
+traditional monophonic audio encoding might save one sample 44100
+times per second, an ambisonic encoding would save one sample
+\emph{for each spherical harmonic} 44100 times per second. This way we
+capture a three-dimensional sound image at each audio sample.  The
+number of spherical harmonics we encode is determined be our
+\textit{ambisonic order}. As our ambisonic order increases, so does
+the angular resolution of our result on the surface of the sphere.
 
-By summing sine wave harmonics, we can generate any continuous
-function defined over one dimension. Similarly, by summing \emph{Spherical
-  Harmonics}, we can generate any function defined over the surface of
-a sphere. As the order of harmonic increases, the so does the
-resolution of our output on the surface of the sphere. While it's
-quite simple to generate sine harmonics (1f, 2f, 3f, 4f...),
-generating spherical harmonics is more involved\TODO{cite, links in
+\subsection{Laplace's Spherical Harmonics}
+
+For ambisonics, the convention is to use the real portion of Laplace's
+spherical harmonics to encode three-dimensional audio. 
+
+
+Each spherical harmonic is described as the output of a
+function with two arguments, \textit{order} ($n$), and
+\textit{degree} ($m$).
+
+\[
+Y_{n=0}^{m=0}()=\frac{1}{2 \sqrt{\pi }}
+\]
+
+\[\frac{1}{2 \sqrt{\pi }} \]
+
+
+
+While the fourier series is quite simple $(\sin(1f), \sin(2f),
+\sin(3f), \ldots)$, spherical harmonics become increasingle complex as
+the order increases. 
+
+The derivation of spherical harmonics is described
+elsewhere.\cite{Williams1999,Zotter2009a}
+
+
+generating spherical harmonics is more involved,\TODO{cite, links in
   Kronlacher's spatial transforms for the alteration of ambisonic recordings}.
 
 

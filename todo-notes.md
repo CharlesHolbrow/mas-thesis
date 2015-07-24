@@ -10,9 +10,15 @@ England
 
 Check subtitle from website - I can still change th title
 
-Conclusion - story about the phillips pavilion virtual reality revival
-project. Go on to say that we need interdisciplineary
+#Conclusion
 
+Story about the phillips pavilion virtual reality revival
+project.
+
+They built a custom sequencer that was capable of controlling the 180
+channels of lighting and visual effects. 
+
+Go on to say that we need interdisciplineary
 
 # Fit this in somewhere:
 After World War II, compositional tastes where changing. One reaction

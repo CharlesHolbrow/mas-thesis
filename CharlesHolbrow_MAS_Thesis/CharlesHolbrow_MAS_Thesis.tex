@@ -103,13 +103,20 @@
 % Number parts and chapters
 \setcounter{secnumdepth}{0}
 
+% Fix really stupid Tufte LaTeX thing
+\morefloats
+
+% \[ \] amsmath environment -> use \addtag to number equations
+\newcommand\addtag{\refstepcounter{equation}\tag{\theequation}}
+
 % Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}
-\newcommand{\subtitle}{\TODO{Optional Subtitle}}
+\newcommand{\subtitle}{Stochastic Signal Processing}
 \newcommand{\polytempic}{Stochastic Tempo Modulation\xspace}
 \newcommand{\refmod}{Reflection Modeler\xspace}
 
-\morefloats
+
+
 \begin{document}
 
 % Front matter
@@ -142,7 +149,7 @@ designers.
 \include{Hypercompressor}
 
 \backmatter
-\include{Acknowledgements}
+%\include{Acknowledgements}
 
 \bibliography{library}
 \bibliographystyle{plainnat}
