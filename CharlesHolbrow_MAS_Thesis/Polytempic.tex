@@ -5,12 +5,12 @@ music composition.\sidenote[][-5mm]{Works by Italian composer Luciano
   Berio illustrate the complexity of post-war contemporary
   music. Beginning in 1958, Berio wrote a series of works he called
   \textit{Sequenza}. Each was a highly of highly technical composition
-  written for a virtuostic soloists. Each was for a different
+  written for a virtuosic soloists. Each was for a different
   instrument ranging from flute to guitar to accordion.  In
   Sequenza~IV, for piano, Berio juxtaposes thirty-second note
   quintuplets, sextuplets, and septuplets (each with a different
   dynamic), over just a few measures.} As performers developed the
-virtuostic skills required to play the music, composers also wrote
+virtuosic skills required to play the music, composers also wrote
 increasingly difficult scores to challenge the
 performers.\cite{grout2006} One composer writing very complex music in
 this period was Elliot Carter. Carter developed a technique he called
@@ -19,13 +19,13 @@ one musical meter to another through a transitional section that
 shared aspects of both the original meter and the destination
 meter.
 
-While metric modulation is a tecnique for changing meter, and
+While metric modulation is a technique for changing meter, and
 and \polytempic is a technique for changing tempo, the former led to
 the later in a surprising way. Carter's reputation for complexity in
 music attracted the attention of composer and cellist Tod
 Machover. While Machover was studying with Carter, wrote a trio for
 violin, viola, and cello in which each instrument would accelerate or
-deccelerate relative to the others. The piece was so difficult, that
+decelerate relative to the others. The piece was so difficult, that
 it was impossible to find anyone who could play it correctly. In a
 recent interview, Machover recalls the experience:
 \begin{quotation}``A sort of lightbulb went off\ldots{} computers are out
@@ -39,19 +39,19 @@ Media Lab where the \polytempic was developed.
 \section{Stochos}
 \label{sec:polytempic-stochos}
 In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw
-how Xenakix was using ruled surfaces to create swarms of notes that
+how Xenakis was using ruled surfaces to create swarms of notes that
 move together, creating stochastic sonorities. The goal of \polytempic
 is to enable composition with swarms of tempo modulations that move in
 correlated, cohesive patterns. Music with two or more simultaneous
 tempos (polytempic music) is itself not a new concept, and many
-examples of polytemic music exist\cite{Greschak2003}. Slightly less
-comon is polytempic music where continuous tempo accelerations or
-deccelerations are defined relative to each other. This style of music
+examples of polytempic music exist\cite{Greschak2003}. Slightly less
+common is polytempic music where continuous tempo accelerations or
+decelerations are defined relative to each other. This style of music
 is well suited to tape music, because tape machines can play
 recordings back at variable rates. However, it is difficult to control
 the exact point (or phase) when de-synchronized tape becomes
 re-aligned. Performative music with simultaneous tempi that accelerate
-and decelearate realtive to each other is unusual, but does exist. In
+and decelerate relative to each other is unusual, but does exist. In
 a 1971 interview composer Steve Reich described how he made the
 transition to performative polytempic music after working on his tape
 music composition, \textit{Come Out}:
@@ -77,7 +77,7 @@ process is repeated and iterated on, creating a live \emph{phasing}
 effect without the pitch shifting that would occur when phasing analog
 tape. If we compare a live performance\cite{Huisman1989} with a
 programatic rendering\cite{Chen2014} of \textit{Piano Phase}, we can
-hear how the programatic rendering is able to accelearate more
+hear how the programatic rendering is able to accelerate more
 smoothly. The programatic example spends longer on the transitions
 where the two parts are out of phase.
 
@@ -87,13 +87,13 @@ Steve Reich composed \textit{Piano Phase} for two performers. In his
 experimentation, he found that if the music is reasonably simple, two
 performers can make synchronized tempo adjustments relative to each
 other well enough to yield compelling results. To create stochastic
-tempo transitions, our requirements are probably too demainding for
+tempo transitions, our requirements are probably too demanding for
 unassisted performers. Our goal is to compose and audition music
 where:
 \begin{enumerate}
   \item Swarms of an arbitrary number of simultaneous tempi
     coexist. 
-  \item Each individual player within the swarm can continously
+  \item Each individual player within the swarm can continuously
     accelerate or decelerate individually, but also as a member of a
     cohesive whole. 
   \item Each musical line can converge and diverge at explicit
@@ -106,7 +106,7 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
 \item Assume we have 2 snare drum players. Both begin playing the same
   beat at 90 BPM in common time.
 \item One performer gradually accelerates relative to the other. We want
-  to define a continous tempo curve such that one drummer accelerates
+  to define a continuous tempo curve such that one drummer accelerates
   to 120 BPM.
 \item So far, we can easily accomplish this with a simple linear tempo
   acceleration. However, we want the tempo transition to complete
@@ -117,7 +117,7 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
 \item We want the accelerating drummer to reach the new tempo after
   exactly 20 beats.
 \item We also want the acceleration to complete in exactly 16 beats of
-  the original tempo, so the drumer playing a constant tempo, and the
+  the original tempo, so the drummer playing a constant tempo, and the
   the accelerating drummer are playing together.
 \end{itemize}
 \begin{figure*}[h]
@@ -195,7 +195,7 @@ with respect to time.
 
 \section{Stochastic Transitions}
 \label{sec:polytempic-implementation}
-Equiped with out equations from the previous section, it is quite
+Equipped with out equations from the previous section, it is quite
 simple to create swarms of parallel tempos that are correlated and
 complex. In figure~\ref{fig:polytempic-transition} we build on the
 previous example. Here, each additional tempo curve is calculated the
@@ -212,16 +212,16 @@ during the transition) is incremented for each additional tempo line.
 This pattern clearly exhibits controlled chance, and that Xenakis
 would describe as \emph{stochastic}. On the very first beat at $t=0$,
 all parallel parts are aligned. Beats 2 and 3 can be heard as discrete
-rythmic events, but become increasingly indistinct. The end of beat 4
+rhythmic events, but become increasingly indistinct. The end of beat 4
 then overlaps with the start of beat 5, before articulated beats begin
-to slide into psuedo random noise. By beat 13 of the static tempo, the
+to slide into pseudo random noise. By beat 13 of the static tempo, the
 chaos of the many accelerating tempi begin to settle back into order
 before returning to complete syncronicity at $t=16$.
 
 \section{Prior Work}
 \label{sec:polytempic-prior-work}
 Many commercial and research projects deal with different ways to
-manipulate rhytm and tempo. Flexible digital audio workstations (DAWs)
+manipulate rhythm and tempo. Flexible digital audio workstations (DAWs)
 like Cockos Reaper\sidenote{\url{http://www.reaper.fm}} and MOTU
 Digital
 Performer\sidenote{\url{http://www.motu.com/products/software/dp}}
@@ -229,13 +229,13 @@ include features for auditioning tracks or music-objects with unique
 simultaneous tempi, and individual tempos can even be automated
 relative to each other. However, the the precise non-linear tempo
 curves that are required for the syncopated musical content to
-syncronize correctly after a transition completes, are not possible in
+synchronize correctly after a transition completes, are not possible in
 any DAW we tried. Audio programming languages like
 Max\sidenote{https://cycling74.com/products/max/} and
 SuperCollider\sidenote{http://supercollider.github.io/} could be used
 to create tempo swarms, but require equations like the ones defined in
 section~\ref{sec:polytempic-solution}. One project, \textit{Realtime
-  Represenation and Gestural Control lf Musical
+  Representation and Gestural Control of Musical
   Polytempi}\cite{Nash2008} demonstrates an interface for generating
 Polytempic music, but is not intended or capable of generating
 coordinated or stochastic tempi swarms.  \textit{The Beatbug
@@ -245,8 +245,9 @@ rhythmic patterns and timbres, rather than
 tempi. \textit{Stochos}\cite{Bokesoy2003} is a software synthesizer
 for generating sound using random mathematical distributions, but is
 also not designed to work with simultaneous tempos or even work as a
-rhythm generator.
-
+rhythm generator. Finally, \textit{Polytempo Network}\cite{Kocher2014}
+is a project that facilitates the performance of polytempic music, but
+does not aid the composition thereof.
 
 \section{Future Directions}
 \label{sec:polytempic-future-directions}
@@ -254,9 +255,18 @@ rhythm generator.
 Bryn Bliska. She wanted compositional constructs like the one in
 figure~\ref{fig:basic-tempo-change} in her music, but found that it
 was not posible to do accurately with currently available tools. At
-the time, neither Bryn nor I knew that Tod Machover had initially
-turned to computer music to solve exactly this problem.
-The equations derived here are an a partial solution to 
+the time, neither Bryn or I knew that Tod Machover had initially
+turned to computer music to solve exactly this problem.  However, the
+equations derived here are only a partial solution. The next step is
+to develop an interface for composing and performing with
+compositional or performative interface for controlling Stochastic
+Tempo Modulations.
+
+\begin{figure*}[]
+  \includegraphics[width=\linewidth]{stochastic-tempi-3.png}
+  \caption{\polytempic with variable $t_1$ and $x_1$.}
+  \label{fig:polytempic-transition-3}
+\end{figure*}
 
 
 %%% Local Variables:
