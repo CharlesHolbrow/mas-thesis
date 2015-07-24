@@ -48,8 +48,14 @@
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 
 \usepackage{units}
+
 % Control the formatting of lists
 \usepackage{enumitem}
+
+% tex exported by Mathematica wants us to use these
+\usepackage{amsmath, amssymb, graphics, setspace}
+\newcommand {\mathsym}[1]{{}}
+\newcommand {\unicode}[1]{{}}
 
 % Typesets the font size, leading, and measure in the form of 10/12x26 pc.
 \newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}}
@@ -106,8 +112,6 @@
 % Fix really stupid Tufte LaTeX thing
 \morefloats
 
-% \[ \] amsmath environment -> use \addtag to number equations
-\newcommand\addtag{\refstepcounter{equation}\tag{\theequation}}
 
 % Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}

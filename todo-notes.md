@@ -20,6 +20,9 @@ channels of lighting and visual effects.
 
 Go on to say that we need interdisciplineary
 
+Find the balance - let the computers do the formulaic things. Let the
+people do the feeling things. 
+
 # Fit this in somewhere:
 After World War II, compositional tastes where changing. One reaction
 to serialism was that of Stockhausen and Boulez. Both composers turned

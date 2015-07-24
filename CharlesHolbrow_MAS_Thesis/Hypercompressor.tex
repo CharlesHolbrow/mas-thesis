@@ -40,9 +40,15 @@ number of spherical harmonics we encode is determined be our
 the angular resolution of our result on the surface of the sphere.
 
 \subsection{Laplace's Spherical Harmonics}
-
 For ambisonics, the convention is to use the real portion of Laplace's
 spherical harmonics to encode three-dimensional audio. 
+\begin{equation}
+Y_{n}^{m}(\varphi,\vartheta)=N_n^{|m|}P_n^{|m|}(\sin{\vartheta})
+\begin{cases}
+\sin{|m|\varphi},&  \text{for $m<0$}\\  
+\cos{|m|\varphi},& \text{for $m\geq 0$}\\ 
+\end{cases}
+\end{equation}
 
 
 Each spherical harmonic is described as the output of a
