@@ -2,18 +2,32 @@
 \label{ch:hypercompressor}
 
 The idea for Hypercompression came during the development of Vocal
-Vibrations.\cite{Holbrow2014}
+Vibrations.\cite{Holbrow2014} What if we could position audio in space
+as carefully and maticulously as we can position audio in time?
 
 \section{Ambisonics}
 \label{sec:ambisonics}
-Ambisonics is a technique for encoding and decoding three-dimensional
+Ambisonic audio is a technique for encoding and decoding three-dimensional
 surround sound audio.\cite{Gerzon1985} Ambisonics differs from other
 surround sound formats like $5.1$ and $7.1$ in that it does not depend
 on a particular speaker configuration. An ambisonic recording can be
 decoded on any surround sound speaker configuration without
-disarranging the spatial contents of the audio recording. Ambisonic recordings
-use \textit{spherical harmonics} to encode three-dimensional surround
-sound audio.
+disarranging the spatial contents of the audio recording.
+
+Immagine we used an omnidirectinoal microphone to record an acoustic
+instrument at a sample rate of $44.1$ kHz. We sample and record 44100
+samples every second that represent the air pressure at the microphone
+capsule during the recording. Our omni-directional microphone is
+designed to treat sound arriving from all angles equally. The
+omnidirectional microphone sums together sounds arriving from all
+angles and the acoustic directional information is lost.
+
+If we want to encode, decode, transmit, or play audio that preserves
+full sphere 360 degree information, ambisonics offers a solution.
+Ambisonic audio uses \textit{spherical harmonics} to encode surround
+sound audio that preserves the direction-of-arrival information that
+discrete channel recordings (such as mono and stereo) cannot fully
+capture.
 
 \subsection{Spherical Harmonics}
 \label{sec:spherical-harmonics}
@@ -35,7 +49,7 @@ traditional monophonic audio encoding might save one sample 44100
 times per second, an ambisonic encoding would save one sample
 \emph{for each spherical harmonic} 44100 times per second. This way we
 capture a three-dimensional sound image at each audio sample.  The
-number of spherical harmonics we encode is determined be our
+number of spherical harmonics we encode is determined by our
 \textit{ambisonic order}. As our ambisonic order increases, so does
 the angular resolution of our result on the surface of the sphere.
 
@@ -48,14 +62,14 @@ equation~\ref{eq:spherical}, where:
 is:\sidenote{Some literature on spherical harmonics swaps the names
   for \textit{order} and \textit{degree}. In this thesis we use
   $Y_{order}^{degree}$. In literature where $Y_{degree}^{order}$ is
-  used, the function of the subscript and superscript remains
+  used, the functions of the subscript and superscript remain
   unchanged; only the names are inconsistent.}
 \begin{itemize}
 \item of order, $n$
 \item of degree, $m$
 \item defined over spherical coordinates $(\varphi, \vartheta)$
 \end{itemize}
-\item $N_n^{|m|}$ is normalization factor.\sidenote{In ambisonic
+\item $N_n^{|m|}$ is a normalization factor.\sidenote{In ambisonic
     literature (and software), there are multiple incompatible
     conventions for the normalization of spherical harmonics. This
     thesis asumes the SN3D convention as recomended by the AMBIX
@@ -76,15 +90,51 @@ audio recording as:
 f(\varphi,\vartheta,t)=\sum\limits_{n=0}^N\sum\limits_{m=-n}^nY_n^m(\varphi,\vartheta)\phi_{nm}(t)
 \label{eq:ambisonics}
 \end{equation}
-where:
+Where:
 \begin{itemize}
-\item $\varphi$ and $\vartheta$ are the angle of sound arrival in
-  spherical coordinates
+\item $\varphi$ and $\vartheta$ describe the polar angle of sound
+  arrival in two dimensions.\sidenote{Note that ambisonics uses polar
+    angles to describe the angle of arrival of sound. These are
+    similar to spherical coordinates, minus the inclusion of
+    \textit{radial distance}. Distance is not part of the ambisonic
+    specification.}
 \item $t$ is time
-\item $\phi_{nm}(t)$ are the 
+\item $\phi_{nm}(t)$ are our \textit{expansion coeficients}, described
+  below.
 \end{itemize}
-Note that while ambisonics describe the angles using the spherical
-coordinate convention, distance is not part of the specification.
+
+\subsection{Spherical Harmonic Expansion Coeficients}
+\label{sec:spher-harm-expans}
+In our monophonic recording example, we save just one sample 44100
+times per second, representing the fluctuations in air pressure. We
+know that by summing the correct combination of spherical harmonics,
+we can describe any continous function over the surface of a
+sphere. Instead of sampling air pressure directly, we sample a
+coefficient describing the weighting of each spherical harmonic 44100
+time per second. The resulting sphere corresponds to the pressure of
+sound ariving from all directions. The weighting coefficients or
+\textit{expansion coefficients} are recorded in our audio file instead
+of values representing air pressure directly. Now, by summing together
+our weighted spherical harmonics, we can reconstruct the fluctuations
+in pressure including the angle or arrival at our sample rate of 44100~kHz.
+
+\subsection{Spatial Resolution}
+\label{sec:spatial-resolution}
+
+
+
+If insead of 
+of recording a sample that represents fluctuations in air pressure, we
+record several samples, each representing the weight of a
+corresponding spherical harmonic, we can evaluate the 
+
+
+, we record one sample for each spherical harmonic, we
+can reconstruct the full sphere surround sound content at the audio
+rate. This process is known as expansion, and and the expansion
+coeficients
+
+In the previous section, we saw how increasing the order of 
 
 
 %%% Local Variables:

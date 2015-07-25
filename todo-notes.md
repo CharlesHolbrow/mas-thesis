@@ -23,13 +23,17 @@ Go on to say that we need interdisciplineary
 Find the balance - let the computers do the formulaic things. Let the
 people do the feeling things. 
 
-# Fit this in somewhere:
+# Fit this in somewhere
 After World War II, compositional tastes where changing. One reaction
 to serialism was that of Stockhausen and Boulez. Both composers turned
 to \textit{Aleatoric Music}, in which the overall structure of the
 music was arefully composed, but smaller details were left to
+\TODO{This is either misleading, or not true. Boulez was REALLY into
+pure chance.}
 chance, essetially reducing the impact of the mathematics of chance on
-the composition. Xenakis had the opposite reaction. Xenakis saw how we
+the composition.
+
+Some composers reacted to the serialism by Xenakis had the opposite reaction. Xenakis saw how we
 could mathematically paramaterize chance, and create sonorities that
 arise from statistical means without depending on pure chance. 
 
@@ -40,3 +44,9 @@ it somewhere else?
 # Also in Ref Mod 
 We know that Xenakis turned to curved surfaces because he wanted to
 avoid x
+
+He probably actually wanted difuse reflections,
+
+But if his use of reflections had been intentional, how would he have
+used them? 
+
