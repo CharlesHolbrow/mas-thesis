@@ -30,7 +30,7 @@ temporal resolution of our square wave.
 By summing sinusoidal harmonics, we can generate any continuous
 waveform defined over one dimension. Similarly, by summing
 \emph{spherical harmonics}, we can generate any continous shape
-defined over the surface of a three-dimensional sphere. Where
+defined over the surface of a three-dimensional sphere. Where a
 traditional monophonic audio encoding might save one sample 44100
 times per second, an ambisonic encoding would save one sample
 \emph{for each spherical harmonic} 44100 times per second. This way we
@@ -39,41 +39,52 @@ number of spherical harmonics we encode is determined be our
 \textit{ambisonic order}. As our ambisonic order increases, so does
 the angular resolution of our result on the surface of the sphere.
 
-\subsection{Laplace's Spherical Harmonics}
-For ambisonics, the convention is to use the real portion of Laplace's
-spherical harmonics to encode three-dimensional audio. 
+\subsection{Spherical Harmonic Definition}
+For encoding and decoding ambisonics, the convention is to use the
+real portion of spherical harmonics as defined in
+equation~\ref{eq:spherical}, where:
+\begin{itemize}
+\item $Y_{n}^{m}(\varphi,\vartheta)$ is a spherical harmonic that
+is:\sidenote{Some literature on spherical harmonics swaps the names
+  for \textit{order} and \textit{degree}. In this thesis we use
+  $Y_{order}^{degree}$. In literature where $Y_{degree}^{order}$ is
+  used, the function of the subscript and superscript remains
+  unchanged; only the names are inconsistent.}
+\begin{itemize}
+\item of order, $n$
+\item of degree, $m$
+\item defined over spherical coordinates $(\varphi, \vartheta)$
+\end{itemize}
+\item $N_n^{|m|}$ is normalization factor.\sidenote{In ambisonic
+    literature (and software), there are multiple incompatible
+    conventions for the normalization of spherical harmonics. This
+    thesis asumes the SN3D convention as recomended by the AMBIX
+    format specification.}\cite{Nachbar2011}
+\item $P_n^{|m|}$ is the associated Legendre function of order $n$,
+  and degree $m$.
+\end{itemize}
 \begin{equation}
 Y_{n}^{m}(\varphi,\vartheta)=N_n^{|m|}P_n^{|m|}(\sin{\vartheta})
-\begin{cases}
+\begin{cases}\label{eq:spherical}
 \sin{|m|\varphi},&  \text{for $m<0$}\\  
-\cos{|m|\varphi},& \text{for $m\geq 0$}\\ 
+\cos{|m|\varphi},& \text{for $m\geq 0$}\\
 \end{cases}
 \end{equation}
-
-
-Each spherical harmonic is described as the output of a
-function with two arguments, \textit{order} ($n$), and
-\textit{degree} ($m$).
-
-\[
-Y_{n=0}^{m=0}()=\frac{1}{2 \sqrt{\pi }}
-\]
-
-\[\frac{1}{2 \sqrt{\pi }} \]
-
-
-
-While the fourier series is quite simple $(\sin(1f), \sin(2f),
-\sin(3f), \ldots)$, spherical harmonics become increasingle complex as
-the order increases. 
-
-The derivation of spherical harmonics is described
-elsewhere.\cite{Williams1999,Zotter2009a}
-
-
-generating spherical harmonics is more involved,\TODO{cite, links in
-  Kronlacher's spatial transforms for the alteration of ambisonic recordings}.
-
+Given equation~\ref{eq:spherical}, we can define an ambisonic
+audio recording as:
+\begin{equation}
+f(\varphi,\vartheta,t)=\sum\limits_{n=0}^N\sum\limits_{m=-n}^nY_n^m(\varphi,\vartheta)\phi_{nm}(t)
+\label{eq:ambisonics}
+\end{equation}
+where:
+\begin{itemize}
+\item $\varphi$ and $\vartheta$ are the angle of sound arrival in
+  spherical coordinates
+\item $t$ is time
+\item $\phi_{nm}(t)$ are the 
+\end{itemize}
+Note that while ambisonics describe the angles using the spherical
+coordinate convention, distance is not part of the specification.
 
 
 %%% Local Variables:
