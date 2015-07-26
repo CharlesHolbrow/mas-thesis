@@ -54,15 +54,16 @@ number of spherical harmonics we encode is determined by our
 the angular resolution of our result on the surface of the sphere.
 
 \subsection{Spherical Harmonic Definition}
+We can encode additional spherical harmonics 
 For encoding and decoding ambisonics, the convention is to use the
 real portion of spherical harmonics as defined in
 equation~\ref{eq:spherical}, where:
 \begin{itemize}
 \item $Y_{n}^{m}(\varphi,\vartheta)$ is a spherical harmonic that
 is:\sidenote{Some literature on spherical harmonics swaps the names
-  for \textit{order} and \textit{degree}. In this thesis we use
+  of\textit{order} and \textit{degree}. In this thesis we use
   $Y_{order}^{degree}$. In literature where $Y_{degree}^{order}$ is
-  used, the functions of the subscript and superscript remain
+  used, the function of the subscript and superscript remain
   unchanged; only the names are inconsistent.}
 \begin{itemize}
 \item of order, $n$
@@ -102,39 +103,48 @@ Where:
 \item $\phi_{nm}(t)$ are our \textit{expansion coeficients}, described
   below.
 \end{itemize}
+\begin{figure}[]
+  \includegraphics[width=\linewidth]{SphericalHarmonics.png}
+  \caption{Spherical harmonics $0$th order (top row) through $3$rd
+    order (bottom row). This for image shows the output of
+    $Y_{n}^{m}(\varphi,\vartheta)$ for $n=0,n=1,n=2,$and $n=3$. The
+    distance of the surface from the origin shows the value at that
+    angle. Darker blue regions are positive, while lighter yellow
+    regions are negative. Image credit: Ingo Quilez, licensed under
+    Creative Commons Attribution-Share Alike 3.0 Unported.}
+  \label{fig:spherical-harmonics}
+\end{figure}
+
+
 
 \subsection{Spherical Harmonic Expansion Coeficients}
 \label{sec:spher-harm-expans}
-In our monophonic recording example, we save just one sample 44100
-times per second, representing the fluctuations in air pressure. We
-know that by summing the correct combination of spherical harmonics,
-we can describe any continous function over the surface of a
-sphere. Instead of sampling air pressure directly, we sample a
-coefficient describing the weighting of each spherical harmonic 44100
-time per second. The resulting sphere corresponds to the pressure of
-sound ariving from all directions. The weighting coefficients or
-\textit{expansion coefficients} are recorded in our audio file instead
-of values representing air pressure directly. Now, by summing together
-our weighted spherical harmonics, we can reconstruct the fluctuations
-in pressure including the angle or arrival at our sample rate of 44100~kHz.
+In our monophonic recording example, we save just one digital sample
+44100 times per second, with each saved value representing the
+in air pressure at a point in time. We know that by summing the correct
+combination of spherical harmonics, we can describe any continous
+function over the surface of a sphere. Instead of sampling air
+pressure directly, we sample a coefficient describing the weighting of
+each spherical harmonic 44100 times per second. The resulting sphere
+corresponds to the pressure of sound ariving from all directions. The
+weighting coefficients or \textit{expansion coefficients} are recorded
+in our audio file instead of values representing air pressure
+directly. Now, by summing together our weighted spherical harmonics,
+we can reconstruct the fluctuations in pressure including the angle of
+arrival information. We can do this we can generate this snapshot of
+informatino 44100 per second.
 
-\subsection{Spatial Resolution}
+\subsection{Spherical Haromincs and Spatial Resolution}
 \label{sec:spatial-resolution}
+By increasing the order of an ambisonic recording, we also increate
+the number of audio channels required, and the precision which which
+we can resolve position sounds in the recording.
 
 
-
-If insead of 
-of recording a sample that represents fluctuations in air pressure, we
-record several samples, each representing the weight of a
-corresponding spherical harmonic, we can evaluate the 
-
-
-, we record one sample for each spherical harmonic, we
-can reconstruct the full sphere surround sound content at the audio
-rate. This process is known as expansion, and and the expansion
-coeficients
-
-In the previous section, we saw how increasing the order of 
+\section{Usage}
+\label{sec:usage}
+There are two ways to create an ambisonic recording: Use a soundfeild
+microphone to recording an acoustic soundfield. 
 
 
 %%% Local Variables:
