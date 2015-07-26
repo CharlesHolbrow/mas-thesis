@@ -42,25 +42,25 @@ fundamental frequency $f$. As the order increases, so does the
 temporal resolution of our square wave.
 
 By summing sinusoidal harmonics, we can generate any continuous
-waveform defined over one dimension. Similarly, by summing
-\emph{spherical harmonics}, we can generate any continous shape
-defined over the surface of a three-dimensional sphere. Where a
-traditional monophonic audio encoding might save one sample 44100
-times per second, an ambisonic encoding would save one sample
-\emph{for each spherical harmonic} 44100 times per second. This way we
-capture a three-dimensional sound image at each audio sample.  The
-number of spherical harmonics we encode is determined by our
+waveform defined in two dimensions (one input parameter and one
+output). Similarly, by summing \emph{spherical harmonics}, we can
+generate any continous shape defined over the surface of a
+three-dimensional sphere (two input parameres, or polar angles, one
+output). Where a traditional monophonic audio encoding might save one
+sample 44100 times per second, an ambisonic encoding would save one
+sample \emph{for each spherical harmonic} 44100 times per second. This
+way we capture a three-dimensional sound image at each audio sample.
+The number of spherical harmonics we encode is determined by our
 \textit{ambisonic order}. As our ambisonic order increases, so does
 the angular resolution of our result on the surface of the sphere.
 
 \subsection{Spherical Harmonic Definition}
-We can encode additional spherical harmonics 
 For encoding and decoding ambisonics, the convention is to use the
 real portion of spherical harmonics as defined in
 equation~\ref{eq:spherical}, where:
 \begin{itemize}
 \item $Y_{n}^{m}(\varphi,\vartheta)$ is a spherical harmonic that
-is:\sidenote{Some literature on spherical harmonics swaps the names
+is:\marginnote{Some literature on spherical harmonics swaps the names
   of\textit{order} and \textit{degree}. In this thesis we use
   $Y_{order}^{degree}$. In literature where $Y_{degree}^{order}$ is
   used, the function of the subscript and superscript remain
@@ -111,40 +111,122 @@ Where:
     distance of the surface from the origin shows the value at that
     angle. Darker blue regions are positive, while lighter yellow
     regions are negative. Image credit: Ingo Quilez, licensed under
-    Creative Commons Attribution-Share Alike 3.0 Unported.}
+    \textit{Creative Commons Attribution-Share Alike 3.0 Unported}.}
   \label{fig:spherical-harmonics}
 \end{figure}
-
-
 
 \subsection{Spherical Harmonic Expansion Coeficients}
 \label{sec:spher-harm-expans}
 In our monophonic recording example, we save just one digital sample
-44100 times per second, with each saved value representing the
-in air pressure at a point in time. We know that by summing the correct
+44100 times per second, with each saved value representing the air
+pressure at a point in time. We know that by summing the correct
 combination of spherical harmonics, we can describe any continous
 function over the surface of a sphere. Instead of sampling air
 pressure directly, we sample a coefficient describing the weighting of
 each spherical harmonic 44100 times per second. The resulting sphere
-corresponds to the pressure of sound ariving from all directions. The
-weighting coefficients or \textit{expansion coefficients} are recorded
-in our audio file instead of values representing air pressure
-directly. Now, by summing together our weighted spherical harmonics,
-we can reconstruct the fluctuations in pressure including the angle of
-arrival information. We can do this we can generate this snapshot of
-informatino 44100 per second.
+encodes the pressure including the direction of arrival
+information. The weighting coefficients or \textit{expansion
+  coefficients} are recorded in our audio file instead of values
+representing air pressure directly. Now, by summing together our
+weighted spherical harmonics, we can reconstruct the fluctuations in
+pressure including the angle of arrival information. We can recall
+this snapshot of information 44100 times per second.
 
 \subsection{Spherical Haromincs and Spatial Resolution}
 \label{sec:spatial-resolution}
-By increasing the order of an ambisonic recording, we also increate
+By increasing the order of an ambisonic recording, we also increase
 the number of audio channels required, and the precision which which
-we can resolve position sounds in the recording.
+we can resolve position sounds in the recording. \TODO{Complete}
 
-
-\section{Usage}
+\subsection{Usage}
 \label{sec:usage}
 There are two ways to create an ambisonic recording: Use a soundfeild
-microphone to recording an acoustic soundfield. 
+microphone to recording an acoustic soundfield. \TODO{Complete}
+
+\section{Building on the Compression Paradigm}
+\marginnote{Unless noted otherwise, ``compression'' is used in this
+  thesis to describe dynamic range compression, as opposed to data
+  compression.}  The design, implementation, and use of traditional
+dynamic range compression is well documented in
+literature,\cite{Giannoulis2012,Case2007,Deruty2014} so the we will
+describe dynamic range compression only as much as is needed to
+explain the foundation for \thesis. Immagine we are
+mixing a vocal pop performance, and during the verse, and our singer
+is singing moderately loud, or \textit{mezzo-forte}. At the beginning
+of the chorus, our singer wants a full and powerful sound, so she
+adjusts the dynamic to very loud, or \textit{fortissimo}. However, the
+new louder dynamic interrupts the balance between the vocals and the
+other instruments in our mix. We like the powerful sound of our
+singer's \textit{fortissimo} performance, but our balance would be improved
+if we had the volume of a \textit{forte} performance instead. One option is to
+manually turn down the vocalist during the chorus, and in some cases
+this is the best solution. When we want more precise control, we can
+use a compressor.
+
+
+\subsection{Traditional Compression}
+\label{sec:trad-compr}
+A compressor is essentially an automated dynamic volume control. We
+send our vocalist's audio signal through a compressor, and whenever
+her voice exceedes a set \textit{threshold}, the signal is
+automatically attenuated. As the input signal further exceeds the
+level set by our compressors' threshold parameter, the output is
+further attenuated relative to the input signal. The compressor
+includes a \textit{ratio} parameter that determines the relationship
+between the input level and output level as shown in
+figure~\ref{fig:comp-ratio}.
+
+\begin{marginfigure}
+  \includegraphics[]{CompressionRatio.png}
+  \caption{``Compression ratio'' by Iain Fergusson. Licensed under
+     Public Domain via Wikimedia Commons 
+     \url{https://commons.wikimedia.org/wiki/File:Compression_ratio.svg\#/media/File:Compression_ratio.svg}
+   }
+  \label{fig:comp-ratio}
+\end{marginfigure}
+
+Threshold and ratio parameters are essential for controling dynamic
+range, but the power and creative flexibility of the compressor comes
+with two additional input parameters: \textit{attack time}, and
+\textit{release time}. These parameters determine the speed at which
+the compressor attenuates (attack) and disengages (release) when the
+input signal exceeds the threshold. By adjusting the attack and
+release times, we can change the focus of the compressor.
+\begin{itemize}
+\item Perhaps\marginnote{The attack/release times listed here are a
+    rough guide only. The effect of these parameters varies from one
+    model of compressor to another. Results also depend on audio input
+    material and threshold and ratio settings.} we want the compressor
+  to engage or disengage at the time scale of a musical phrase. We
+  could set our attack time long enough to let transients through
+  without engaging the compressor significantly (try 15
+  miliseconds). If our relsease time is quite long (try 300
+  milliseconds), and we set our threshold and ratio carefully, we
+  might be able to convince the compressor to smooth musical phrases.
+\item If we want our compressor to focus on syllables instead of
+  phrases, we can shorten our attack and release times (try 10
+  milliseconds and 40 milliseconds respecrively). When the compressor
+  engages and disengages at each syllable, it imparts a different
+  quality (sometimes described as ``punch'').
+\item If we reduce our attack and release parameters enough, we can
+  instruct our compressor to engage and disengage at the time scale of
+  an audio waveform, compressing individual cycles. This will distort
+  your audio signal, adding odd order harmonics,\sidenote{Not every
+    compressor model can react quickly enough to distort a waveform. The Dbx
+  160 and Teletronix LA2A are known to be fast enough to distort.} and
+imparting an entirely different quality.
+\end{itemize}
+Different compressors and compression settings offer different audio
+character, quality. Compression is an especially intersteing signal
+processing example, because in a musical context, the relationship
+between the formula, and the feeling is comparatively well understood.
+
+\begin{figure*}
+  \includegraphics[width=\linewidth]{SimpleCompressor.pdf}
+  \caption{Block diagram of a simple traditional dynamic range
+    compressor.}
+  \label{fig:comp-block}
+\end{figure*}
 
 
 %%% Local Variables:
