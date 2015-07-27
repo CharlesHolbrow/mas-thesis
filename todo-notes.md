@@ -1,14 +1,32 @@
-Add Chandelier Stuff to Intro. 
+# Hypercompressor
+
+Finish introduction
+
+Add side chain compression into
+
+Transforms like rotation and zoom.
+
+Rotation transforms are the key. How we can take a transform, and rotate it to get a better effect. 
+
+Describe what I actually did. (Which parts of the compressor need tobe re-considered?)
+
+Build Detector
+- Images: panned to the right from Mathematica
+- Image of visualizer in reaper (red/black)
+
+# Performance
+
+New chapter -(update link in introduction)
 
 Lots of Spatial Sound stuff in Hyper compression section. Use material
 from thesis proposal
 
-Tod's quote in Tempo Toy - http://www.dallasobserver.com/arts/an-interview-with-tod-machover-the-worlds-most-wired-composer-7086600
+# ok
 
-Ref Mod-  Email from Ben: Did you see this?  acoustic mirrors in
-England
-
-Check subtitle from website - I can still change th title
+Add Chandelier Stuff to Intro. 
+ 
+Check subtitle from website - I can still change th title - Add new
+sub title. 
 
 #Conclusion
 
@@ -50,3 +68,5 @@ He probably actually wanted difuse reflections,
 But if his use of reflections had been intentional, how would he have
 used them? 
 
+Ref Mod-  Email from Ben: Did you see this?  acoustic mirrors in
+England
