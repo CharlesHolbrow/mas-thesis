@@ -134,16 +134,20 @@ this snapshot of information 44100 times per second.
 
 \subsection{Usage}
 \label{sec:usage}
-There are two ways to create an ambisonic recording: Use a soundfeild
-microphone to recording an acoustic soundfield, and algorithmically
-panning virtual sources.  \TODO{Complete}
+There are two ways to create an ambisonic recording. First, we can use
+a soundfield microphone to record an acoustic soundfield. Soundfield
+microphones like the one developed by Calrec Audio can capture angle
+of arrival information with the spatial resolution of first order
+ambisonics.\cite[-1in]{Ferrar1979} Alternativley, we can algorithmically
+encode pre-recorded sources to create a virtual sources in an
+ambisonic bus.\cite[-0.4in]{Malham1995}
 
 \section{Building on the Compression Paradigm}
 \marginnote{Unless noted otherwise, ``compression'' is used in this
   thesis to describe dynamic range compression, as opposed to data
   compression.}  The design, implementation, and use of traditional
 dynamic range compression is well documented in
-literature,\cite{Giannoulis2012,Case2007,Deruty2014} so the we will
+literature,\cite[7mm]{Giannoulis2012,Case2007,Deruty2014} so the we will
 describe dynamic range compression only as much as is needed to
 explain the foundation for \thesis. Immagine we are
 mixing a vocal pop performance, and during the verse, and our singer
@@ -157,7 +161,6 @@ if we had the volume of a \textit{forte} performance instead. One option is to
 manually turn down the vocalist during the chorus, and in some cases
 this is the best solution. When we want more precise control, we can
 use a compressor.
-
 
 \subsection{Traditional Compression}
 \label{sec:trad-compr}
@@ -214,6 +217,10 @@ to another, and results also depend on the audio input material, and
 on the threshold and ratio settings. Again, the results of audio
 compression can sometimes be characterized better by a feeling than a
 formula.
+
+\section{An Ambisonic Compressor}
+\label{sec:ambis-compr}
+In the 
 
 \begin{figure*}
   \includegraphics[width=\linewidth]{SimpleCompressor.pdf}
