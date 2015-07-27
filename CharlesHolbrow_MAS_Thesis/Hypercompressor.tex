@@ -109,22 +109,19 @@ the bass guitar is only briefly attenuated, it will not be percieved
 as any quiter. 
 
 In this example we use the kick drum to create a gain envelope for our
-bass guitar: compression enabled us to shape our sounds in time. The
-attack time and realease time parameters give us a fine grain of
-control to shape our sounds in time.
-
-
-
-
+bass guitar. Compression enabled us to shape our sounds in time, and
+accomplish a musical objective. The attack time and realease time
+parameters give us a fine grain of control to shape our sounds in
+time. The next step is to expand this model to shape sounds in space.
 
 \section{Ambisonics}
 \label{sec:ambisonics}
-Ambisonic audio is a technique for encoding and decoding
-three-dimensional surround sound audio.\cite{Gerzon1985} Ambisonics
-differs from other surround sound formats like $5.1$ and $7.1$ in that
-it does not depend on a particular speaker configuration. An ambisonic
-recording can be decoded on any surround sound speaker configuration
-without disarranging the spatial contents of the audio recording.
+Ambisonics is a technique for encoding and decoding three-dimensional
+surround sound audio.\cite{Gerzon1985} Ambisonics differs from other
+surround sound formats like $5.1$ and $7.1$ in that it does not depend
+on a particular speaker configuration. An ambisonic recording can be
+decoded on any surround sound speaker configuration without
+disarranging the spatial contents of the audio recording.
 
 Immagine we used an omnidirectinoal microphone to record an acoustic
 instrument at a sample rate of $44.1$ kHz. We sample and record 44100
@@ -230,7 +227,7 @@ Where:
 \subsection{Spherical Harmonic Expansion Coeficients}
 \label{sec:spher-harm-expans}
 In our monophonic recording example, we save just one digital sample
-44100 times per second, with each saved value representing the air
+44100 times per second, and each saved value representing the air
 pressure at a point in time. We know that by summing the correct
 combination of spherical harmonics, we can describe any continous
 function over the surface of a sphere. Instead of sampling air
