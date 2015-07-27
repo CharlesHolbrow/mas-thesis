@@ -132,16 +132,11 @@ weighted spherical harmonics, we can reconstruct the fluctuations in
 pressure including the angle of arrival information. We can recall
 this snapshot of information 44100 times per second.
 
-\subsection{Spherical Haromincs and Spatial Resolution}
-\label{sec:spatial-resolution}
-By increasing the order of an ambisonic recording, we also increase
-the number of audio channels required, and the precision which which
-we can resolve position sounds in the recording. \TODO{Complete}
-
 \subsection{Usage}
 \label{sec:usage}
 There are two ways to create an ambisonic recording: Use a soundfeild
-microphone to recording an acoustic soundfield. \TODO{Complete}
+microphone to recording an acoustic soundfield, and algorithmically
+panning virtual sources.  \TODO{Complete}
 
 \section{Building on the Compression Paradigm}
 \marginnote{Unless noted otherwise, ``compression'' is used in this
@@ -185,7 +180,7 @@ figure~\ref{fig:comp-ratio}.
   \label{fig:comp-ratio}
 \end{marginfigure}
 
-Threshold and ratio parameters are essential for controling dynamic
+The threshold and ratio parameters are essential for controling dynamic
 range, but the power and creative flexibility of the compressor comes
 with two additional input parameters: \textit{attack time}, and
 \textit{release time}. These parameters determine the speed at which
@@ -193,16 +188,13 @@ the compressor attenuates (attack) and disengages (release) when the
 input signal exceeds the threshold. By adjusting the attack and
 release times, we can change the focus of the compressor.
 \begin{itemize}
-\item Perhaps\marginnote{The attack/release times listed here are a
-    rough guide only. The effect of these parameters varies from one
-    model of compressor to another. Results also depend on audio input
-    material and threshold and ratio settings.} we want the compressor
-  to engage or disengage at the time scale of a musical phrase. We
-  could set our attack time long enough to let transients through
-  without engaging the compressor significantly (try 15
-  miliseconds). If our relsease time is quite long (try 300
-  milliseconds), and we set our threshold and ratio carefully, we
-  might be able to convince the compressor to smooth musical phrases.
+\item Perhaps we want the compressor to engage or disengage at the
+  time scale of a musical phrase. We could set our attack time long
+  enough to let transients through without engaging the compressor
+  significantly (try 20 miliseconds). If our relsease time is quite
+  long (try 300 milliseconds), and we set our threshold and ratio
+  carefully, we might be able to convince the compressor to smooth
+  musical phrases.
 \item If we want our compressor to focus on syllables instead of
   phrases, we can shorten our attack and release times (try 10
   milliseconds and 40 milliseconds respecrively). When the compressor
@@ -211,15 +203,17 @@ release times, we can change the focus of the compressor.
 \item If we reduce our attack and release parameters enough, we can
   instruct our compressor to engage and disengage at the time scale of
   an audio waveform, compressing individual cycles. This will distort
-  your audio signal, adding odd order harmonics,\sidenote{Not every
+  an audio signal, adding odd order harmonics,\sidenote{Not every
     compressor model can react quickly enough to distort a waveform. The Dbx
   160 and Teletronix LA2A are known to be fast enough to distort.} and
 imparting an entirely different quality.
 \end{itemize}
-Different compressors and compression settings offer different audio
-character, quality. Compression is an especially intersteing signal
-processing example, because in a musical context, the relationship
-between the formula, and the feeling is comparatively well understood.
+The attack and release times listed here are a rough guide only.  The
+exact function of these parameters varies from one model of compressor
+to another, and results also depend on the audio input material, and
+on the threshold and ratio settings. Again, the results of audio
+compression can sometimes be characterized better by a feeling than a
+formula.
 
 \begin{figure*}
   \includegraphics[width=\linewidth]{SimpleCompressor.pdf}
