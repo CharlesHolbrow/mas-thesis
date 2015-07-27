@@ -1,18 +1,115 @@
 \chapter{The Hypercompressor}
 \label{ch:hypercompressor}
 
-The idea for Hypercompression came during the development of Vocal
-Vibrations.\cite{Holbrow2014} What if we could position audio in space
-as carefully and maticulously as we can position audio in time?
+The motivation for Hypercompression came during the development of
+Vocal Vibrations, an interactive music installation about the human
+voice and about engaging the public in singing.\cite{Holbrow2014} The
+project featured a Music Concr\`{e}te composition, \textit{The Chapel}
+by Tod Machover. The Chapel was mixed in a 10 channel surround sound
+format, and played throughout the installation. During the mixing
+process, I noticed an important surround sound tool missing from my
+mixing workflow. When mixing in mono or stereo, audio
+compression\marginnote{Unless noted otherwise, ``compression'' is used
+  in this thesis to describe dynamic range compression, as opposed to
+  data compression.} lets us meticulously shape and balance sounds in
+time. I found myself wishing I could shape and position sounds in
+space just as easily.
+
+\section{Building on the Compression Paradigm}
+The design, implementation, and use of traditional dynamic range
+compression is well documented in
+literature,\cite[]{Giannoulis2012,Case2007,Deruty2014} so the we will
+describe dynamic range compression only as much as is needed to
+explain the foundation for \thesis. Immagine we are mixing a vocal pop
+performance, and during the verse, and our singer is singing
+moderately loud, or \textit{mezzo-forte}. At the beginning of the
+chorus, our singer wants a full and powerful sound, so she adjusts the
+dynamic to very loud, or \textit{fortissimo}. However, the new louder
+dynamic interrupts the balance between the vocals and the other
+instruments in our mix. We like the powerful sound of our singer's
+\textit{fortissimo} performance, but our balance would be improved if
+we had the volume of a \textit{forte} performance instead. One option
+is to manually turn down the vocalist during the chorus, and in some
+cases this is the best solution. When we want more precise control, we
+can use a compressor.
+
+\subsection{Traditional Compression}
+\label{sec:trad-compr}
+A compressor is essentially an automated dynamic volume control. We
+send our vocalist's audio signal through a compressor, and whenever
+her voice exceedes a set \textit{threshold}, the signal is
+automatically attenuated. As the input signal further exceeds the
+level set by our compressors' threshold parameter, the output is
+further attenuated relative to the input signal. The compressor
+includes a \textit{ratio} parameter that determines the relationship
+between the input level and output level as shown in
+figure~\ref{fig:comp-ratio}.
+
+\begin{marginfigure}
+  \includegraphics[]{CompressionRatio.png}
+  \caption{``Compression ratio'' by Iain Fergusson. Licensed under
+     Public Domain via Wikimedia Commons 
+     \url{https://commons.wikimedia.org/wiki/File:Compression_ratio.svg\#/media/File:Compression_ratio.svg}
+   }
+  \label{fig:comp-ratio}
+\end{marginfigure}
+
+The threshold and ratio parameters are essential for controling dynamic
+range, but the power and creative flexibility of the compressor comes
+with two additional input parameters: \textit{attack time}, and
+\textit{release time}. These parameters determine the speed at which
+the compressor attenuates (attack) and disengages (release) when the
+input signal exceeds the threshold. By adjusting the attack and
+release times, we can change the focus of the compressor.
+\begin{itemize}
+\item Perhaps we want the compressor to engage or disengage at the
+  time scale of a musical phrase. We could set our attack time long
+  enough to let transients through without engaging the compressor
+  significantly (try 20 miliseconds). If our relsease time is quite
+  long (try 300 milliseconds), and we set our threshold and ratio
+  carefully, we might be able to convince the compressor to smooth
+  musical phrases.
+\item If we want our compressor to focus on syllables instead of
+  phrases, we can shorten our attack and release times (try 10
+  milliseconds and 40 milliseconds respecrively). When the compressor
+  engages and disengages at each syllable, it imparts a different
+  quality (sometimes described as ``punch'').
+\item If we reduce our attack and release parameters enough, we can
+  instruct our compressor to engage and disengage at the time scale of
+  an audio waveform, compressing individual cycles. This will distort
+  an audio signal, adding odd order harmonics,\sidenote{Not every
+    compressor model can react quickly enough to distort a
+    waveform. The Dbx 160 and Teletronix LA2A are known to be fast
+    enough to distort.} and imparting an entirely different quality.
+\end{itemize}
+The attack and release times listed here are a rough guide only.  The
+exact function of these parameters varies from one model of compressor
+to another, and results also depend on the audio input material, and
+on the threshold and ratio settings. Again, the results of audio
+compression can sometimes be characterized better by a feeling than a
+formula.
+
+\subsection{Side-Chain Compression}
+\label{sec:side-chain-compr}
+Compressors often have an additional operational mode that is the
+primary inspiration for Hypercompression. We know that compressors
+automatically reduce the gain of a signal that exceeds a given
+threshold. Some compressors allow us to attenuate the level of a
+signal when a diffierent signal exceeds the threshold level. A model
+that suports side-chain compression  has a second audio
+input. When we switch the compressor into side-chain mode, the
+compressor attenuates the first signal only when the second signal
+exceeds the threshold. 
+
 
 \section{Ambisonics}
 \label{sec:ambisonics}
-Ambisonic audio is a technique for encoding and decoding three-dimensional
-surround sound audio.\cite{Gerzon1985} Ambisonics differs from other
-surround sound formats like $5.1$ and $7.1$ in that it does not depend
-on a particular speaker configuration. An ambisonic recording can be
-decoded on any surround sound speaker configuration without
-disarranging the spatial contents of the audio recording.
+Ambisonic audio is a technique for encoding and decoding
+three-dimensional surround sound audio.\cite{Gerzon1985} Ambisonics
+differs from other surround sound formats like $5.1$ and $7.1$ in that
+it does not depend on a particular speaker configuration. An ambisonic
+recording can be decoded on any surround sound speaker configuration
+without disarranging the spatial contents of the audio recording.
 
 Immagine we used an omnidirectinoal microphone to record an acoustic
 instrument at a sample rate of $44.1$ kHz. We sample and record 44100
@@ -141,82 +238,6 @@ of arrival information with the spatial resolution of first order
 ambisonics.\cite[-1in]{Ferrar1979} Alternativley, we can algorithmically
 encode pre-recorded sources to create a virtual sources in an
 ambisonic bus.\cite[-0.4in]{Malham1995}
-
-\section{Building on the Compression Paradigm}
-\marginnote{Unless noted otherwise, ``compression'' is used in this
-  thesis to describe dynamic range compression, as opposed to data
-  compression.}  The design, implementation, and use of traditional
-dynamic range compression is well documented in
-literature,\cite[7mm]{Giannoulis2012,Case2007,Deruty2014} so the we will
-describe dynamic range compression only as much as is needed to
-explain the foundation for \thesis. Immagine we are
-mixing a vocal pop performance, and during the verse, and our singer
-is singing moderately loud, or \textit{mezzo-forte}. At the beginning
-of the chorus, our singer wants a full and powerful sound, so she
-adjusts the dynamic to very loud, or \textit{fortissimo}. However, the
-new louder dynamic interrupts the balance between the vocals and the
-other instruments in our mix. We like the powerful sound of our
-singer's \textit{fortissimo} performance, but our balance would be improved
-if we had the volume of a \textit{forte} performance instead. One option is to
-manually turn down the vocalist during the chorus, and in some cases
-this is the best solution. When we want more precise control, we can
-use a compressor.
-
-\subsection{Traditional Compression}
-\label{sec:trad-compr}
-A compressor is essentially an automated dynamic volume control. We
-send our vocalist's audio signal through a compressor, and whenever
-her voice exceedes a set \textit{threshold}, the signal is
-automatically attenuated. As the input signal further exceeds the
-level set by our compressors' threshold parameter, the output is
-further attenuated relative to the input signal. The compressor
-includes a \textit{ratio} parameter that determines the relationship
-between the input level and output level as shown in
-figure~\ref{fig:comp-ratio}.
-
-\begin{marginfigure}
-  \includegraphics[]{CompressionRatio.png}
-  \caption{``Compression ratio'' by Iain Fergusson. Licensed under
-     Public Domain via Wikimedia Commons 
-     \url{https://commons.wikimedia.org/wiki/File:Compression_ratio.svg\#/media/File:Compression_ratio.svg}
-   }
-  \label{fig:comp-ratio}
-\end{marginfigure}
-
-The threshold and ratio parameters are essential for controling dynamic
-range, but the power and creative flexibility of the compressor comes
-with two additional input parameters: \textit{attack time}, and
-\textit{release time}. These parameters determine the speed at which
-the compressor attenuates (attack) and disengages (release) when the
-input signal exceeds the threshold. By adjusting the attack and
-release times, we can change the focus of the compressor.
-\begin{itemize}
-\item Perhaps we want the compressor to engage or disengage at the
-  time scale of a musical phrase. We could set our attack time long
-  enough to let transients through without engaging the compressor
-  significantly (try 20 miliseconds). If our relsease time is quite
-  long (try 300 milliseconds), and we set our threshold and ratio
-  carefully, we might be able to convince the compressor to smooth
-  musical phrases.
-\item If we want our compressor to focus on syllables instead of
-  phrases, we can shorten our attack and release times (try 10
-  milliseconds and 40 milliseconds respecrively). When the compressor
-  engages and disengages at each syllable, it imparts a different
-  quality (sometimes described as ``punch'').
-\item If we reduce our attack and release parameters enough, we can
-  instruct our compressor to engage and disengage at the time scale of
-  an audio waveform, compressing individual cycles. This will distort
-  an audio signal, adding odd order harmonics,\sidenote{Not every
-    compressor model can react quickly enough to distort a waveform. The Dbx
-  160 and Teletronix LA2A are known to be fast enough to distort.} and
-imparting an entirely different quality.
-\end{itemize}
-The attack and release times listed here are a rough guide only.  The
-exact function of these parameters varies from one model of compressor
-to another, and results also depend on the audio input material, and
-on the threshold and ratio settings. Again, the results of audio
-compression can sometimes be characterized better by a feeling than a
-formula.
 
 \section{An Ambisonic Compressor}
 \label{sec:ambis-compr}

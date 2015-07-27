@@ -21,6 +21,10 @@ New chapter -(update link in introduction)
 Lots of Spatial Sound stuff in Hyper compression section. Use material
 from thesis proposal
 
+# Tempo Modulations
+
+Add note about how Bryn a max interface. 
+
 # ok
 
 Add Chandelier Stuff to Intro. 
