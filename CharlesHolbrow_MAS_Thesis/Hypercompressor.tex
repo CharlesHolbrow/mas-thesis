@@ -5,14 +5,14 @@ The motivation for Hypercompression came during the development of
 Vocal Vibrations, an interactive music installation about the human
 voice and about engaging the public in singing.\cite{Holbrow2014} The
 project featured a Music Concr\`{e}te composition, \textit{The Chapel}
-by Tod Machover. The Chapel was mixed in a 10 channel surround sound
+by Tod Machover. This music was mixed in a 10 channel surround sound
 format, and played throughout the installation. During the mixing
 process, I noticed an important surround sound tool missing from my
 mixing workflow. When mixing in mono or stereo, audio
 compression\marginnote{Unless noted otherwise, ``compression'' is used
   in this thesis to describe dynamic range compression, as opposed to
   data compression.} lets us meticulously shape and balance sounds in
-time. I found myself wishing I could shape and position sounds in
+time, I found myself wishing I could shape and position sounds in
 space just as easily.
 
 \section{Building on the Compression Paradigm}
@@ -89,6 +89,13 @@ on the threshold and ratio settings. Again, the results of audio
 compression can sometimes be characterized better by a feeling than a
 formula.
 
+\begin{figure*}
+  \includegraphics[width=\linewidth]{SimpleCompressor.pdf}
+  \caption{Block diagram of a simple traditional dynamic range
+    compressor.}
+  \label{fig:comp-block}
+\end{figure*}
+
 \subsection{Side-Chain Compression}
 \label{sec:side-chain-compr}
 Compressors often have an additional operational mode that is the
@@ -117,10 +124,10 @@ time. The next step is to expand this model to shape sounds in space.
 \section{Ambisonics}
 \label{sec:ambisonics}
 Ambisonics is a technique for encoding and decoding three-dimensional
-surround sound audio.\cite{Gerzon1985} Ambisonics differs from other
-surround sound formats like $5.1$ and $7.1$ in that it does not depend
-on a particular speaker configuration. An ambisonic recording can be
-decoded on any surround sound speaker configuration without
+surround sound audio.\cite{Gerzon1985} Ambisonic audio differs from
+other surround sound formats like $5.1$ and $7.1$ in that it does not
+depend on a particular speaker configuration. An ambisonic recording
+can be decoded on any surround sound speaker configuration without
 disarranging the spatial contents of the audio recording.
 
 Immagine we used an omnidirectinoal microphone to record an acoustic
@@ -146,8 +153,8 @@ series).\sidenote{An excelent description of the transormation between
   the time domain and frequency domain can be fount at
   \url{http://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/}}
 For example, by summing odd \textit{order} sine harmonics at a given
-frequency $f$, $(1f, 3f, 5f, 7f, \ldots )$, we generate a square wave with
-fundamental frequency $f$. As the order increases, so does the
+frequency $f$, $(1f, 3f, 5f, 7f, \ldots )$, we generate a square wave
+with fundamental frequency $f$. As the order increases, so does the
 temporal resolution of our square wave.
 
 By summing sinusoidal harmonics, we can generate any continuous
@@ -253,14 +260,12 @@ ambisonic bus.\cite[-0.4in]{Malham1995}
 
 \section{An Ambisonic Compressor}
 \label{sec:ambis-compr}
-In the 
+The goal of the ambisonic compressor is to 
 
-\begin{figure*}
-  \includegraphics[width=\linewidth]{SimpleCompressor.pdf}
-  \caption{Block diagram of a simple traditional dynamic range
-    compressor.}
-  \label{fig:comp-block}
-\end{figure*}
+The block diagram of a traditional compressor in
+figure~\ref{fig:comp-block} is can remain largely unchanged for our
+new ambisonic compressor. The 
+
 
 
 %%% Local Variables:
