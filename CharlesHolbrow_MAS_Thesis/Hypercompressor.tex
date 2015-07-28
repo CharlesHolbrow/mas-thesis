@@ -104,11 +104,11 @@ Compressors often have an additional operational mode that is the
 primary inspiration for Hypercompression. We know that compressors
 automatically reduce the gain of a signal that exceeds a given
 threshold. Some compressors allow us to attenuate the level of a
-signal when a diffierent signal exceeds the threshold level. Models
-that suports side-chain compression have a second audio
+signal when a \emph{different} signal exceeds the threshold
+level. Models that suports side-chain compression have a second audio
 input. When we switch the compressor into side-chain mode, the
 compressor attenuates the first signal only when the second signal
-exceeds the threshold. 
+exceeds the threshold.
 
 Side-chain compression is often used to moderate the balance of kick
 drum and bass guitar. If the bass guitar is briefly attenuated just
@@ -179,7 +179,7 @@ equation~\ref{eq:spherical}, where:
 \begin{itemize}
 \item $Y_{n}^{m}(\varphi,\vartheta)$ is a spherical harmonic that
 is:\marginnote{Some literature on spherical harmonics swaps the names
-  of\textit{order} and \textit{degree}. In this thesis we use
+  of \textit{order} and \textit{degree}. In this thesis we use
   $Y_{order}^{degree}$. In literature where $Y_{degree}^{order}$ is
   used, the function of the subscript and superscript remain
   unchanged; only the names are inconsistent.}
@@ -302,7 +302,6 @@ are:
 
 \subsection{Ambisonic Matrix Calculations}
 \label{sec:matrix-calculations}
-
 \marginnote{The Hyper compressor uses SN3D normalization, and and ACN
   channel ordering. Both are described in \textit{AMBIX~-~A Suggested
     Ambisonics Format. C. Nachbar et al., 2011}}
@@ -314,6 +313,54 @@ operations on them that rotate, warp, and re-orient our
 three-dimensional surround sound image.\cite{Kronlachner2014} 
 The ability to mathematically warp and maniulate our makes ambisonics
 the perfect choice for implementing a surround sound compressor. 
+
+\subsection{Hypercompressor Level Detector Module}
+\label{sec:hyperc-level-detect}
+The Hypercompressor needs to detect the level of our ambisonic input
+material, and identify (as quickly as possible) when and where the
+signal exceeds the compressor threshold. In the interest of
+computational efficiency, the first level detector I wrote attempted
+to extract overage information with minimal ambisonic decoding.
+\begin{enumerate}
+\item To accurately play a first order ambisonic encoding, we need a
+  minimun of 6 speakers placed around the listener. In this level
+  detector, we calculate the root mean square (RMS) average at the center of
+  6 lobes corespoinging to the first order spherical harmonics; front,
+  rear, left, right, top, and bottom.
+\item Calculate a map of the influce of each lobe on the surround image. For
+  example, pan a monophonic sound directly foward in an ambisonic
+  mix, cache an image of the resulting sound sphere. Save one image
+  for each of the 6 lobes.
+\item We have 6 images, each representing one of the 6 lobes of our
+  first order ambisonic spherical harmonics. In step 1, we calculated
+  the RMS level at each of the corresponding points on our surround
+  sphere. Use the 6 RMS levels to weight each of each of our 6
+  maps. The sum of the weighted maps show the gain distributed accross
+  our ambisonic sphere.
+\end{enumerate}
+
+\begin{figure}[h]
+ \includegraphics[width=3.5cm]{hypercomp/left_x72.png}
+ \includegraphics[width=3.5cm]{hypercomp/above_x72.png}
+ \includegraphics[width=3.5cm]{hypercomp/front_x72.png}
+ % \includegraphics[width=3.5cm]{hypercomp/right_x72.png}
+ % \includegraphics[width=3.5cm]{hypercomp/below_x72.png}
+ % \includegraphics[width=3.5cm]{hypercomp/rear_x72.png}
+  \caption{Influence maps of 3 first-order spherical harmonics: left, top, and
+    front. Pure white is -0 dBFS black is -inf dBFS. Cylindrical projection.}
+  \label{fig:hypercomp-inf-maps}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{hypercomp/AmbisonicFieldAngle.png}
+  \caption{Calculating the influcene in Wolfram Mathematica software
+    package}
+  \label{fig:hypercomp-inf-map-angle}
+\end{figure}
+
+
+%\paragraph{Results} While not completely mathematically rigerous, this
+%approach worked very well in certain contexts.
 
 
 %%% Local Variables:
