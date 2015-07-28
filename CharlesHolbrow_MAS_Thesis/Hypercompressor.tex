@@ -118,10 +118,10 @@ one masking the other. Because the bass guitar is only briefly
 attenuated, it will not be percieved as any quieter.
 
 In this example we use the kick drum to create a gain envelope for our
-bass guitar. Compression enabled us to shape our sounds in time, and
-accomplish a musical objective. The attack time and realease time
-parameters give us a fine grain of control to shape our sounds in
-time. The next step is to expand this model to shape sounds in space.
+bass guitar. The kick \emph{pushes} the bass to make room for
+itself. The attack time and realease time parameters give control over
+this behavoir in the temporal domain. The next step is to
+expand this model to add control in the spatial domain.
 
 \section{Ambisonics}
 \label{sec:ambisonics}
@@ -260,11 +260,13 @@ ambisonics.\cite[-1in]{Ferrar1979} Alternativley, we can algorithmically
 encode pre-recorded sources to create a virtual sources in an
 ambisonic bus.\cite[-0.4in]{Malham1995}
 
-\section{An Ambisonic Compressor}
-\label{sec:ambis-compr}
-Given ambisonic input, and an optional ambisonic side-chain input, 
-the ambisonic compressor is intended to process our input material in
-one of two modes.
+\section{Hypercompressor Design}
+\label{sec:hypercomp-design}
+The Hypercompressor (or ambisonic compressor) combines the traditional
+model of compression with the surround sound capability of
+ambisonics. Given ambisonic input, and an optional ambisonic
+side-chain input, the ambisonic compressor is intended to process our
+input material in one of two modes.
 \begin{enumerate}
 \item Standard mode: We set a compression threshold, similar to on a
   traditional compressor. When a region in our surround sound input
@@ -273,16 +275,45 @@ one of two modes.
 \item Side-chain mode: This mode takes advantage of a second ambisonic
   input to our signal processor. When the gain of spatial region in
   our secondary input exceeds our threshold, we attenuate that same
-  region in the the main input, and and output the results.
+  region in the the main input, and and output the results. In
+  side-chain mode the hypercompressor 
 \end{enumerate}
 In both modes, our ambisonic compressor must attenuate, and release
-attenuation according to the attack time and release time parameters.
+attenuation according to the attack time and release time
+parameters. The block diagram for our new hypercompressor can remain
+largely unganged from the the block-diagram for our traditional
+compressor in figure~\ref{fig:comp-block}. The most important changes
+are:
+\begin{itemize}
+\item Our audio signals must be updated to handle encoded
+  amnbisonics. This is as simple as increasing the number of channels
+  on each solid black connection in figure~\ref{fig:comp-block}. The
+  hypercompressor works with first order ambisonics, so every audio
+  path must carry four audio channels.
+\item On a traditional compressor, the level detector only needs to
+  detect the difference between the gain of the input signal, and the
+  gain specified by the threshold parameter. Our ambisonic level detector
+  needs to decode the incoming signal, and and itentify both a threshold
+  overage, and the region where the overage occured.
+\item Our gain control module needs to listen to the input coming from
+  the level detector module, and be able to attenuate the speciffic
+  regions that exceede our threshold parameter.
+\end{itemize}
 
+\subsection{Ambisonic Matrix Calculations}
+\label{sec:matrix-calculations}
 
-The block diagram of a traditional compressor in
-figure~\ref{fig:comp-block} is can remain largely unchanged for our
-new ambisonic compressor. The 
-
+\marginnote{The Hyper compressor uses SN3D normalization, and and ACN
+  channel ordering. Both are described in \textit{AMBIX~-~A Suggested
+    Ambisonics Format. C. Nachbar et al., 2011}}
+The spherical harmonics defined in equation~\ref{eq:ambisonics} form a
+set of orthoganal basis functions. If we define a squence for our
+spherical harmonics and spherical harmonic expansion coefficients, we
+can treat the expansion coefficients as vectors, and perform matrix
+operations on them that rotate, warp, and re-orient our
+three-dimensional surround sound image.\cite{Kronlachner2014} 
+The ability to mathematically warp and maniulate our makes ambisonics
+the perfect choice for implementing a surround sound compressor. 
 
 
 %%% Local Variables:
