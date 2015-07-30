@@ -21,12 +21,12 @@ compression is well documented in
 literature,\cite[]{Giannoulis2012,Case2007,Deruty2014} so the we will
 describe dynamic range compression only as much as is needed to
 explain the foundation for \thesis. Immagine we are mixing a vocal pop
-performance, and during the verse, and our singer is singing
-moderately loud, or \textit{mezzo-forte}. At the beginning of the
-chorus, our singer wants a full and powerful sound, so she adjusts the
-dynamic to very loud, or \textit{fortissimo}. However, the new louder
-dynamic interrupts the balance between the vocals and the other
-instruments in our mix. We like the powerful sound of our singer's
+performance, and during the verse our singer is singing moderately
+loud, or \textit{mezzo-forte}. At the beginning of the chorus, our
+singer wants a full and powerful sound, so she adjusts the dynamic to
+very loud, or \textit{fortissimo}. However, the new louder dynamic
+interrupts the balance between the vocals and the other instruments in
+our mix. We like the powerful sound of our singer's
 \textit{fortissimo} performance, but our balance would be improved if
 we had the volume of a \textit{forte} performance instead. One option
 is to manually turn down the vocalist during the chorus, and in some
@@ -187,7 +187,7 @@ is:\marginnote{Some literature on spherical harmonics swaps the names
 \begin{itemize}
 \item of order, $n$
 \item of degree, $m$
-\item defined over spherical coordinates $(\varphi, \vartheta)$
+\item defined over polar angles $(\varphi, \vartheta)$
 \end{itemize}
 \item $N_n^{|m|}$ is a normalization factor.\sidenote{In ambisonic
     literature (and software), there are multiple incompatible
@@ -301,20 +301,6 @@ are:
   regions that exceed our threshold parameter.
 \end{itemize}
 
-\subsection{Ambisonic Matrix Calculations}
-\label{sec:matrix-calculations}
-\marginnote{The Hyper compressor uses SN3D normalization, and and ACN
-  channel ordering. Both are described in \textit{AMBIX~-~A Suggested
-    Ambisonics Format. C. Nachbar et al., 2011}} The spherical
-harmonics defined in equation~\ref{eq:ambisonics} form a set of
-orthogonal basis functions. If we define a sequence for our spherical
-harmonics and spherical harmonic expansion coefficients, we can treat
-the expansion coefficients as vectors, and perform matrix operations
-on them that rotate, warp, and re-orient our three-dimensional
-surround sound image.\cite{Anderson2009} The ability to
-mathematically warp and manipulate our surround sounds image makes
-ambisonics the perfect choice for implementing a surround sound
-compressor.
 
 \subsection{Level Detection Module}
 \label{sec:an-accurate-level}
@@ -333,12 +319,25 @@ one approach for making a visual ambisonic level meter:\cite{Kronlachner2014}
 \item With the cached spherical harmonics, it is then possible to
   calculate the RMS and peak values more efficiently at the audio
   rate.
-\item A level meter does not need to update the display at the audio
+\item A level meter does not need to refresh the display at the audio
   sample rate, so it is acceptable to Interpolate between the points
   on the sphere, and update the graphical representation at the
-  control rate, which could be as slow as 30 Hz. 
+  control rate, which could be as slow as 30 Hz (approximately every
+  33 milliseconds).
 \end{enumerate}
-
+\begin{marginfigure}
+  \includegraphics{hypercomp/Icosahedron.png}
+  \caption{An icosahedron.}
+  \label{fig:icosahedron}
+\end{marginfigure}
+A similar approach can be used to make an ambisonic level
+detector. However, a compressor needs to react much quicker than a
+level meter. The compressor cannot even \emph{begin} to engage until
+the level meter has responded, and attack times faster than 33
+milliseconds are common in conventional compression. Every point on
+the sphere requires a buffer to calculate the RMS. We also need to
+decode ambisonics at the audio sample rate, and keep track of peak
+values. Ideally we would also interpolate between the points.
 
 \subsection{An Efficient Level Detection Module}
 \label{sec:hyperc-level-detect}
@@ -346,7 +345,8 @@ The Hypercompressor needs to detect the level of our ambisonic input
 material, and identify (as quickly as possible) when and where the
 signal exceeds the compressor threshold. In the interest of
 computational efficiency, the first level detector I wrote attempted
-to extract overage information with minimal ambisonic decoding.
+to extract overage information with minimal ambisonic decoding and
+signal processing.
 \begin{enumerate}
 \item To accurately play a first order ambisonic encoding, we need a
   minimun of 6 speakers placed around the listener. In this level
@@ -354,9 +354,11 @@ to extract overage information with minimal ambisonic decoding.
   center of 6 lobes corresponding to the first order spherical
   harmonics; front, rear, left, right, top, and bottom.
 \item Calculate a map of the influence of each lobe on the surround
-  image. For example, pan a monophonic sound directly forward in an
-  ambisonic mix, cache an image of the resulting sound sphere. Save
-  one image for each of the 6 lobes.
+  image
+  (figures~\ref{fig:hypercomp-mathematica},~\ref{fig:hypercomp-inf-maps}). For
+  example, pan a monophonic sound directly forward in an ambisonic
+  mix, cache an image of the resulting sound sphere. Save one image
+  for each of the 6 lobes.
 \item We have 6 images, each representing one of the 6 lobes of our
   first order ambisonic spherical harmonics. In step 1, we calculated
   the RMS level at each of the corresponding points on our surround
@@ -365,14 +367,14 @@ to extract overage information with minimal ambisonic decoding.
   our ambisonic sphere.
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[]
   \includegraphics[width=\linewidth]{hypercomp/AmbisonicFieldAngle.png}
   \caption{Calculating the cylindrical projection of single ambisonic panned
     source in the Wolfram Mathematica software package}
-  \label{fig:hypercomp-inf-map-angle}
+  \label{fig:hypercomp-mathematica}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[]
  \includegraphics[width=3.5cm]{hypercomp/left_x72.png}
  \includegraphics[width=3.5cm]{hypercomp/above_x72.png}
  \includegraphics[width=3.5cm]{hypercomp/front_x72.png}
@@ -395,17 +397,31 @@ described here might be useful, but in most cases, a different
 approach will be more effective.
 
 \begin{figure}[h]
-  \includegraphics{hypercomp/LevelDetect_front.png}
-%  \includegraphics{hypercomp/LevelDetect_45_down.png}
+%  \includegraphics{hypercomp/LevelDetect_front.png}
+  \includegraphics{hypercomp/LevelDetect_45_down.png}
   \caption{The Hypercompressor visualizer written for the efficient
     ambisonic level detector. The surround sphere is projected to a
-    cylinder, and unwrapped on the flat surface. In this image, a sine
-    tone is panned slightly down and to the left ($45\degree$ azimuth,
-    $-45\degree$ elevation) in front of the listener.}
+    cylinder, and unwrapped on the flat surface. In this image, a
+    monophonic source is panned slightly down and to the right
+    ($45\degree$ azimuth, $-45\degree$ elevation) in front of the
+    listener.}
   \label{fig:hypercomp-inf-map-angle}
 \end{figure}
 
-
+\subsection{Ambisonic Gain Control Module}
+\label{sec:ambis-gain-contr}
+\marginnote{The Hyper compressor uses SN3D normalization, and and ACN
+  channel ordering. Both are described in \textit{AMBIX~-~A Suggested
+    Ambisonics Format. C. Nachbar et al., 2011}} The spherical
+harmonics defined in equation~\ref{eq:ambisonics} form a set of
+orthogonal basis functions. If we define a sequence for our spherical
+harmonics and spherical harmonic expansion coefficients, we can treat
+the expansion coefficients as vectors, and perform matrix operations
+on them that rotate, warp, and re-orient our three-dimensional
+surround sound image.\cite{Anderson2009} The ability to
+mathematically warp and manipulate our surround sounds image makes
+ambisonics the perfect choice for implementing a surround sound
+compressor.
 
 
 %%% Local Variables:
