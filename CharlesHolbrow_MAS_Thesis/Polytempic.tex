@@ -19,43 +19,41 @@ transitional section that shared aspects of both the original meter
 and the new meter.
 
 While metric modulation is a technique for changing meter, and
-and \polytempic is a technique for changing tempo, the former led to
-the later in a surprising way. Carter's reputation for complexity in
-music attracted the attention of composer and cellist Tod
-Machover. While Machover was studying with Carter, wrote a trio for
-violin, viola, and cello in which each instrument would accelerate or
-decelerate relative to the others. The piece was so difficult, that
-it was impossible to find anyone who could play it correctly. In a
-recent interview, Machover recalls the experience:
+\polytempic is a technique for changing tempo, the former led to the
+later in a surprising way. Carter's reputation for complexity in music
+attracted the attention of composer and cellist Tod Machover. While
+Machover was studying with Carter, he wrote a trio for violin, viola,
+and cello, in which each instrument would accelerate or decelerate
+relative to the others. The piece turned out to be so difficult that
+it was impossible to find anyone who could play it correctly. Faced
+with this challenge, Machover saw opportunity:
 \begin{quotation}``A sort of lightbulb went off\ldots{} computers are out
   there, and if you have an idea and can learn how to program, you
   should be able to model it.''\cite{Fein2014}
 \end{quotation}
 If the music was too complex for a human to process, but we can define
-it formulaically, we can computer teach a computer, that in turn, can
-teach a human. This insight led Machover to begin programming
-computers to make sound, to IRCAM in Paris, and Finally to the MIT
-Media Lab where the \polytempic was developed.
+it formulaically, we can teach a computer to play sounds that a human
+cannot. \polytempic builds on this idea with inspiration from Xenakis.
 
 \section{Stochos}
 \label{sec:polytempic-stochos}
 In \autoref{ch:introduction} (see figure~\ref{fig:metastasis}) we saw
-how Xenakis was using ruled surfaces to create swarms of notes that
-move together, creating stochastic sonorities. The goal of \polytempic
-is to enable composition with swarms of tempo modulations that move in
-correlated, cohesive patterns. Music with two or more simultaneous
-tempos (polytempic music) is itself not a new concept, and many
-examples of polytempic music exist.\cite{Greschak2003} Slightly less
-common is polytempic music where continuous tempo accelerations or
-decelerations are defined relative to each other. This style of music
-is well suited to tape music, because tape machines can play
-recordings back at variable rates. However, it is difficult to control
-the exact point (or phase) when de-synchronized tape becomes
-re-aligned. Performative music with simultaneous tempi that accelerate
-and decelerate relative to each other is unusual, but does exist. In
-a 1971 interview composer Steve Reich described how he made the
-transition to performative polytempic music after working on his tape
-music composition, \textit{Come Out}:
+how Xenakis used ruled surfaces in his composition to compose swarms
+of notes that move together, creating stochastic sonorities. The goal
+of \polytempic is to enable composition with swarms of tempo
+modulations that move in correlated, cohesive patterns. Music with two
+or more simultaneous tempos (polytempic music) is itself not a new
+concept, and many examples of polytempic music
+exist.\cite{Greschak2003} Slightly less common is polytempic music
+where continuous tempo accelerations or decelerations are defined
+relative to each other. This style of music is well suited to tape
+music, because tape machines can play recordings back at variable
+rates. However, it is difficult to control the exact point (or phase)
+when de-synchronized tape becomes re-aligned. Performative music with
+simultaneous tempi that accelerate and decelerate relative to each
+other is unusual, but does exist. In a 1971 interview composer Steve
+Reich described how he made the transition to performative polytempic
+music after working on his tape music composition, \textit{Come Out}:
 \begin{quotation}
   ``1966 was a very depressing year. I began to feel like a mad
   scientist trapped in a lab: I had discovered the phasing process
@@ -84,13 +82,13 @@ where the two parts are out of phase.
 
 \section{Objective}
 \label{sec:polytempic-objective}
-Steve Reich composed \textit{Piano Phase} for two performers. In his
+Steve Reich composed \textit{Piano Phase} for two performers. Through
 experimentation, he found that if the music is reasonably simple, two
 performers can make synchronized tempo adjustments relative to each
-other well enough to yield compelling results. To create stochastic
-tempo transitions, our requirements are probably too demanding for
-unassisted performers. Our goal is to compose and audition music
-where:
+other well enough to yield compelling results. \polytempic allows us
+to write music with many more simultaneous tempi. However, the
+requirements are probably too demanding for unassisted performers. Our
+goal is to compose and audition music where:
 \begin{enumerate}
   \item Swarms of an arbitrary number of simultaneous tempi
     coexist. 
@@ -131,14 +129,13 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
 \section{Solution}
 \label{sec:polytempic-solution}
 We are interested in both the number of beats elapsed in the static
-tempo \emph{and} in the changing tempo, and the absolute tempo. Let us
+tempo \emph{and} in the changing tempo, and the absolute tempo. If we
 think of the number of beats elapsed as our \emph{position}, and the
 tempo as our \emph{rate}, we see how this resembles a physics
 problem. If we have a function that describes our tempo (or rate), we
 can integrate that function, and the result will tell us our number of
-beats elapsed (or position). Given the above considerations, we define
-our tempo curve in terms of 5 constants:
-\hfill\break
+beats elapsed (or position). Given the above considerations, our tempo
+curve is defined in terms of 5 constants: \hfill\break
 \begin{fullwidth}
 \begin{itemize}
   \item Time $t_0=0$, when the tempo transition begins
@@ -164,7 +161,7 @@ velocity curve (\ref{bpm}). The velocity curve describes the tempo (in beats per
 minute)\marginnote{We must specify the same time units for input
   variables like $t_1$ and $\dot{x_1}$. I prefer \textit{minutes} for
   $t_1$ and \textit{beats per minute} for $\dot{x_1}$ over
-  \textit{seconds} and \textit{beats per second}} with respect to
+  \textit{seconds} and \textit{beats per second}.} with respect to
 time.
 \begin{equation}
 	\label{bpm}
@@ -222,29 +219,29 @@ before returning to complete syncronicity at $t=16$.
 \section{Tide: Composition with \polytempic}
 \label{sec:composition}
 An earlier version of the equation derived here was packaged as a
-patch for the Max graphical programming language. Composer Bryn Bliska
-developed a user interface, and used it in the composition of
+patch for the Max\sidenote{https://cycling74.com/products/max/}
+graphical programming language. Composer Bryn Bliska developed a user
+interface and used it in the composition of
 \textit{Tide}.\sidenote{Available online:
   \url{http://web.media.mit.edu/~holbrow/mas/Tide_Bliska_Holbrow.wav}}
-While this ealier version of the equation could did not support a
-variable $x_1$ parameter, \textit{Tide} uses \polytempic to drive the
-phasing tempos of the bell-like synthesizers throughout the piece for
-two to three simultaneous tempi.
+While this ealier version of the equation did not support a variable
+$x_1$ parameter, \textit{Tide} uses \polytempic to drive the phasing
+tempos of the bell-like synthesizers throughout the piece for two to
+three simultaneous tempi.
 
 \section{Prior Work}
 \label{sec:polytempic-prior-work}
 Many commercial and research projects deal with different ways to
-manipulate rhythm and tempo. Flexible digital audio workstations (DAWs)
-like Cockos Reaper\sidenote{\url{http://www.reaper.fm}} and MOTU
-Digital
+manipulate rhythm and tempo. Flexible digital audio workstations
+(DAWs) like Cockos Reaper\sidenote{\url{http://www.reaper.fm}} and
+MOTU Digital
 Performer\sidenote{\url{http://www.motu.com/products/software/dp}}
 include features for auditioning tracks or music-objects with unique
 simultaneous tempi, and individual tempos can even be automated
-relative to each other. However, the the precise non-linear tempo
-curves that are required for the syncopated musical content to
-synchronize correctly after a transition completes, are not possible in
-any DAW we tried. Audio programming languages like
-Max\sidenote{https://cycling74.com/products/max/} and
+relative to each other. However, the precise non-linear tempo curves
+that are required for the syncopated musical content to synchronize
+correctly after a transition completes are not possible in any DAW we
+tried. Audio programming languages like Max and
 SuperCollider\sidenote{http://supercollider.github.io/} could be used
 to create tempo swarms, but require equations like the ones defined in
 section~\ref{sec:polytempic-solution}. One project, \textit{Realtime
@@ -253,27 +250,14 @@ section~\ref{sec:polytempic-solution}. One project, \textit{Realtime
 Polytempic music, but is not intended or capable of generating
 coordinated or stochastic tempi swarms.  \textit{The Beatbug
   Network}\cite{Weinberg2002} is described as a multi-user interface
-for creating stochastic music, but is focused on ``beats'' or musical
-rhythmic patterns and timbres, rather than
+for creating stochastic music, but is focused on ``beats,'' or musical
+rhythmic patterns, and timbres, rather than
 tempi. \textit{Stochos}\cite{Bokesoy2003} is a software synthesizer
 for generating sound using random mathematical distributions, but is
-also not designed to work with simultaneous tempos or even work as a
-rhythm generator. Finally, \textit{Polytempo Network}\cite{Kocher2014}
-is a project that facilitates the performance of polytempic music, but
-does not aid the composition thereof.
-
-\section{Future Directions}
-\label{sec:polytempic-future-directions}
-\polytempic started with a question asked by musician and composer
-Bryn Bliska. She wanted compositional constructs like the one in
-figure~\ref{fig:basic-tempo-change} in her music, but found that it
-was not posible to do accurately with currently available tools. At
-the time, neither Bliska or I knew that Tod Machover had initially
-turned to computer music to solve exactly this problem.  However, the
-equations derived here are only a partial solution. The next step is
-to develop an interface for composing and performing with
-compositional or performative interface for controlling Stochastic
-Tempo Modulations.
+also not designed to work with simultaneous tempos or even as a rhythm
+generator. Finally, \textit{Polytempo Network}\cite{Kocher2014} is a
+project that facilitates the performance of polytempic music, but does
+not aid the composition thereof.
 
 \begin{figure*}[]
   \includegraphics[width=\linewidth]{stochastic-tempi-3.png}
