@@ -5,23 +5,23 @@ The motivation for Hypercompression came during the development of
 Vocal Vibrations, an interactive music installation about the human
 voice and about engaging the public in singing.\cite{Holbrow2014} The
 project featured a Music Concr\`{e}te composition, \textit{The Chapel}
-by Tod Machover. This music was mixed in a 10 channel surround sound
-format, and played throughout the installation. During the mixing
+by Tod Machover, which was mixed in a 10 channel surround sound
+format and played throughout the installation. During the mixing
 process, I noticed an important surround sound tool missing from my
 mixing workflow. When mixing in mono or stereo, audio
 compression\marginnote{Unless noted otherwise, ``compression'' is used
   in this thesis to describe dynamic range compression, as opposed to
   data compression.} lets us meticulously shape and balance sounds in
-time, I found myself wishing I could shape and position sounds in
+time. I found myself wishing I could shape and position sounds in
 space just as easily.
 
 \section{Building on the Compression Paradigm}
 The design, implementation, and use of traditional dynamic range
-compression is well documented in
-literature,\cite[]{Giannoulis2012,Case2007,Deruty2014} so the we will
+compression is well documented in the
+literature,\cite[]{Giannoulis2012,Case2007,Deruty2014} so we will
 describe dynamic range compression only as much as is needed to
-explain the foundation for \thesis. Immagine we are mixing a vocal pop
-performance, and during the verse our singer is singing moderately
+explain the foundation for \thesis. Imagine we are mixing a vocal pop
+performance, and during the verse our vocalist is singing moderately
 loud, or \textit{mezzo-forte}. At the beginning of the chorus, our
 singer wants a full and powerful sound, so she adjusts the dynamic to
 very loud, or \textit{fortissimo}. However, the new louder dynamic
@@ -29,7 +29,7 @@ interrupts the balance between the vocals and the other instruments in
 our mix. We like the powerful sound of our singer's
 \textit{fortissimo} performance, but our balance would be improved if
 we had the volume of a \textit{forte} performance instead. One option
-is to manually turn down the vocalist during the chorus, and in some
+is to manually turn down the vocalist during the chorus, which in some
 cases this is the best solution. When we want more precise control, we
 can use a compressor.
 
@@ -59,10 +59,10 @@ figure~\ref{fig:comp-ratio}.
 Threshold and ratio settings are essential for controlling dynamic
 range, but the power and creative flexibility of the compressor comes
 with the attack time and release time parameters. These parameters
-determine the speed at which the compressor attenuates (attack) and
-disengages (release) when the input signal exceeds the threshold. By
-adjusting the attack and release times, we can change the temporal
-focus of the compressor.
+determine the speed at which the compressor attenuates (attack time)
+and disengages (release time) when the input signal exceeds the
+threshold. By adjusting the attack and release times, we can change
+the temporal focus of the compressor.
 \begin{itemize}
 \item Perhaps we want the compressor to engage or disengage at the
   time scale of a musical phrase. We could set our attack time long
@@ -86,8 +86,8 @@ focus of the compressor.
 \end{itemize}
 The attack and release times listed here are a rough guide only.  The
 exact function of these parameters varies from one model of compressor
-to another, and results also depend on the audio input material, and
-on the threshold and ratio settings. Again, the results of audio
+to another, and results also depend on the audio input material and
+on the threshold and ratio settings. The results of audio
 compression can sometimes be characterized better by a feeling than a
 formula.
 
@@ -133,7 +133,7 @@ ambisonic recording can be decoded on any surround sound speaker
 configuration without disarranging the spatial contents of the audio
 recording.
 
-Immagine we used an omnidirectional microphone to record an acoustic
+Imagine we use an omnidirectional microphone to record an acoustic
 instrument at a sample rate of 44.1 kHz. We sample and record 44100
 samples every second that represent the air pressure at the microphone
 capsule during the recording. Our omni-directional microphone is
@@ -151,9 +151,9 @@ capture.
 \subsection{Spherical Harmonics}
 \label{sec:spherical-harmonics}
 We know that we can construct any monophonic audio waveform by summing
-a (possibly infinite) number harmonic sine waves (Fourier
+a (possibly infinite) number of harmonic sine waves (Fourier
 series).\sidenote{An excellent description of the transformation between
-  the time domain and frequency domain can be fount at
+  the time domain and frequency domain can be found at
   \url{http://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/}}
 For example, by summing odd \textit{order} sine harmonics at a given
 frequency $f$, $(1f, 3f, 5f, 7f, \ldots )$, we generate a square wave
@@ -192,9 +192,9 @@ is:\marginnote{Some literature on spherical harmonics swaps the names
 \item $N_n^{|m|}$ is a normalization factor.\sidenote{In ambisonic
     literature (and software), there are multiple incompatible
     conventions for the normalization of spherical harmonics. This
-    thesis asumes the SN3D convention as recommended by the AMBIX
+    thesis assumes the SN3D convention as recommended by the AMBIX
     format specification.}\cite{Nachbar2011}
-\item $P_n^{|m|}$ is the associated Legendre function of order $n$,
+\item $P_n^{|m|}$ is the associated Legendre function of order $n$
   and degree $m$.
 \end{itemize}
 \begin{equation}
@@ -258,7 +258,7 @@ a soundfield microphone to record an acoustic soundfield. Soundfield
 microphones like the one developed by Calrec Audio can capture angle
 of arrival information with the spatial resolution of first order
 ambisonics.\cite[-1in]{Ferrar1979} Alternatively, we can algorithmically
-encode pre-recorded sources to create a virtual sources in an
+encode pre-recorded sources, creating virtual sources in an
 ambisonic bus.\cite[-0.4in]{Malham1995}
 
 \section{Hypercompressor Design}
@@ -267,22 +267,21 @@ The Hypercompressor (or ambisonic compressor) combines the traditional
 model of compression with the surround sound capability of
 ambisonics. Given ambisonic input, and an optional ambisonic
 side-chain input, the ambisonic compressor is intended to process our
-input material in one of two modes.
+input material in one of two modes:
 \begin{enumerate}
 \item Standard mode: We set a compression threshold, similar to on a
   traditional compressor. When a region in our surround sound input
-  material exceeds the set threshold, the compressor engages, and
+  material exceeds the set threshold, the compressor engages and
   attenuates only that region.
 \item Side-chain mode: This mode takes advantage of a second ambisonic
   input to our signal processor. When the gain of spatial region in
   our secondary input exceeds our threshold, we attenuate that same
-  region in the the main input, and and output the results. In
-  side-chain mode the hypercompressor 
+  region in the the main input, and output the results.
 \end{enumerate}
-In both modes, our ambisonic compressor must attenuate, and release
+In both modes, our ambisonic compressor must attenuate and release
 attenuation according to the attack time and release time
 parameters. The block diagram for our new hypercompressor can remain
-largely unchanged from the the block-diagram for our traditional
+largely unchanged from the the block diagram for our traditional
 compressor in figure~\ref{fig:comp-block}. The most important changes
 are:
 \begin{itemize}
@@ -292,15 +291,14 @@ are:
   hypercompressor works with first order ambisonics, so every audio
   path must carry four audio channels.
 \item On a traditional compressor, the level detector only needs to
-  detect the difference between the gain of the input signal, and the
+  detect the difference between the gain of the input signal and the
   gain specified by the threshold parameter. Our ambisonic level detector
-  needs to decode the incoming signal, and and identify both a threshold
-  overage, and the region where the overage occurred.
+  needs to decode the incoming signals and identify both a threshold
+  overage and the region where the overage occurred.
 \item Our gain control module needs to listen to the input coming from
-  the level detector module, and be able to attenuate the specific
+  the level detector module and be able to attenuate the specific
   regions that exceed our threshold parameter.
 \end{itemize}
-
 
 \subsection{Level Detection Module}
 \label{sec:an-accurate-level}
@@ -311,17 +309,18 @@ one approach for making a visual ambisonic level meter:\cite{Kronlachner2014}
 \item Choose a series of discrete points distributed on the surface of
   a sphere. Ideally the points are equally distributed, so the
   vertices of platonic solid shapes like the dodecahedron (12-sided
-  polyhedron) and icosahedron (20 sided polyhedron) work well. For
-  spatial accuracy, Kronlachner recommends a spherical $t$-design with
-  240 points described by Hardin and Sloane.\cite{Hardin1996}
+  polyhedron) and icosahedron (20-sided polyhedron,
+  figure~\ref{fig:icosahedron}) work well. For spatial accuracy,
+  Kronlachner recommends a spherical $t$-design with 240 points
+  described by Hardin and Sloane.\cite{Hardin1996}
 \item Evaluate each spherical harmonic at every point chosen. Cache
   the results in a matrix. 
 \item With the cached spherical harmonics, it is then possible to
   calculate the RMS and peak values more efficiently at the audio
   rate.
 \item A level meter does not need to refresh the display at the audio
-  sample rate, so it is acceptable to Interpolate between the points
-  on the sphere, and update the graphical representation at the
+  sample rate, so it is acceptable to interpolate between the points
+  on the sphere and update the graphical representation at the
   control rate, which could be as slow as 30 Hz (approximately every
   33 milliseconds).
 \end{enumerate}
@@ -336,25 +335,25 @@ level meter. The compressor cannot even \emph{begin} to engage until
 the level meter has responded, and attack times faster than 33
 milliseconds are common in conventional compression. Every point on
 the sphere requires a buffer to calculate the RMS. We also need to
-decode ambisonics at the audio sample rate, and keep track of peak
+decode ambisonics at the audio sample rate and keep track of peak
 values. Ideally we would also interpolate between the points.
 
 \subsection{An Efficient Level Detection Module}
 \label{sec:hyperc-level-detect}
 The Hypercompressor needs to detect the level of our ambisonic input
-material, and identify (as quickly as possible) when and where the
+material and identify (as quickly as possible) when and where the
 signal exceeds the compressor threshold. In the interest of
 computational efficiency, the first level detector I wrote attempted
 to extract overage information with minimal ambisonic decoding and
 signal processing.
 \begin{enumerate}
 \item To accurately play a first order ambisonic encoding, we need a
-  minimun of 6 speakers placed around the listener. In this level
+  minimum of 6 speakers placed around the listener. In this level
   detector, we calculate the root mean square (RMS) average at the
   center of 6 lobes corresponding to the first order spherical
-  harmonics; front, rear, left, right, top, and bottom.
+  harmonics: front, rear, left, right, top, and bottom.
 \item Calculate a map of the influence of each lobe on the surround
-  image
+  image\TODO{Clean}
   (figures~\ref{fig:hypercomp-mathematica},~\ref{fig:hypercomp-inf-maps}). For
   example, pan a monophonic sound directly forward in an ambisonic
   mix, cache an image of the resulting sound sphere. Save one image
@@ -362,9 +361,9 @@ signal processing.
 \item We have 6 images, each representing one of the 6 lobes of our
   first order ambisonic spherical harmonics. In step 1, we calculated
   the RMS level at each of the corresponding points on our surround
-  sphere. Use the 6 RMS levels to weight each of each of our 6
-  maps. The sum of the weighted maps show the gain distributed across
-  our ambisonic sphere.
+  sphere. Use the 6 RMS levels to weight each of our 6 maps. The sum
+  of the weighted maps shows the gain distributed across our ambisonic
+  sphere.
 \end{enumerate}
 
 \begin{figure}[]
@@ -401,7 +400,7 @@ effective.
   \includegraphics{hypercomp/LevelDetect_45_down.png}
   \caption{The Hypercompressor visualizer written for the efficient
     ambisonic level detector. The surround sphere is projected to a
-    cylinder, and unwrapped on the flat surface. In this image, a
+    cylinder and unwrapped on the flat surface. In this image, a
     monophonic source is panned slightly down and to the right
     ($45\degree$ azimuth, $-45\degree$ elevation) in front of the
     listener.}
@@ -416,10 +415,10 @@ effective.
 harmonics defined in equation~\ref{eq:ambisonics} form a set of
 orthogonal basis functions. If we define a sequence for our spherical
 harmonics and spherical harmonic expansion coefficients, we can treat
-the expansion coefficients as vectors, and perform matrix operations
+the expansion coefficients as vectors and perform matrix operations
 on them that rotate, warp, and re-orient our three-dimensional
 surround sound image.\cite{Anderson2009} The ability to
-mathematically warp and manipulate our surround sounds image makes
+mathematically warp and manipulate our surround sound image makes
 ambisonics the perfect choice for implementing a surround sound
 compressor.
 
