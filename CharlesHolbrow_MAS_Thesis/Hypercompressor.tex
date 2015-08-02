@@ -434,8 +434,8 @@ effective.
 The spherical harmonics defined in equation~\ref{eq:ambisonics} form a
 set of orthogonal basis functions. If we define a sequence for our
 spherical harmonics and spherical harmonic expansion coefficients, we
-can treat the expansion coefficients as vectors and perform matrix
-operations on them that rotate, warp, and re-orient our
+can treat a set of expansion coefficients as a vector, and perform
+matrix operations on them that rotate, warp, and re-orient our
 three-dimensional surround sound image.\cite{Pomberger2011} The
 ability to mathematically warp and manipulate our surround sound image
 makes ambisonics the perfect choice for implementing a surround sound
@@ -444,11 +444,8 @@ compressor.
 \paragraph{The Focus Transform} One transform that lets us attenuate a
 region of the surround sound sphere is the \textit{focus} transform
 distributed as part of the open source Ambisonic Toolkit
-(ATK)\sidenote{\url{http://www.ambisonictoolkit.net/}} This transform
-is intended to focus on transform is intended to focus on the 
-\cite{Anderson2009}
-\begin{fullwidth}
-\[ \left( \begin{array}{cccc}
+(ATK).\sidenote{\url{http://www.ambisonictoolkit.net/}}\cite{Anderson2009}
+\[F=\left( \begin{array}{cccc}
 \frac{1}{1 + \sin|w|} & 
 \frac{1}{\sqrt{2}} \frac{\sin(w)}{1 + \sin|w|}  & 
 0 &
@@ -459,7 +456,7 @@ is intended to focus on transform is intended to focus on the
 0 \\
 0 & 
 0 &
-\frac{\cos(w)}{1 + \sin(w)} &
+\frac{\cos(w)}{1 + \sin|w|} &
 0 \\
 0 &
 0 &
@@ -467,7 +464,17 @@ is intended to focus on transform is intended to focus on the
 \frac{\cos(w)}{1 + \sin|w|} 
 \end{array} \right)
 \]
-\end{fullwidth}
+This transform is intended to focus attention on the region directly
+in front of the listener ($0\degree$ azimuth, $0\degree$ elevation),
+by attenuating the region in the opposite direction, and gently
+warping the surround image toward the front. $w$ is a value between
+$0$ and $\frac{\pi}{2}$~radians, and specifies the intensity of the
+transformation. When $w=0$, the surround field is unchanged. When
+$w=\frac{\pi}{2}$ sounds hard to the rear are muted, the rest of the
+surround image in warped to the front, and the gain facing forward is
+unchanged. 
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "CharlesHolbrow_MAS_Thesis"
