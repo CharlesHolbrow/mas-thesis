@@ -191,9 +191,9 @@ is:\marginnote{Some literature on spherical harmonics swaps the names
 \end{itemize}
 \item $N_n^{|m|}$ is a normalization factor.\sidenote{In ambisonic
     literature (and software), there are multiple incompatible
-    conventions for the normalization of spherical harmonics. This
-    thesis assumes the SN3D convention as recommended by the AMBIX
-    format specification.}\cite{Nachbar2011}
+    conventions for the normalization of spherical harmonics. The
+    Hypercompressor uses the \textit{Furse-Malham} (FuMa)
+    normalization convention.}
 \item $P_n^{|m|}$ is the associated Legendre function of order $n$
   and degree $m$.
 \end{itemize}
@@ -261,9 +261,32 @@ ambisonics.\cite[-1in]{Ferrar1979} Alternatively, we can algorithmically
 encode pre-recorded sources, creating virtual sources in an
 ambisonic bus.\cite[-0.4in]{Malham1995}
 
+\section{Ambisonic Conventions used for Hypercompression}
+\label{sec:ambis-conv-used}
+This thesis follows ambisonic convention for describing axis of
+rotation. The x-axis points forward, the y-axis point left, and the
+z-axis points up. Polar angles are used to describe orientation with
+$0\degree$ azimuth being forward, and increasing as we move to the
+left. $0\degree$ elevation also points forward, and increases as we
+move upward, with $90\degree$ being strait up along the z-axis. When
+working with ambisonics, multiple inconpatible conventions exist for
+ordering and normalizing spherical harmonics.\cite{Nachbar2011} The
+Hypercompressor uses \textit{Furse-Malham} normaliation
+(FuMa)\cite{Malham2003}, and first order ambionics with
+\textit{B-format}\cite{Hollerweger2008} channel ordering. B-format
+ordering labels the four first-order ambisonic channels as W, X, Y,
+and Z, with W being the spherical harmonic of order zero and degree zero,
+and X, Y, and Z being the ressure gradient components along their
+respective axes. 
+
 \section{Hypercompressor Design}
 \label{sec:hypercomp-design}
-The Hypercompressor (or ambisonic compressor) combines the traditional
+\begin{figure*}
+  \includegraphics[width=\linewidth]{hypercomp/AmbisonicCompressor.pdf}
+  \caption{Block diagram of the Hypercompressor.}
+  \label{fig:hypercomp-block}
+\end{figure*}
+\noindent The Hypercompressor (or ambisonic compressor) combines the traditional
 model of compression with the surround sound capability of
 ambisonics. Given ambisonic input, and an optional ambisonic
 side-chain input, the ambisonic compressor is intended to process our
@@ -280,10 +303,10 @@ input material in one of two modes:
 \end{enumerate}
 In both modes, our ambisonic compressor must attenuate and release
 attenuation according to the attack time and release time
-parameters. The block diagram for our new hypercompressor can remain
-largely unchanged from the the block diagram for our traditional
-compressor in figure~\ref{fig:comp-block}. The most important changes
-are:
+parameters. The block diagram for our new hypercompressor
+(figure~\ref{fig:hypercomp-block}) can remain largely unchanged from
+the the block diagram for our traditional compressor in
+figure~\ref{fig:comp-block}. The most important changes are:
 \begin{itemize}
 \item Our audio signals must be updated to handle encoded
   ambisonics. This is as simple as increasing the number of channels
@@ -402,29 +425,49 @@ effective.
     ambisonic level detector. The surround sphere is projected to a
     cylinder and unwrapped on the flat surface. In this image, a
     monophonic source is panned slightly down and to the right
-    ($45\degree$ azimuth, $-45\degree$ elevation) in front of the
-    listener.}
+    ($-45\degree$ azimuth, $-45\degree$ elevation).}
   \label{fig:hypercomp-inf-map-angle}
 \end{figure}
 
 \subsection{Ambisonic Gain Control Module}
 \label{sec:ambis-gain-contr}
-\marginnote{The Hyper compressor uses SN3D normalization, and and ACN
-  channel ordering. Both are described in \textit{AMBIX~-~A Suggested
-    Ambisonics Format. C. Nachbar et al., 2011}} The spherical
-harmonics defined in equation~\ref{eq:ambisonics} form a set of
-orthogonal basis functions. If we define a sequence for our spherical
-harmonics and spherical harmonic expansion coefficients, we can treat
-the expansion coefficients as vectors and perform matrix operations on
-them that rotate, warp, and re-orient our three-dimensional surround
-sound image.\cite{Pomberger2011} The ability to mathematically warp and
-manipulate our surround sound image makes ambisonics the perfect
-choice for implementing a surround sound compressor.
+The spherical harmonics defined in equation~\ref{eq:ambisonics} form a
+set of orthogonal basis functions. If we define a sequence for our
+spherical harmonics and spherical harmonic expansion coefficients, we
+can treat the expansion coefficients as vectors and perform matrix
+operations on them that rotate, warp, and re-orient our
+three-dimensional surround sound image.\cite{Pomberger2011} The
+ability to mathematically warp and manipulate our surround sound image
+makes ambisonics the perfect choice for implementing a surround sound
+compressor.
 
-\paragraph{The Focus Transform} One transform first defined by
+\paragraph{The Focus Transform} One transform that lets us attenuate a
+region of the surround sound sphere is the \textit{focus} transform
+distributed as part of the open source Ambisonic Toolkit
+(ATK)\sidenote{\url{http://www.ambisonictoolkit.net/}} This transform
+is intended to focus on transform is intended to focus on the 
 \cite{Anderson2009}
-
-
+\begin{fullwidth}
+\[ \left( \begin{array}{cccc}
+\frac{1}{1 + \sin|w|} & 
+\frac{1}{\sqrt{2}} \frac{\sin(w)}{1 + \sin|w|}  & 
+0 &
+0 \\
+\sqrt{2}\frac{sin(w)}{1 + \sin|w|} & % LG1
+\frac{1}{1 + \sin|w|} &                    % LG0
+0 & 
+0 \\
+0 & 
+0 &
+\frac{\cos(w)}{1 + \sin(w)} &
+0 \\
+0 &
+0 &
+0 &
+\frac{\cos(w)}{1 + \sin|w|} 
+\end{array} \right)
+\]
+\end{fullwidth}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "CharlesHolbrow_MAS_Thesis"
