@@ -1,10 +1,70 @@
-# Hypercompressor
+# From Me
 
-Transforms like rotation and zoom.  Rotation transforms are the
-key. How we can take a transform, and rotate it to get a better
-effect.  Describe what I actually did. (Which parts of the compressor
-need tobe re-considered?)
+What is stochastics?
 
+When the number of elements grows sufficiently large, it is no longer
+productive to describe them individually.
+
+Granularity.
+
+Stochatic music generalize music and audio theory. 
+
+indiscriminately compose with space and sound.
+
+When we write
+
+
+
+# From Tod
+
+## - Why stochastics?
+
+Why is this technique particularly well suited for the kinds of
+processes you developed.
+
+## 2 - What is particularly interesting about using one technique...
+
+(stochastics)  ...for such diverse musical procedures, from space/sound to
+tempo/rhythm to sound design/performance?
+
+## 3 - What is new about your use of stochastics...
+
+...or about anything specific in your thesis. Differentiating your
+work from others’ (being truthful, not boastful, of course) is one of
+the tasks of a Masters thesis, and also one of the reason to be
+thoughtful in the selection of precedents…..showing that you know what
+others have done, appreciate their accomplishments, understand their
+shortcomings (including Xenakis, where necessary), and have carefully
+chosen - and now identified - your own contribution.
+
+# Important Exceprts
+
+The computer’s inability to understand feeling has led to new genres
+of music like EDM2, Black MIDI3, and Demoscene4, but these styles of
+music feature (rather than fix) the inhuman nature of computers. If we
+want to integrate a computer into the performance or production of
+truly expressive music, we must capture perceived feelings
+formulaically and program the computer to reproduce them. This thesis
+describes three different, but related projects that confront this
+challenge from contrasting perspectives: Reflection Visualizer,
+
+As the ideas that inspired Xenakis and other progressive 20th century
+composers were taking root in contemporary music, the culture of
+artistic form and composition was already beginning the transition
+into the digital domain. There is no reason why digital tools cannot
+favor stochastic processes to linearity; there is no reason why
+digital tools cannot treat music and architecture as equals. However,
+even today, software for composing music still favors static pitches
+to glissandi; software for architectural design still favors corners
+to curves. Most importantly, the software skills that we use to design
+and manipulate space, and the skills that we use to compose music,
+mutually exclude each other.
+
+This is where the projects described here make a contribution.  By
+drawing from music, mathematics, computer science, acoustics, audio
+engineering and mixing, sound reinforcement, multimedia production,
+and live performance, we can create tools that allow us to
+indiscriminately compose with space and sound.
 
 # Performance
 

@@ -267,23 +267,23 @@ This thesis follows ambisonic convention for describing axis of
 rotation. The x-axis points forward, the y-axis point left, and the
 z-axis points up. Polar angles are used to describe orientation with
 $0\degree$ azimuth being forward, and increasing as we move to the
-left. $0\degree$ elevation also points forward, and increases as we
+right. $0\degree$ elevation also points forward, and increases as we
 move upward, with $90\degree$ being strait up along the z-axis. When
-working with ambisonics, multiple inconpatible conventions exist for
+working with ambisonics, multiple incompatible conventions exist for
 ordering and normalizing spherical harmonics.\cite{Nachbar2011} The
-Hypercompressor uses \textit{Furse-Malham} normaliation
-(FuMa)\cite{Malham2003}, and first order ambionics with
+Hypercompressor uses \textit{Furse-Malham} normalization
+(FuMa)\cite{Malham2003}, and first order ambisonics with
 \textit{B-format}\cite{Hollerweger2008} channel ordering. B-format
 ordering labels the four first-order ambisonic channels as W, X, Y,
 and Z, with W being the spherical harmonic of order zero and degree zero,
-and X, Y, and Z being the ressure gradient components along their
+and X, Y, and Z being the pressure gradient components along their
 respective axes. 
 
 \section{Hypercompressor Design}
 \label{sec:hypercomp-design}
 \begin{figure*}
   \includegraphics[width=\linewidth]{hypercomp/AmbisonicCompressor.pdf}
-  \caption{Block diagram of the Hypercompressor.}
+  \caption{Hypercompressor block diagram}
   \label{fig:hypercomp-block}
 \end{figure*}
 \noindent The Hypercompressor (or ambisonic compressor) combines the traditional
@@ -408,15 +408,15 @@ signal processing.
   \label{fig:hypercomp-inf-maps}
 \end{figure}
 
-\paragraph{Results:}If the input to the level detector is encoded as
-an ambisonic plane wave, this level detector does yield accurate
-results.  In the more common case, when our ambisonic input material
-contains multiple sources that are each ambisonically panned to
-different positions, this interpolation technique does not accurately
-calculate the RMS at any angle. In simple cases, where we can be sure
-our input material is appropriate, the technique described here might
-be useful, but in most cases, a different approach will be more
-effective.
+\paragraph{Ambisonic Efficient Level Detection Module Results}If the
+input to the level detector is encoded as an ambisonic plane wave,
+this level detector does yield accurate results.  In the more common
+case, when our ambisonic input material contains multiple sources that
+are each ambisonically panned to different positions, this
+interpolation technique does not accurately calculate the RMS at any
+angle. In simple cases, where we can be sure our input material is
+appropriate, the technique described here might be useful, but in most
+cases, a different approach will be more effective.
 
 \begin{figure}[h]
 %  \includegraphics{hypercomp/LevelDetect_front.png}
@@ -425,7 +425,7 @@ effective.
     ambisonic level detector. The surround sphere is projected to a
     cylinder and unwrapped on the flat surface. In this image, a
     monophonic source is panned slightly down and to the right
-    ($-45\degree$ azimuth, $-45\degree$ elevation).}
+    ($45\degree$~azimuth, $-45\degree$~elevation).}
   \label{fig:hypercomp-inf-map-angle}
 \end{figure}
 
@@ -445,7 +445,8 @@ compressor.
 region of the surround sound sphere is the \textit{focus} transform
 distributed as part of the open source Ambisonic Toolkit
 (ATK).\sidenote{\url{http://www.ambisonictoolkit.net/}}\cite{Anderson2009}
-\[F=\left( \begin{array}{cccc}
+\begin{equation}
+F(w)=\left( \begin{array}{cccc}
 \frac{1}{1 + \sin|w|} & 
 \frac{1}{\sqrt{2}} \frac{\sin(w)}{1 + \sin|w|}  & 
 0 &
@@ -463,16 +464,71 @@ distributed as part of the open source Ambisonic Toolkit
 0 &
 \frac{\cos(w)}{1 + \sin|w|} 
 \end{array} \right)
-\]
+\label{eq:focus}
+\end{equation}
 This transform is intended to focus attention on the region directly
 in front of the listener ($0\degree$ azimuth, $0\degree$ elevation),
 by attenuating the region in the opposite direction, and gently
 warping the surround image toward the front. $w$ is a value between
 $0$ and $\frac{\pi}{2}$~radians, and specifies the intensity of the
 transformation. When $w=0$, the surround field is unchanged. When
-$w=\frac{\pi}{2}$ sounds hard to the rear are muted, the rest of the
-surround image in warped to the front, and the gain facing forward is
-unchanged. 
+$w=\frac{\pi}{2}$ sounds panned hard to the rear are muted, sounds
+panned to the left and right will be attenuated by 6dB, the entire
+surround image is warped to the front, and the gain facing forward is
+unchanged. This enables us to push one sound out of the way to make
+room for another sound as described in
+section~\ref{sec:hypercomp-design}.
+
+Equation~\ref{eq:focus} attenuates the region behind the listener. 
+If we want to attenuate a region other than the rear, we can rotate
+$F$ using a rotation matrix like the one below.
+\begin{equation}
+R_z(\varphi)=\left( \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & \cos(\varphi) & \sin(\varphi) & 0 \\
+0 & -sin(\varphi) & cos(\varphi) & 0 \\
+0 & 0 & 0 & 0
+\end{array} \right)
+\label{eq:rotation}
+\end{equation}
+Equation~\ref{eq:rotation} (from the ATK) describes a rotation around
+the z-axis, by $\varphi$ radians. To rotate the focus transform to the
+right instead of to the front, we first apply the focus transform to
+the inverse of a $90\degree$ right rotation. Then we apply the
+$90\degree$ matrix to the result. This example is generalized by:
+\begin{equation}
+X(w,\varphi,\vartheta)=R_z(\varphi)R_y(\vartheta)F(w) R_y^{-1}(\vartheta)R_z^{-1}(\varphi)
+\label{eq:comp-focus}
+\end{equation}
+Equation~\ref{eq:comp-focus} lets us programmatically generate an
+ambisonic focus transform matrix that targets a specified region of
+the surround field, fulfilling the objectives for our ambisonic gain
+control module in the Hypercompressor.
+
+\paragraph{Ambisonic Gain Control Module Results}
+The focus transform lets us warp the surround field, pushing the
+field to make room for new sounds. In some cases (for example, when
+mastering an ambisonic recording) warping the surround image is
+undesirable, and a simple directional gain transform should be used
+instead (an appropriate transform is defined
+elsewhere\cite{Kronlachner2014i}). However, the goal of the
+Hypercompressor is not to compress dynamic range like a traditional
+compressor. The goal is to compress \emph{space}. The focus transform
+is a compromise: We partly attenuate a region, but we also bend the
+surround image so that important parts of our surround texture are
+panned to a position with fewer competing sounds. This is an effect
+that is not possible with a traditional compressor.
+
+The focus transform also ties attenuation amount to attenuation
+radius. If we use only a single focus transform, is not possible to only
+slightly attenuate a large region of the surround sound field. The
+following section describes how we used this to our advantage
+during the live performance of \textit{De L'Exp\'{e}rience}.
+
+\section{Of Experience}
+\label{sec:experience}
+
+\TODO{To Be Continued...}
 
 
 %%% Local Variables:
