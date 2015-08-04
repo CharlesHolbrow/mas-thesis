@@ -2,8 +2,8 @@
 \chapter{Introduction}
 \label{ch:introduction}
 In his 1963 book, \textit{Formalized Music}, Composer, Engineer, and
-Architect, Iannis Xenakis described the foundatiaon for his own
-reinterpretation of conventional music theory: 
+Architect, Iannis Xenakis described the foundation for his own
+reinterpretation of conventional music theory:
 \begin{quotation}
   ``All sound is an integration of grains, of elementary sonic
   particles, of sonic quanta. Each of these elementary grains has a
@@ -11,15 +11,132 @@ reinterpretation of conventional music theory:
 \end{quotation}
 Instead of using high-level musical concepts like pitch and meter to
 compose music, Xenakis posited, only the three elementary qualities
-(frequency, duration and intensity) are nessecary: High-level musical
-constructs such as pitch and dynamics are merely mathematical
-abstractions of the elementary sonic particles. 
+(frequency, duration and intensity) are necessary. Because it is
+impractical to describe sounds as the sum of hundreds or thousands of
+elementary sonic particles, he proposed that statistical and probabilistic
+models should be used to define sounds at the macroscopic
+level. Additionally, similar mathematical models should describe other
+compositional concepts including rhythm, form, and melody. Xenakis
+named this new style \textit{stochastic}, and he considered it a
+generalization of existing music theory: High-level musical constructs
+such as melody, harmony, and meter are mathematical abstractions of
+the elementary sonic particles, and alternative abstractions such as
+non standard tuning should exist as equals within the same mathematical
+framework. Music composition, he claimed, requires a \emph{deep}
+understanding of the mathematical relationship between sonic elements
+and musical abstractions, and music composition necessarily involves
+the formulation of new high-level musical constructs built from the
+low-level sound elements.
+
+\paragraph{}Xenakis' choice of frequency,
+duration, and intensity as the three sonic elements is rational. Any
+audio waveform can be represented as the sum of a (possibly infinite)
+number of periodic sine waves. However, a waveform is not the same as
+music, or even the same as sound. Sound is three-dimensional; sound
+has a direction; sound exists in space.
+% Given a propagation medium, and a time duration, sound travels a 
+% certain distance in space. Given any distance in space, the
+% wavelength
+% of some frequency fills that space. 
+The three projects described in this thesis each use stochastic
+music as a base: \refmod, \polytempic, and \thesis. Each project is
+directly inspired and influenced by Xenakis, but departs from his
+foundational beliefs by treating time and space as equals,
+and as true elements of music.
+
+
+\section{\refmod}
+\label{sec:refmod-intro}
+\newthought {Music and space} are intimately connected. The first
+project, described in \autoref{ch:ref-mod}, explores how we can
+compose music using acoustic reflections in architectural space as a
+medium. \refmod is a software tool that lets us design and experiment
+with abstract acoustic lenses or ``sound mirrors'' in two
+dimensions. It is directly inspired by the music and architecture of
+Iannis Xenakis, a 20th century composer, music theorist, architect,
+and engineer. His collected works provide guidance and perspective to
+all the projects in this thesis.
+
+\section{\polytempic}
+\label{sec:polytempic-intro}
+
+\newthought{Music and Time} are inseparable. All music flows through
+time and depends on temporal constructs - the most common being meter
+and tempo. Accelerating or decelerating tempi are common in many
+styles of music, as are polyrhythms.  Music with multiple simultaneous
+tempi or \textit{polytempic music} is less common, but still many
+examples can be found. Fewer examples of music with simultaneous tempi
+that shift relative to each other exist, however, and it is difficult
+for musicians to accurately perform changing tempi in
+parallel. Software is an obvious choice for composing complex and
+challenging rhythms such as these, but existing compositional software
+makes this difficult. \polytempic offers a solution to this challenge
+by describing a strategy for composing music with multiple
+simultaneous tempi that accelerate and decelerate relative to each
+other. In \autoref{ch:polytempic} we derive an equation for smoothly
+ramping tempi to converge and diverge as musical events within a
+score, and show how this equation can be used as a stochastic process
+to compose previously inaccessible sonorities.
+
+\section{\thesis}
+\label{sec:hypercompression-intro}
+\newthought{We usually think of compression} in terms of
+\emph{reduction}: We use data compression to reduce bit-rates and file
+sizes and audio compression to reduce dynamic range. Record labels use
+of dynamic range compression as a weapon in the \emph{loudness
+  war}\sidenote[][-3cm]{``Loudness War'' is the popular name given to
+  the trend of increasing perceived loudness in music recordings.
+  Beginning in the 1990s, record labels have attempted to make their
+  music louder than the competition, at the expense of audio
+  fidelity.}\cite{Deruty2014a}, has resulted in some of today's music
+recordings utilizing no more dynamic range than a 1909 Edison
+cylinder.\cite{Katz2007} A deeper study of dynamic range compression,
+however, reveals more subtle and artistic applications beyond that of
+reduction. A skilled audio engineer can apply compression to
+improve intelligibility, augment articulation, smooth a performance,
+shape transients, extract ambience, de-ess vocals, balance multiple
+signals, or even add distortion.\cite{Case2007} At its best, the
+compressor is a tool for temporal shaping, rather than a tool for
+dynamic reduction.
+
+\thesis expands the traditional model of a dynamic range compressor to
+include spatial shaping. While unconventional, spatial processing is a
+very natural fit for the compression paradigm. Sound is a medium that
+exists in time as well as in space.\sidenote{Converting measurement of
+  sound from the cycles per second (in the temporal domain) to
+  wavelength (in the spatial domain) is a common objective in
+  acoustics and audio engineering practices. See \textit{The Sound
+    Reinforcement Handbook} by G. Davis for examples.} The mathematics
+and implementation of the Hypercompressor are described in detail in
+\autoref{ch:hypercompressor}.
+
+\section{Audio Engineering}
+\label{sec:audio-engineering}
+
+Today, just over 50 years after \textit{Formalized Music} was first
+published, some of Xenakis' values are widely accepted, while others
+are largely ignored. Computers and digital audio workstations (DAWs)
+have become ubiquitous in music composition, production, and
+performance. The tools for shaping sounds inside DAWs typically use
+mathematical language such as frequency, milliseconds, and decibels,
+necessitating an understanding of the mathematical representation of
+sound. However, these sounds 
+
+Synthesizers for creating musical sounds use simple waveforms,
+and parameters for describing intensity and duration, but 
+
+Musicians are increasingly required to understand
+the mathematics of music.
+
+Musical synthesizers build complex 
+
+The distinction between musician and engineer is becoming increasingly
+indistinct. 
 
 
 
-Any audio wavform can be represented as the sum of a (possibliy infinite)
-number of sine waves, but a waveform is not the same as sound. Sound
-has a direction, it exists in space; it is three-dimensional.
+Curious that the simplest tools for engineering audio, 
+
 
 only exist in spacesound has a direction; sound exists in space. 
 
@@ -32,60 +149,8 @@ For a theory that was intended to generalize all
 of music theory, it is surprising that Xenakis did not include 
 
 
- Xenakis was mostly right about
 
-He was correct in 
-
-
-He goes on to
-explain that because it is impractical to describe sounds as the sum
-of hundreds or thousands of elementatry sonic particles, statistical
-and probabilistic models should be used to define complex sounds at
-the macroscopic level. Additionally, similar mathematical models
-should descibe other compositional concepts including rhythm, form,
-and meldoy. Xenakis intended stochastic music to be a generalization
-of existing music theory.
-
- Music composition, he
-claimed, requires a \emph{deep} understanding of the mathematical
-relationship between pitch and frequency, and nessecarily involves the
-formulation of new and different uses of frequency.
-
-Xenakis theory about 
-
-
-
-Audio engineers are expected to understand pitch from a mathematical
-and musical perspective, and be able to translate between the two.
-Engineering tools like equalizers, faders and delays, all use the
-mathematical units like frequency, milliseonds, decibels, 
-
-Rather than 
-
-
-Audio engineers are expected to be able to mathematically 
-It is possible to make any one sound at one point in space
-
-
-Xenakis 
-and coined the term \textit{stochastic music'}, to describe his discovery.
-
-
-
-
-
-
-
-
- Just as it is impractical for physacists to model every particle
- when simulating the movement of a gas, it is imporb
-
-This is ever more true today 
- his Stochastic music was intented to be a
-gereralization of music theory as it existed at the time. He
-
-
-At the beginning of the 20th century, there was a blossing of
+At the beginning of the 20th century, there was a blossoming of
 complexity, diversity, and invention in contemporary music
 composition. Composers such as Debussy, Strauss, Schoenberg and
 Stravinsky introduced and devleoped new ways to use harmony and rhythm
@@ -157,71 +222,6 @@ expressive music, we must capture perceived feelings formulaically
 and program the computer to reproduce them. This thesis describes
 three different, but related projects that confront this challenge from
 contrasting perspectives: \refmod, \polytempic, and \thesis.
-
-\section{\refmod}
-\label{sec:refmod-intro}
-\newthought {Music and space} are intimately connected. The first
-project, described in \autoref{ch:ref-mod}, explores how we can
-compose music using acoustic reflections in architectural space as a
-medium. \refmod is a software tool that lets us design and experiment
-with abstract acoustic lenses or ``sound mirrors'' in two
-dimensions. It is directly inspired by the music and architecture of
-Iannis Xenakis, a 20th century composer, music theorist, architect,
-and engineer. His collected works provide guidance and perspective to
-all the projects in this thesis.
-
-\section{\polytempic}
-\label{sec:polytempic-intro}
-
-\newthought{Music and Time} are inseparable. All music flows through
-time and depends on temporal constructs - the most common being meter
-and tempo. Accelerating or decelerating tempi are common in many
-styles of music, as are polyrhythms.  Music with multiple simultaneous
-tempi or \textit{polytempic music} is less common, but still many
-examples can be found. Fewer examples of music with simultaneous tempi
-that shift relative to each other exist, however, and it is difficult
-for musicians to accurately perform changing tempi in
-parallel. Software is an obvious choice for composing complex and
-challenging rhythms such as these, but existing compositional software
-makes this difficult. \polytempic offers a solution to this challenge
-by describing a strategy for composing music with multiple
-simultaneous tempi that accelerate and decelerate relative to each
-other. In \autoref{ch:polytempic} we derive an equation for smoothly
-ramping tempi to converge and diverge as musical events within a
-score, and show how this equation can be used as a stochastic process
-to compose previously inaccessible sonorities.
-
-\section{\thesis}
-\label{sec:hypercompression-intro}
-\newthought{We usually think of compression} in terms of
-\emph{reduction}: We use data compression to reduce bit-rates and file
-sizes and audio compression to reduce dynamic range. Record labels use
-of dynamic range compression as a weapon in the \emph{loudness
-  war}\sidenote[][-3cm]{``Loudness War'' is the popular name given to
-  the trend of increasing percieved loudness in music recordings.
-  Beginning in the 1990s, record labels have attempted to make their
-  music louder than the competition, at the expense of audio
-  fidelity.}\cite{Deruty2014a}, has resulted in some of today's music
-recordings utilizing no more dynamic range than a 1909 Edison
-cylinder.\cite{Katz2007} A deeper study of dynamic range compression,
-however, reveals more subtle and artistic applications beyond that of
-reduction. A skilled audio engineer can apply compression to
-improve intelligibility, augment articulation, smooth a performance,
-shape transients, extract ambience, de-ess vocals, balance multiple
-signals, or even add distortion.\cite{Case2007} At its best, the
-compressor is a tool for temporal shaping, rather than a tool for
-dynamic reduction.
-
-\thesis expands the traditional model of a dynamic range compressor to
-include spatial shaping. While unconventional, spatial processing is a
-very natural fit for the compression paradigm. Sound is a medium that
-exists in time as well as in space.\sidenote{Converting measurement of
-  sound from the cycles per second (in the temporal domain) to
-  wavelength (in the spatial domain) is a common objective in
-  acoustics and audio engineering practices. See \textit{The Sound
-    Reinforcement Handbook} by G. Davis for examples.} The mathematics
-and implementation of the Hypercompressor are described in detail in
-\autoref{ch:hypercompressor}.
 
 %\paragraph{Performance}
 \thesis was used in the live performance of \textit{De
