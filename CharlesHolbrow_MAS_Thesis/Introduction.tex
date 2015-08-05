@@ -28,22 +28,50 @@ and musical abstractions, and music composition necessarily involves
 the formulation of new high-level musical constructs built from the
 low-level elements.
 
-\paragraph{}Xenakis' choice of frequency,
-duration, and intensity as the three sonic elements is rational. Any
-audio waveform can be represented as the sum of a (possibly infinite)
-number of periodic sine waves. However, a waveform is not the same as
-music, or even the same as sound. Sound is three-dimensional; sound
-has a direction; sound exists in space.
-% Given a propagation medium, and a time duration, sound travels a 
-% certain distance in space. Given any distance in space, the
-% wavelength
-% of some frequency fills that space. 
-The three projects described in this thesis each use stochastic
-music as a base: \refmod, \polytempic, and \thesis. Each project is
-directly inspired and influenced by Xenakis, but departs from his
-foundational beliefs by treating time and space as equals,
-and as true elements of music.
+\paragraph{Music and Audio Engineering}
+% \label{sec:audio-engineering}
+Today, just over 50 years after \textit{Formalized Music} was first
+published, some of Xenakis' ideals are widely accepted, while others
+are largely ignored. As computers, amplifiers, and electronics become
+ubiquitous in the composition, production, and performance of music,
+mathematics and music necessarily become more interconnected, and the
+line between musician and engineer becomes increasingly indistinct.
+As a result, a \textit{deep} understanding of the mathematics of music
+is also increasingly valuable to musicians.  The most common tools for
+shaping sounds typically use mathematical language such as frequency,
+milliseconds, and decibels, requiring us to translate between
+mathematical and musical concepts. The controls for electronic
+synthesizers use words that are synonyms for Xenakis' three sonic
+elements (duration, frequency, and intensity). While countless
+high-level interfaces for manipulating sounds have been designed, it
+would appear that the most useful (and the most widely used) are the
+simplest.
+\begin{enumerate}
+\item The equalizer, a frequency specific amplifier
+\item The delay, a temporal shift on the order of milliseconds
+\item The compressor, an automatic gain control
+\end{enumerate}
 
+\paragraph{Sound and Space}
+%\label{sec:sound-space}
+It is curious that the most useful tools for engineering sound would
+also be the simplest: The compositional equivalent would be composing
+by starting with pure sine waves as Xenakis originally suggested.
+From an engineering perspective, Xenakis' three sonic elements are
+rational choices. By summing together the correct recipe of sine
+tones, we can construct any audio waveform. However, a waveform is not
+the same as music, or even the same as sound. Sound is
+three-dimensional, sound has a direction, and sound exists in
+space. Could space be the missing sonic element in electronic audio
+production? If we design our audio engineering tools such that space
+is considered an equal to frequency and intensity, can we build
+high-level tools that are as effective as the low level tools we depend
+on, or even as effective as acoustic instruments? The three projects
+described in this thesis are directly inspired by Iannis Xenakis, and rest on
+the foundation of stochastic music: \refmod, \polytempic, and
+\thesis. Each project builds on existing paradigms in composition or
+audio engineering, and together they treat space and time as equals,
+and as true elements of music.
 
 \section{\refmod}
 \label{sec:refmod-intro}
@@ -110,77 +138,6 @@ exists in time as well as in space.\sidenote{Converting measurement of
 and implementation of the Hypercompressor are described in detail in
 \autoref{ch:hypercompressor}.
 
-\section{Audio Engineering}
-\label{sec:audio-engineering}
-
-Today, just over 50 years after \textit{Formalized Music} was first
-published, some of Xenakis' values are widely accepted, while others
-are largely ignored. Computers and digital audio workstations (DAWs)
-have become ubiquitous in music composition, production, and
-performance. The tools for shaping sounds inside DAWs typically use
-mathematical language such as frequency, milliseconds, and decibels,
-necessitating an understanding of the mathematical representation of
-sound. However, these sounds 
-
-Synthesizers for creating musical sounds use simple waveforms,
-and parameters for describing intensity and duration, but 
-
-Musicians are increasingly required to understand
-the mathematics of music.
-
-Musical synthesizers build complex 
-
-The distinction between musician and engineer is becoming increasingly
-indistinct. 
-
-Curious that the simplest tools for engineering audio, 
-
-
-For a theory that was intended to generalize all
-of music theory, it is surprising that Xenakis did not include 
-
-
-As computers, amplifiers, and electronics become our primary tools for
-creating manipulating, and performing music, mathematics and music
-necessarily become more interconnected. Nearly every modern musical
-recording, broadcast, and stream is the summation of many digital
-recordings that have been individually discretized, sampled,
-mathematically encoded, decoded, and digitally processed numerous
-times before ever reaching our ears.\cite{Case2007} It is tempting to
-describe music today as applied mathematics, but doing so betrays a
-fundamental quality of music: Musicality does not correspond to % come
-                                % back to this. replace musicality
-                                % with some
-mathematical elegance or precision. A musician will diverge from a
-musical score to accomplish a particular artistic objective. A
-vocalist does not abruptly change a pitch, but gently and carefully
-lands on a pitch. A jazz musician might intentionally play slightly
-behind the beat. A classical performer knows how to hold a fermata
-just long enough. These intentional human artifacts are characterized
-more by a feeling than by a formula.
-
-% Because of the computer's inability..., new musical genres have emerged.
-The computer's inability to understand feeling has led to new genres
-of music like EDM\sidenote[][-25mm]{EDM (Electronic Dance Music)
-  features formulaic and repetitive grooves locked to a temporal grid
-  and often incorporates aggressive use of digital pitch correction,
-  further exaggerating a robotic quality.}, Black
-MIDI\sidenote[][-3mm]{Black MIDI is a musical genre that uses low
-  fidelity audio samplers with a large number of MIDI notes over a
-  short time. A single three minute Black MIDI track is likely to have
-  over 100,000 MIDI notes. The name refers to the solid black
-  appearance of the piano score.}, and Demoscene\sidenote{Demoscene
-  music celebrates digital synthesis of compositionally complex
-  electronic music and audio visualizations, using low level software
-  interfaces and including the design and programming of the music
-  synthesizers as part of the composition.}, but these styles of music
-feature (rather than fix) the inhuman nature of computers. If we want
-to integrate a computer into the performance or production of truly
-expressive music, we must capture perceived feelings formulaically
-and program the computer to reproduce them. This thesis describes
-three different, but related projects that confront this challenge from
-contrasting perspectives: \refmod, \polytempic, and \thesis.
-
 %\paragraph{Performance}
 \thesis was used in the live performance of \textit{De
   L'Exp\'{e}rience}, a new musical work by composer Tod Machover for
@@ -201,7 +158,7 @@ the clich\'{e} that academics must narrowly focus their studies
 learning \textit{more and more about less and less}, and eventually
 knowing \textit{everything about nothing}.  The projects described
 here uphold the vision of both Xenakis and the Media Lab. Each chapter
-documents the movitaions and implementation of a new tool for
+documents the motivations and implementation of a new tool for
 manipulating space and sound. Each project draws from an assortment of
 fields including music, mathematics, computer science, acoustics,
 audio engineering and mixing, sound reinforcement, multimedia
