@@ -3,7 +3,9 @@
 %% allow line breaks after hyphens in urls
 \PassOptionsToPackage{hyphens}{url}
 
-\documentclass[openany]{tufte-book}
+% openany - Dont foce chapters to start on on right hand page
+% oneside - put all page numbers in the upper right, not outer corner
+\documentclass[openany, oneside]{tufte-book} 
 
 \hypersetup{colorlinks} % uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 
@@ -146,6 +148,7 @@
 \include{Polytempic}
 \include{Hypercompressor}
 \include{Experience}
+\include{Analysis}
 
 \backmatter
 %\include{Acknowledgements}
