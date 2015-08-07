@@ -16,7 +16,7 @@ performance.
 
 This final chapter discusses how each project succeeded, how each
 project failed, and how future iterations can benefit from lessons
-learned during the development process. 
+learned during the development process.
 
 \section{Evaluation Criteria}
 \label{sec:eval-criteria}
@@ -55,6 +55,7 @@ what we can only attempt to describe. This impossible challenge of
 quantifying the unquantifiable is exactly what makes music technology
 and audio engineering so appealing.
 
+\TODO{What approach did I use?}
 
 %  Does the unit have an appropriate number and type of audio outputs suit
 % our needs (such as TRS, XLR, and USB)? Does it perform reliably? Does
@@ -62,15 +63,88 @@ and audio engineering so appealing.
 % evaluation will depend on our purpose. If the purpose of the device is
 % for playback of audio in a live performance context, the best choice
 % will be different than if we want to use the unit for mixing in a
-% recording studio.  
+% recording studio.
 
 \section{\refmod}
+This project provides a single abstract interface that approaches
+composition of space (architecture) and the composition of music at
+the same time. The forms that it makes are familiar from the ruled
+surfaces seen in Xenakis compositions, and early sketches of the
+Philips Pavilion. In musical mode, we can think of the x and y axes
+representing time and pitch. In architectural mode the canvas might
+represent the floor plan of spaces we are designing.
 
+While it is interesting to switch our perspective between the two
+modes, there is not a clear connection from one to the other. A
+carefully designed surface or reflection in one mode would be quite
+arbitrary in the other mode. The reason that the interface is capable
+of working in both modes is because it is so minimalist, that it does
+not commit to one or the other. This is not a complete failing: The
+tool was really designed to be a brainstorming aid at the very
+beginning of the design process. It can be much simpler and quicker to
+use that proper architectural software, as a means of creating
+abstract shapes, similar to sketching on paper, before turning to
+specialized software for more detailed design.
+
+\paragraph{Curves, Constraints, and Simplicity} Despite
+the shortcomings in this project, the parts that worked well and make
+a good starting point for future iterations. There's something
+intangible, but simple and \textit{fun} about the user
+interface. There is only one input action; dragging a control
+point. It's immediately clear what each control point does, and it is
+easy to not even notice that there are five different types of control
+points and each has slightly different behavior. It is very intuitive
+to adjust a reflection surface such that the red beams \textit{focus}
+on a certain point, and then re-adjust a reflection surface so that
+they diverge chaotically. There is something fascinating about how the
+simple movements cause simultaneously coordinated and chaotic
+results. The response might be described as \textit{stochastic}!
+
+The red ``sound lines'' have three degrees of freedom: Position,
+direction, and length. We can point the rays in any direction we like,
+but, their movement is somewhat constrained.  The projection angle is
+locked to 30 degrees, and the number of beams is always 8. Most of the
+flexibility from the interface comes from the reflective surfaces.
+
+It is easier to draw a curving reflective surface than a strait
+one. If you make a special effort, it is possible to make one of the
+surfaces straight, but just like drawing a line on a paper with a pen,
+curved surfaces come more naturally. However, the curves in the \refmod do not
+come naturally because they are following an input gesture like most
+``drawing'' interfaces, but because of the simple mathematics in the
+of the Bezier curves. Similarly, if we consider the red lines to be
+notes on a time/pitch axis, the default interpretation is stochastic
+glissandi rather than static pitches. Most musical software assumes
+static pitches by default, and most architectural software assumes
+strait lines by default.
+
+\paragraph{Next Steps}
+The obvious next steps, for this project, are correcting the
+shortcomings described above. It could be made to work in three
+dimensions, and model precise propagation of sound, rather than a very
+simplified abstraction: It could become a proper acoustical
+simulator. Another possibility is playing the sound is turning it into
+a musical instrument where we can hear the stochastic glissandi in
+realtime. These options are not necessarily mutually exclusive, but as
+the interface becomes tailored to a more specific application, our
+ability to think about the content as abstract representations also
+breaks down. The ideal of software that is equally well equipped to
+compose music and to imagine architectural spaces is probably
+unrealistic. The beauty of the abstract representation of music
+composition, is that \textit{any} visual representation of music is
+quite abstract.
+
+% Describe where I want to take this.
 \section{\polytempic}
+
+\paragraph{Next Steps}
+
 Even just explaining the problem has proven to be tremendously
 difficult. 
 
 \section{\thesis}
+
+\paragraph{Next Steps}
 welp, not sure how well it actually
 worked. And I don't expect electronic instrument to ever replace
 acoustic instruments, although they may eventually equal them in
