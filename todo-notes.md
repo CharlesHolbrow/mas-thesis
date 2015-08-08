@@ -1,3 +1,17 @@
+# next
+
+Finish Background
+Tie things together with stochastics
+Add 'a practical ambisonic level detector'
+Finish Performance Description
+Eval and Analysis
+Go through and Do TODO's
+Andy's comments
+Architectural references from siggraph?
+Grab the other Spatial music stuff from my proposal. techy panning
+stuff. 
+
+
 # From Me
 
 What is stochastics?
