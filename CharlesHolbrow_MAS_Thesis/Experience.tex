@@ -2,16 +2,15 @@
 \chapter{\textit{De L'Exp\'{e}rience}}
 \label{ch:experience}
 
-\textit{De L'Exp\'{e}rience} is a composition by Tod Machover for in
-in eight sections 
-narrator, organ, and electronics. The piece was commissioned by the
-\textit{Orchestre Symphonique de Montr\`{e}al} (OSM), and premiered at
-the \textit{Maison Symphonique de Montr\'{e}al} on May 16th, 2015. The
-text for the piece was taken from the writings of Michel de Montaigne,
-the 16th century philosopher known for popularizing the essay form.
-Performers include Jean-Willy Kunz, organist in residence with the
-OSM, and narrator, Gilles Renaud. A recording of the perrmance is
-available
+\textit{De L'Exp\'{e}rience} is a composition by Tod Machover in in
+eight sections for narrator, organ, and electronics. The piece was
+commissioned by the \textit{Orchestre Symphonique de Montr\`{e}al}
+(OSM), and premiered at the \textit{Maison Symphonique de
+  Montr\'{e}al} on May 16th, 2015. The text for the piece was taken
+from the writings of Michel de Montaigne, the 16th century philosopher
+known for popularizing the essay form.  Performers include Jean-Willy
+Kunz, organist in residence with the OSM, and narrator, Gilles
+Renaud. A recording of the perrmance is available
 online.\sidenote{\url{http://web.media.mit.edu/~holbrow/mas/TodMachover_OfExperience_Premier.wav}}
 
 
@@ -28,16 +27,6 @@ the sound of the organ with the sound of electronics.
 % Diamond Schmitt Architects and Quebec-based organ manufacturer
 % Casavant.
 
-\begin{figure*}[]
-  \includegraphics[width=\linewidth]{DressRehersal.jpg}
-  \caption{The Pierre B\'{e}ique Organ in the OSM concert hall during
-    a rehersal on May 15th, 2015. Approximately 97\% of the organs'
-    6489 pipes are out of sight behind the woodwork. Photo credit: Ben
-    Bloomberg}
-  \label{fig:le-corbusier-sketch}
-\end{figure*}
-
-
 \section{Electronics}
 \label{sec:electronics}
 The electronics in the peice are a mix of synthesizers, pre-recorded
@@ -45,20 +34,23 @@ acoustic cello, and other processed material from acoustic and
 electronic sources, all composed by Tod Machover. Prior to the
 performance, these sounds were mixed ambisonically:
 \begin{enumerate}
-\item Other sources are positioned in space such that each has as wide
-  an image as possible, but over 
-\item \TODO{incomplete}
-\end{enumerate}The individual
-sources were positioned in space such that the each has a wide image,
-but overlaps with the other sources as little as possible. More
-reverberant electronic sounds were placed towards the rear, while
-complex and transient textures were placed more toward the front. 
-
-During the performance the mixed ambisonic samples and patched into
-the Hypercompressor. 
-
-
-
+\item The cello was placed in front, occupying approximately the front
+  hemisphere of our surround sound image.
+\item The left and right channel of the electronic swells were panned
+  to the left and right hemispheres. However, by default they were
+  collapsed to omnidirectional mono (the sound comes from all
+  directions, but has no stereo image). The gain of this synth was
+  mapped to directionality, so when the synth grows lowder, the left
+  and right hemisphere become distinct from each other, and it create
+  an illusion as if the sound is growing larger.
+\item Additional sound sources are positioned in space such that each
+  has as wide an image as possible, but overlaps with others as little
+  as possible.
+\end{enumerate}
+The overarching goal of this approach was to create a diverse but
+intereting spatial arrangement, but keep sounds mostly panned in the
+same spot. Movement will be created by the warping of the surround
+image by the hyper compressor.
 
 \subsection{Sound Reinforcement}
 \label{sec:sound-reinforcement}
@@ -91,6 +83,32 @@ starts and ends with good composition, arrangement and performance. I
 am have been quite fortunate that all the musicians involved with
 \textit{De L'Exp\'{e}rience} at every stage are of the highest
 caliber.
+
+\section{Live Hypercompression Technique}
+\label{sec:live-hyperc-techn}
+During the performance, the ambisonic textures were patched into the
+hypercompressor before being decoded in realtime using the Rapture3D
+Advanced ambisonic decoder by Blue Ripple
+Sound.\sidenote{\url{http://www.blueripplesound.com/products/rapture-3d-advanced}}
+The Hypercompressor was configured to operate in side chain mode, the
+sidechain input was an ambisonic bus that was encoded in realtime with
+four microphones placed inside and near the organ.
+
+
+
+the organ pushed them to the front so that when the organ was playing
+softly, the sound of the electronics filled the room from all
+directions, but when the organ play more loudly, the electronic
+textures warp toward the front, and move
+
+\begin{figure*}[]
+  \includegraphics[width=\linewidth]{DressRehersal.jpg}
+  \caption{The Pierre B\'{e}ique Organ in the OSM concert hall during
+    a rehersal on May 15th, 2015. Approximately 97\% of the organs'
+    6489 pipes are out of sight behind the woodwork. Photo credit: Ben
+    Bloomberg}
+  \label{fig:le-corbusier-sketch}
+\end{figure*}
 
 
 %%% Local Variables:
