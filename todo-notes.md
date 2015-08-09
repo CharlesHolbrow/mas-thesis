@@ -7,12 +7,15 @@ Finish Performance Description
 Eval and Analysis
 Go through and Do TODO's
 Andy's comments
-Architectural references from siggraph?
 Grab the other Spatial music stuff from my proposal. techy panning
 stuff.
 
+Take the prior work out of 
+
 Polytempic Analysis: ...but we won't know will we try
 
+To Varying degrees, all these projects are stochastics- in the sense
+of vertical integration. 
 
 # From Me
 
