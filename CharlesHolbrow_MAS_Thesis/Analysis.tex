@@ -185,7 +185,7 @@ perspective than for the music itself in isolation. It could be that
 the possibilities unlocked through the equations derived in
 \autoref{ch:polytempic} are not different enough from the
 approximations used by Nancarrow and Cage. Or that it is unrealistic
-to direct performers to play them accurately enough to percieve the
+to direct performers to play them accurately enough to perceive the
 difference.
 
 However it is surprising that current digital tools for composition do
@@ -194,9 +194,9 @@ transitions like the ones describe here sound like using digital
 technology, there is no software that lets us do so, and we are still
 forced to approximate. 
 
-Audio programming langhages like Max and SuperCollider let us code
+Audio programming languages like Max and SuperCollider let us code
 formulaic tempi into our compositions, but equations like the ones
-derrived here are still required. I could not find any any mathematial
+derived here are still required. I could not find any any mathematical
 technique that lets us create tempo accelerations that fit the
 constraints described in \autoref{ch:polytempic}, or any musical
 example that proposed to have found another solution.
@@ -214,13 +214,62 @@ performers are not precise enough.
 \paragraph{Stochastic Theory} The study of \polytempic reveals what is
 probably the greatest strength of stochastic music theory. A vertical
 integration of the theory of sound and music lets us experience music
-from a different perspective, and see missed opportunities 
-
+from a different perspective, and discover missed opportunities along the
+way. 
 
 \section{\thesis}
-The design and development of the hypercompressor happened in
-parallel, and many design decisions where meant for this one project,
-not the most general cases. 
+The design and development of the hypercompressor happened in parallel
+with pre-production for \textit{De L'Exp\'{e}rience}. Often design
+decisions were based on the factors involved with this one project,
+not the most general case. The resulting project leave significant
+design questions surrounding ambisonic dynamic range compression
+unanswered.  For example: What it the best way to detect and attenuate
+a region on our surround spere that is an unusual or elongated shape?
+Should the compressor attempt to attenuate the narrow region only?
+Should we the center of the region be attenuated by the same amount as
+the very edge? The decision to make the surround compressor warp the
+surround image in addition to attenuating regions that exceed the
+threshold was also chosen because it suited the use case.
+\begin{itemize}
+\item We could simply warp all sounds away from a region that exceeds
+  the compression threshold without attenuating them at all. However,
+  doing so would increase the perceived level of the sound coming from
+  the opposite direction. We also run the risk of creating the sonic
+  ping-poing of sound arbitrarily panning around us just for the sake
+  of the excitement, but not serving any larger artistic goal. 
+\item If we simply attenuate a region that exceeds the threshold, we
+  are not taking advantage of the opportunities provided to us by
+  surround sound in the first place. In side-chain mode, we risk
+  hiding a compressed sound completely when we could simple warp that
+  region of the surround field to a location where it can be heard
+  more clearly.
+\end{itemize}
+The current implementation also does not handle the case when two
+separate regions of the surround field both exceed the threshold. What
+are the ideal results? 
+
+Another use case that is handled is that
+when two sounds at a right angle (for example, one sound straight in
+front of the listener, and one sound 90\degree{} to the right) both
+exceed the threshold. The current implementation behaves
+\paragraph{Stochos}
+
+\paragraph{\textit{De L'Exp\'{e}rience}}
+The main goal, of using the Hypercompressor was to blend the
+electronic textures with the sound of the Pierre B\'{e}ique organ in
+Tod Machover's composition . The chosen approach as to give the
+electronics a sense of motion that the organ, (who's sound is awe
+inspiring, but also somewhat static) cannot produce; thus the
+electronics can be heard moving \emph{around} the sound of the organ,
+rather than being required to compete with the sound of the organ. I
+consider the Hypercompressor to have aided in this pursuit rather
+well. However, other contributing factors (such as the expertly
+composition of the electronic textures) should be be overlooked.
+The approach of 
+
+
+
+\paragraph{Next Steps}
 
 \section{overall}
 It would appear that the main challenge with stochastic composition,
@@ -234,7 +283,6 @@ well in stereo. I do think that there is a difference between actual
 surround and 5.1, the latter resembling dual stereo more than actual
 surround. 
 
-\paragraph{Next Steps}
 % welp, not sure how well it actually
 % worked. And I don't expect electronic instrument to ever replace
 % acoustic instruments, although they may eventually equal them in
