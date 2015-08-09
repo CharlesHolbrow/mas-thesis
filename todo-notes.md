@@ -9,7 +9,9 @@ Go through and Do TODO's
 Andy's comments
 Architectural references from siggraph?
 Grab the other Spatial music stuff from my proposal. techy panning
-stuff. 
+stuff.
+
+Polytempic Analysis: ...but we won't know will we try
 
 
 # From Me
