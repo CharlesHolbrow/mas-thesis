@@ -1,16 +1,16 @@
 # next
 
-Finish Background
-Tie things together with stochastics
-Add 'a practical ambisonic level detector'
-Finish Performance Description
 Eval and Analysis
+Finish Performance Description
 Go through and Do TODO's
 Andy's comments
-Grab the other Spatial music stuff from my proposal. techy panning
-stuff.
 
-Take the prior work out of 
+Tie things together with stochastics
+Add 'a practical ambisonic level detector'
+
+
+Take the prior work out of tempi chapter, move it into
+background. Probably add a modern developments 
 
 Polytempic Analysis: ...but we won't know will we try
 
