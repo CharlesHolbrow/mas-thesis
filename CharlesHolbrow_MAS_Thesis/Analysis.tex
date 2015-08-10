@@ -1,18 +1,18 @@
 \clearpage
 \chapter{Discussion and Analysis}
 \label{ch:analysis}
-In the previous chapters, we explore three new tools for creating and
-processing music, their motivations, and implementations. The \refmod
-in chapter \ref{ch:ref-mod}, proposes a new way to think about sound
-in space. The \polytempic in chapter \ref{ch:polytempic} does the same
-with musical time and meter. Chapters \ref{ch:hypercompressor} and
-\ref{ch:experience} describe and implement a technique for modulating
-music in in space with time as a reference. Each project project
-builds on Iannis Xenakis' theory of \textit{stochastic music}. Each
-project incorporates elements from other disciplines including
-mathematics, computer science, acoustics, audio engineering and
-mixing, sound reinforcement, multimedia production, and live
-performance.
+In the previous chapters, we explored three new tools for creating and
+processing music, includig their motivations and implementations. The
+\refmod in chapter \ref{ch:ref-mod}, proposed a tool for sketching
+with sound and space. The \polytempic in chapter \ref{ch:polytempic}
+did the same for musical time and meter. Chapters
+\ref{ch:hypercompressor} and \ref{ch:experience} described and
+implement a technique for moving music in space with time as a
+reference. Each of these projects builds on Iannis Xenakis' theory of
+\textit{stochastic music}, and incorporates elements from other
+disciplines including mathematics, computer science, acoustics, audio
+engineering and mixing, sound reinforcement, multimedia production,
+and live performance.
 
 This final chapter discusses how each project succeeded, how each
 project failed, and how future iterations can benefit from lessons
@@ -45,26 +45,27 @@ sound, and ends with a creative musical product. What is a reasonable
 perspective from which to evaluate stochastic music? From the
 perspective of a listening, or performing the music? From the
 perspective of a historian, evaluating the environment that led to the
-composition, or studying the impact on music afterwords?  Should we try
-to make sense of the entire technology stack, or try to evaluate every
-layer of abstraction individually?
+composition, or studying the impact on music afterwords?  Should we
+try to make sense of the entire technology stack, or try to evaluate
+every layer of abstraction individually? Somehow, between the
+low-level elements of sound and a musical composition or performance,
+we transition from what is numerically quantifiable to what we can
+only attempt to describe. The impossible challenge of quantifying the
+unquantifiable is exactly what makes music technology and audio
+engineering so alluring.
 
-Somehow, between the low-level elements of sound and a musical
-composition or performance, we transition from what is numerically
-quantifiable to what we can only attempt to describe. The impossible
-challenge of quantifying the unquantifiable is exactly what makes
-music technology and audio engineering so alluring.
+In my evaluation, I avoid comparative analysis, or evaluation based on
+any kind of rubrik. The motivations are historical precidents were
+detailed in chapter 2, so here I attempt to evalue the results of the
+project according to it's own metrics and motivations.
 
-\TODO{What approach did I use?} I avoid comparative analysis, or
-evaluation based on any kind of rubrik. 
-
-%  Does the unit have an appropriate number and type of audio outputs suit
-% our needs (such as TRS, XLR, and USB)? Does it perform reliably? Does
-% it have a neutral or favorable impact on the sound? The results of our
-% evaluation will depend on our purpose. If the purpose of the device is
-% for playback of audio in a live performance context, the best choice
-% will be different than if we want to use the unit for mixing in a
-% recording studio.
+% Does the unit have an appropriate number and type of audio outputs
+% suit our needs (such as TRS, XLR, and USB)? Does it perform
+% reliably? Does it have a neutral or favorable impact on the sound?
+% The results of our evaluation will depend on our purpose. If the
+% purpose of the device is for playback of audio in a live performance
+% context, the best choice will be different than if we want to use
+% the unit for mixing in a recording studio.
 
 \section{\refmod}
 This project provides a single abstract interface that approaches
@@ -136,7 +137,16 @@ unrealistic. The beauty of the abstract representation of music
 composition, is that \textit{any} visual representation of music is
 quite abstract.
 
-However, the direction I would like to take this in is not 
+However, the direction I would like to take this in different. Each
+red line can be considered pitch, but it can also be considered its
+own time axis. By calculating the red paths, we can creating many time
+lines that follow similar but slightly different trajectories. Each
+red line can be thought of as a time axis for an individual
+pitch. When the lines all hit a curved surface after slightly
+different length, it represents an arpeggiated chord. In contrast, a
+non-arpeggiated chord is represented when the red lines all collide
+with a surface after traveling identical distances.
+
 
 % Describe where I want to take this.
 \section{\polytempic}
