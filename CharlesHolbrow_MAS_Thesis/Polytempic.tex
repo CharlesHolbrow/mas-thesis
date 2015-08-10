@@ -56,7 +56,7 @@ music after working on his tape music composition, \textit{Come Out}:
 \end{quotation}
 Reich's experience illustrates what other composers and performers
 have also encountered: It is quite difficult to perform polytempic
-music accurately. In \textit{Piano Phase} Reich has two performers
+music accurately. In \textit{Piano Phase}, Reich has two performers
 playing the same 12 tone series on the piano. After a set number of
 repetitions through the pattern, one performer begins to play slightly
 faster until she is exactly one note ahead of the other performer, at
@@ -105,7 +105,7 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
 \item We want the accelerating drummer to reach the new tempo after
   exactly 20 beats.
 \item We also want the acceleration to complete in exactly 16 beats of
-  the original tempo, so the drummer playing a constant tempo and the
+  the original tempo, so that the drummer playing a constant tempo and the
   accelerating drummer are playing together.
 \end{itemize}
 \begin{figure*}[h]
@@ -185,10 +185,10 @@ with respect to time.
 \label{sec:polytempic-implementation}
 Equipped with the equations from the previous section, it becomes quite
 simple to create swarms of parallel tempos that are correlated and
-complex. In figure~\ref{fig:polytempic-transition} we build on the
+complex. In figure~\ref{fig:polytempic-transition}, we build on the
 previous example. Here, each additional tempo curve is calculated the
-same way, except $x_1$ (number of beats in our accelerating tempo
-during the transition) is incremented for each additional tempo line. 
+same way, except for $x_1$ (number of beats in our accelerating tempo
+during the transition), which is incremented for each additional tempo line. 
 \begin{figure*}[h!]
   \includegraphics[width=\linewidth]{stochastic-tempi.png}
   \caption{Stochastic Tempo Transition from 90~BPM to 120~BPM. Black

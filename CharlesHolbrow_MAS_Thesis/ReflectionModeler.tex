@@ -5,7 +5,7 @@ It was Xenakis' goal for the curved surfaces of the Philips Pavilion
 to reduce the sonic contribution of sound reflections as much as
 possible.\cite{philips1958} He knew that reflections and the resulting
 comb filtering could impair intelligibility and localization of music
-and sounds. The pavilion was to have hundreds of loudspeaker, and
+and sounds. The pavilion was to have hundreds of loudspeakers, and
 large concave surfaces like the ones on the inside of the pavilion can
 have a focussing effect on acoustic reflections, resulting in severe
 filtering and phase cancellations.\cite{Vercammen2008} If Xenakis had
@@ -14,7 +14,7 @@ piece, what would the tools be like, and how would his architectural
 spaces be different? The Xenakis inspired \refmod is an abstract
 software tool for experimenting with architectural acoustic lenses. It
 is intended more as an experiment for architectural or musical
-brainstorming than as a simulation for analysis of sound
+brainstorming, than as a simulation for analysis of sound
 propagation. For example:
 \begin{enumerate}
 \item It illustrates sound projection in only two dimensions.
@@ -34,13 +34,14 @@ propagation. For example:
 \label{sec:refmod-implementation}
 The \refmod was implemented as a web app using the HTML5
 Paper.js\sidenote{\url{http://paperjs.org/}} vector graphics
-library. \marginnote{Try \refmod online at\\
-\noindent \url{http://web.media.mit.edu/~holbrow/mas/reflections/}}
- Click and drag on any black dot to move the
-object. Black dots connected by grey lines are handles that
-re-orient (instead of move) objects. On reflection surfaces, the handles
-adjust the angle and shape of the surface curve. Handles connected to
-sound sources adjust the angle and length of the sound beams. 
+library.
+Try \refmod online at\\
+\noindent \url{http://web.media.mit.edu/~holbrow/mas/reflections/}
+Click and drag on any black dot to move the object. Black dots
+connected by grey lines are handles that re-orient (instead of move)
+objects. On reflection surfaces, the handles adjust the angle and
+shape of the surface curve. Handles connected to sound sources adjust
+the angle and length of the sound beams.
 \begin{figure}[h]
 % http://web.media.mit.edu/~holbrow/mas/reflections/?q=%7B%22mirrors%22%3A%5B%5B%22Path%22%2C%7B%22applyMatrix%22%3Atrue%2C%22segments%22%3A%5B%5B%5B330%2C60%5D%2C%5B0%2C0%5D%2C%5B-239%2C185%5D%5D%2C%5B319%2C424%5D%5D%2C%22strokeColor%22%3A%5B0%2C0%2C0%5D%2C%22strokeWidth%22%3A2%7D%5D%2C%5B%22Path%22%2C%7B%22applyMatrix%22%3Atrue%2C%22segments%22%3A%5B%5B%5B1035%2C436%5D%2C%5B0%2C0%5D%2C%5B-135%2C113%5D%5D%2C%5B1123%2C534%5D%5D%2C%22strokeColor%22%3A%5B0%2C0%2C0%5D%2C%22strokeWidth%22%3A2%7D%5D%5D%2C%22sounds%22%3A%5B%5B%22Path%22%2C%7B%22applyMatrix%22%3Atrue%2C%22segments%22%3A%5B%5B1047%2C123%5D%2C%5B1048%2C145%5D%5D%2C%22strokeColor%22%3A%5B0.6%2C0.6%2C0.6902%5D%7D%5D%2C%5B%22Path%22%2C%7B%22applyMatrix%22%3Atrue%2C%22segments%22%3A%5B%5B411%2C176%5D%2C%5B480%2C136%5D%5D%2C%22strokeColor%22%3A%5B0.6%2C0.6%2C0.6902%5D%7D%5D%5D%7D
   \includegraphics[width=\linewidth]{refmod/1.png}
@@ -53,11 +54,11 @@ sound sources adjust the angle and length of the sound beams.
 
 Assume we are creating the floor plan for a new architectural space
 and accompanying electronic music performance. The music piece
-incorporates spatial component in the style of \textit{SOUND=SPACE} by
+incorporates spatial features in the style of \textit{SOUND=SPACE} by
 Rolf Gehlhaar: Our audience moves through the performance space, and
 as they move, the sound changes, making the music experience unique to
 every visitor. We would like to use acoustic reflections to manipulate
-the sound in space, and such that at certain points the sound is
+the sound in space, such that at certain points the sound is
 focussed on the lister. When we hear an acoustic sound reflection off
 a concave surface, the sound can arrive at our ears in two possible
 states:
@@ -70,7 +71,7 @@ states:
   to our ears is slightly different for each point on the surface. All
   the reflections arrive out of phase with each other.
 \end{enumerate}
-We can use the this tool to prototype potential layouts and gain some
+We can use the \refmod tool to prototype potential layouts and gain some
 intuition about where our focal points. The curved black line in the
 user interface (figure~\ref{fig:refmod-simple}) represents a
 reflective surface. The black dot with emanating red lines represents

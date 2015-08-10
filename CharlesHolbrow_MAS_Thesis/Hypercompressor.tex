@@ -115,7 +115,7 @@ drum and bass guitar. If the bass guitar is briefly attenuated just
 enough each time the kick drum hits, we can set the kick and bass
 guitar at exactly the gain levels we want without one masking the
 other. Because the bass guitar is only briefly attenuated, it will not
-be perceived as any quieter. In this example we use the kick drum to
+be perceived as any quieter. In this example, we use the kick drum to
 create a gain envelope for our bass guitar. The kick \emph{pushes} the
 bass to make room for itself. The attack time and release time
 parameters give control over this behavior in the temporal domain. The
@@ -126,7 +126,7 @@ domain.
 \label{sec:ambisonics}
 Ambisonics is a technique for encoding and decoding three-dimensional
 surround sound audio.\cite[-15mm]{Gerzon1973,Gerzon1985} Ambisonic
-audio differs from other surround sound formats like $5.1$ and $7.1$
+audio differs from other surround sound formats such as $5.1$ and $7.1$,
 in that it does not depend on a particular speaker configuration. An
 ambisonic recording can be decoded on many different surround speaker
 configurations without disarranging the spatial contents of the audio
@@ -163,7 +163,7 @@ By summing sinusoidal harmonics, we can generate any continuous
 waveform defined in two dimensions (one input parameter and one
 output). Similarly, by summing \emph{spherical harmonics}, we can
 generate any continuous shape defined over the surface of a
-three-dimensional sphere (two input parameters, or polar angles, one
+three-dimensional sphere (two input parameters, or polar angles, and one
 output). Where a traditional monophonic audio encoding might save one
 sample 44100 times per second, an ambisonic encoding would save one
 sample \emph{for each spherical harmonic} 44100 times per second. This
@@ -225,7 +225,7 @@ Where:
   \includegraphics[width=\linewidth]{SphericalHarmonics.png}
   \caption{Spherical harmonics $0$th order (top row) through $3$rd
     order (bottom row). This for image shows the output of
-    $Y_{n}^{m}(\varphi,\vartheta)$ for $n=0,n=1,n=2,$and $n=3$. The
+    $Y_{n}^{m}(\varphi,\vartheta)$ for $n=0,n=1,n=2,$ and $n=3$. The
     distance of the surface from the origin shows the value at that
     angle. Darker blue regions are positive, while lighter yellow
     regions are negative. Image credit: Ingo Quilez, licensed under
@@ -247,14 +247,14 @@ information. The weighting coefficients or \textit{expansion
   coefficients} are recorded in our audio file instead of values
 representing air pressure directly. Now, by summing together our
 weighted spherical harmonics, we can reconstruct the fluctuations in
-pressure including the angle of arrival information. We can recall
+pressure, including the angle of arrival information. We can recall
 this snapshot of information at our 44.1 kHz audio sample rate.
 
 \subsection{Ambisonic Encoding}
 \label{sec:usage}
 There are two ways to create an ambisonic recording. First, we can use
 a soundfield microphone to record an acoustic soundfield. Soundfield
-microphones like the one developed by Calrec Audio can capture angle
+microphones, like the one developed by Calrec Audio, can capture angle
 of arrival information with the spatial resolution of first order
 ambisonics.\cite[-1in]{Ferrar1979} Alternatively, we can algorithmically
 encode pre-recorded sources, creating virtual sources in an
@@ -401,7 +401,7 @@ signal processing.
  % \includegraphics[width=3.5cm]{hypercomp/below_x72.png}
  % \includegraphics[width=3.5cm]{hypercomp/rear_x72.png}
   \caption{Influence maps of three first order spherical harmonics: left, top, and
-    front. Pure white is $-0$~dBFS black is -inf~dBFS. Cylindrical projection.}
+    front. Pure white is $-0$~dBFS, black is -inf~dBFS. Cylindrical projection.}
   \label{fig:hypercomp-inf-maps}
 \end{figure}
 
@@ -466,15 +466,15 @@ F(w)=\left( \begin{array}{cccc}
 \end{equation}
 This transform is intended to focus attention on the region directly
 in front of the listener ($0\degree$ azimuth, $0\degree$ elevation),
-by attenuating the region in the opposite direction and gently
-warping the surround sound image toward the front. $w$ is a value
-between $0$ and $\frac{\pi}{2}$~radians and specifies the intensity
-of the transformation. When $w=0$, the surround field is
-unchanged. When $w=\frac{\pi}{2}$ sounds panned hard to the rear are
-muted, sounds panned to the left and right are attenuated by 6dB,
-the entire surround sound image is warped to the front, and the gain facing
+by attenuating the region in the opposite direction and gently warping
+the surround sound image toward the front. $w$ is a value between $0$
+and $\frac{\pi}{2}$~radians and specifies the intensity of the
+transformation. When $w=0$, the surround field is unchanged. When
+$w=\frac{\pi}{2}$ sounds panned hard to the rear are muted, sounds
+panned to the left and right are attenuated by 6dB, the entire
+surround sound image is warped to the front, and the gain facing
 forward is unchanged. This enables us to push one sound out of the way
-to make room for another sound as described in
+in order to make room for another sound, as described in
 section~\ref{sec:hypercomp-design}.
 
 Equation~\ref{eq:focus} attenuates the region behind the listener. 
@@ -506,7 +506,7 @@ control module in the Hypercompressor.
 \paragraph{Ambisonic Gain Control Module Results}
 The focus transform lets us warp the surround field, pushing the
 field to make room for new sounds. In some cases (for example, when
-mastering an ambisonic recording) warping the surround sound image is
+mastering an ambisonic recording), warping the surround sound image is
 undesirable, and a simple directional gain transform should be used
 instead (an appropriate transform is defined
 elsewhere\cite{Kronlachner2014i}). However, the goal of the
