@@ -213,6 +213,14 @@ and~\ref{fig:polytempic-transition-3}, the approximations possible
 with transcriptions, or the approximations of an unassisted human
 performers are not precise enough.
 
+Bryn Bliska's composition linked in section~\ref{sec:composition} is a
+good starting point for future explorations, but in it's current
+state, the polytempic work described in this thesis is just a
+beginning. We have not yet tried to compose a a piece that fully
+incorporates \polytempic. The important next step is to use the
+equations derrived here to create fully polytempic music compositions
+with swarms of parallel stochastic tempo modulations.
+
 \paragraph{Stochastic Theory} The study of \polytempic reveals what is
 probably the greatest strength of stochastic music theory. A vertical
 integration of the theory of sound and music lets us experience music
@@ -228,10 +236,12 @@ design questions surrounding ambisonic dynamic range compression
 unanswered.  For example: What it the best way to detect and attenuate
 a region on our surround spere that is an unusual or elongated shape?
 Should the compressor attempt to attenuate the narrow region only?
-Should we the center of the region be attenuated by the same amount as
-the very edge? The decision to make the surround compressor warp the
-surround image in addition to attenuating regions that exceed the
-threshold was also chosen because it suited the use case.
+Should we attenuate the center of the region more than the edge? When
+a region of our surround sound image exceeds the Hypercompressor's
+threshold, the compressor warps the surround image in addition to
+attenuating the region where the threshold overage occurred. We could
+have chosen only warping, or only attenuation, each of which
+represents its own compromise:
 \begin{itemize}
 \item We could simply warp all sounds away from a region that exceeds
   the compression threshold without attenuating them at all. However,
@@ -248,18 +258,13 @@ threshold was also chosen because it suited the use case.
 \end{itemize}
 The current implementation also does not handle the case when two
 separate regions of the surround field both exceed the threshold. What
-are the ideal results? 
-
-Another use case that is handled is that
-when two sounds at a right angle (for example, one sound straight in
-front of the listener, and one sound 90\degree{} to the right) both
-exceed the threshold. The current implementation behaves
-\paragraph{Stochos}
+are the ideal results in this case? Using a transformation that warps
+the contents of the surround image may not the best choice.
 
 \paragraph{\textit{De L'Exp\'{e}rience}}
 The main goal, of using the Hypercompressor was to blend the
 electronic textures with the sound of the Pierre B\'{e}ique organ in
-Tod Machover's composition . The chosen approach as to give the
+Tod Machover's composition. The chosen approach was to give the
 electronics a sense of motion that the organ, (who's sound is awe
 inspiring, but also somewhat static) cannot produce; thus the
 electronics can be heard moving \emph{around} the sound of the organ,
@@ -281,22 +286,66 @@ final solution (described in \autoref{ch:hypercompressor}) was the
 result of the unsatisfactory results from my first attempt. While it
 did not end up working the way I anticipated, I consider the
 Hypercompressor to have aided the blending of the organ and
-electronics rather well. However, the beautiful blend of sounds that
+electronics especially well. However, the beautiful blend of sounds that
 we achieved would have been possible without many other contributing
 factors, such as the expert composition of the electronic textures.
-\paragraph{Next Steps}
 
-\section{overall}
+\paragraph{Next Steps}The positioning sounds in space based on the
+mathematical matrix transforms, that are themselves, driven by other
+sound sources (in our case, a live organ performance), resulting in an
+unpredictable, but defined state throughout the performance
+
+% We have discussed the advantages and disadvantages of warping and
+% attenuation as techniques for handling surround sound
+% compression. Attenuation is the approach used most mono and stereo
+% recordings, while surround sound lets us explore warping as an
+% alternative. One obvious next step is to build a version that simple
+% lets us toggle (or adjust continuously) between a warping and
+% attenuation.
+
+\clearpage
+\chapter{Epilogue}
+\label{ch:epilogue}
+
+% The grant was 99510\EUR{}
+In 2004, the Culture 2000 Programme created by the European Union
+approved a grant to an Italian multimedia firm for a project called
+Virtual Electronic Poem (VEP).\cite{eu2004} The project proposed the
+creation of a virtual reality simulation in which users could enter a
+simulated version of the experience inside the famous Phillips
+Pavilion. As part of the project, the VEP team when through the
+archives of Xenakis, Le Corbusier, and Philips, uncovering every
+relevant bit of information in order to make the experience as real as
+possible.\cite{Lombardo2009 } Virtual reality technology has changed
+enough between 2004 and 2015, that reviving the VEP project would
+likely involve an additional multimedia archeology expedition as big
+as the first, and it would probably be easier (and more effective) to
+start from scratch using the original documentation. 
+
+The mathamatical language that Xenakis used to describe his
+compositions, is even older than western music notation, and because
+of that it 
+
+Where many music 
+
+When we treat space as an element of music, 
+
+
+One invaluable side-effect of Xenakis stochastic compositions 
+
+
+Pierre Boulez used a different approach, who disilked 
+
 It would appear that the main challenge with stochastic composition,
 or vertical integration, or that of scope. 
 
-Having mixed a bunch of stuff, for different contexts, the different
-panning strategies in discrete channel, ambisonics, don't are not
-better or worse. Stockhausen didn't really didn't need anything other than
-discrete channel panning for Gesang. In fact the piece holds up very
-well in stereo. I do think that there is a difference between actual
-surround and 5.1, the latter resembling dual stereo more than actual
-surround. 
+% Having mixed a bunch of stuff, for different contexts, the different
+% panning strategies in discrete channel, ambisonics, don't are not
+% better or worse. Stockhausen didn't really didn't need anything other than
+% discrete channel panning for Gesang. In fact the piece holds up very
+% well in stereo. I do think that there is a difference between actual
+% surround and 5.1, the latter resembling dual stereo more than actual
+% surround. 
 
 % welp, not sure how well it actually
 % worked. And I don't expect electronic instrument to ever replace
