@@ -20,7 +20,7 @@ Machover saw opportunity:
   there, and if you have an idea and can learn how to program, you
   should be able to model it.''\cite{Fein2014}
 \end{quotation}
-If the music was too complex for a human to process, but we can define
+If the music is too complex for a human to process, but we can define
 it formulaically, we can teach a computer to play sounds that a human
 cannot. \polytempic builds on this idea with inspiration from Xenakis.
 
@@ -35,7 +35,7 @@ or more simultaneous tempos (polytempic music) is itself not a new
 concept; many examples exist,\cite{Greschak2003} and were
 described in \autoref{ch:background}. Less common is polytempic music
 where continuous tempo accelerations or decelerations are defined
-relative to each other. This style of music is well suited to tape
+relative to each other. This style of music is well-suited to tape
 music, because tape machines can play recordings back at variable
 rates. However, it is difficult to control the exact point (or phase)
 when de-synchronized tape becomes re-aligned. Performative music with
@@ -65,9 +65,9 @@ process is repeated and iterated on, creating a live \emph{phasing}
 effect without the pitch shifting that would occur when phasing analog
 tape. If we compare a live performance\cite{Huisman1989} with a
 programatic rendering\cite{Chen2014} of \textit{Piano Phase}, we can
-hear how the programatic rendering is able to accelerate more
-smoothly. The programatic example spends longer on the transitions
-where the two parts are out of phase.
+hear how the latter is able to accelerate more smoothly. The
+programatic example spends longer on the transitions where the two
+parts are out of phase.
 
 \section{Objective}
 \label{sec:polytempic-objective}
@@ -98,19 +98,19 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
   to 120 BPM.
 \item So far, we can easily accomplish this with a simple linear tempo
   acceleration. However, we want the tempo transition to complete
-  exactly when \emph{both} drummers are on a down-beat, so the the
+  exactly when \emph{both} drummers are on a down-beat, so the
   combined effect is a 3 over 4 rhythmic pattern. \textbf{Linear
     acceleration results in the transition completing at an arbitrary
     phase.}
 \item We want the accelerating drummer to reach the new tempo after
   exactly 20 beats.
 \item We also want the acceleration to complete in exactly 16 beats of
-  the original tempo, so the drummer playing a constant tempo, and the
-  the accelerating drummer are playing together.
+  the original tempo, so the drummer playing a constant tempo and the
+  accelerating drummer are playing together.
 \end{itemize}
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{basic-tempo-transition.png}
-  \caption[Tempo Transition]{Tempo Transition from 90~BPM
+  \caption[Tempo Transition]{Tempo transition from 90~BPM
     to 120~BPM}
   \label{fig:basic-tempo-change}
 \end{figure*}
@@ -118,21 +118,22 @@ example (shown in figure~\ref{fig:basic-tempo-change}):
 \section{Solution}
 \label{sec:polytempic-solution}
 We are interested in both the number of beats elapsed in the static
-tempo \emph{and} in the changing tempo, and the absolute tempo. If we
-think of the number of beats elapsed as our \emph{position}, and the
-tempo as our \emph{rate}, we see how this resembles a physics
-problem. If we have a function that describes our tempo (or rate), we
-can integrate that function, and the result will tell us our number of
-beats elapsed (or position). Given the above considerations, our tempo
-curve is defined in terms of 5 constants: \hfill\break
+tempo \emph{and} in the changing tempo, as well as the absolute
+tempo. If we think of the number of beats elapsed as our
+\emph{position}, and the tempo as our \emph{rate}, we see how this
+resembles a physics problem. If we have a function that describes our
+tempo (or rate), we can integrate that function, and the result will
+tell us our number of beats elapsed (or position). Given the above
+considerations, our tempo curve is defined in terms of 5 constants:
+\hfill\break
 \begin{fullwidth}
 \begin{itemize}
   \item Time $t_0=0$, when the tempo transition begins
   \item A known time, $t_1$, when the tempo transition ends
-  \item A known starting tempo, $\dot{x}_0$
-  \item A known finishing tempo, $\dot{x}_1$
+  \item A known starting tempo: $\dot{x}_0$
+  \item A known finishing tempo: $\dot{x}_1$
   \item The number of beats elapsed in the changing tempo between
-    $t_0$ and $t_1$, $x_1$
+    $t_0$ and $t_1$: $x_1$
 \end{itemize}
 \end{fullwidth}
 \hfill\break
@@ -182,7 +183,7 @@ with respect to time.
 
 \section{Stochastic Transitions}
 \label{sec:polytempic-implementation}
-Equipped with out equations from the previous section, it is quite
+Equipped with the equations from the previous section, it becomes quite
 simple to create swarms of parallel tempos that are correlated and
 complex. In figure~\ref{fig:polytempic-transition} we build on the
 previous example. Here, each additional tempo curve is calculated the
@@ -203,7 +204,7 @@ rhythmic events, but become increasingly indistinct. The end of beat 4
 then overlaps with the start of beat 5, before articulated beats
 transition to pseudo random noise. By beat 13 of the static tempo, the
 chaos of the many accelerating tempi begin to settle back into order
-before returning to complete syncronicity at $t=16$.
+before returning to complete synchronicity at $t=16$.
 
 \section{Tide: Composition with \polytempic}
 \label{sec:composition}
@@ -218,7 +219,7 @@ $x_1$ parameter, \textit{Tide} uses \polytempic to drive the phasing
 tempos of the bell-like synthesizers throughout the piece for two to
 three simultaneous tempi.
 
-\section{Prior Work}
+\section{Recent Polytempic Work}
 \label{sec:polytempic-prior-work}
 Many commercial and research projects deal with different ways to
 manipulate rhythm and tempo. Flexible digital audio workstations

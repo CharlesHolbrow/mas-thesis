@@ -1,13 +1,13 @@
 \chapter{The Hypercompressor}
 \label{ch:hypercompressor}
 
-The motivation for Hypercompression came during the development of
-Vocal Vibrations, an interactive music installation about the human
+The inspiration for the Hypercompressor came during the development of
+\textit{Vocal Vibrations}, an interactive music installation about the human
 voice and about engaging the public in singing.\cite{Holbrow2014} The
 project featured a Music Concr\`{e}te composition, \textit{The Chapel}
-by Tod Machover, which was mixed in a 10 channel surround sound
+by Tod Machover, which was mixed in a 10-channel surround sound
 format and played throughout the installation. During the mixing
-process, I noticed an important surround sound tool missing from my
+process, I discovered an important surround sound tool missing from my
 mixing workflow. When mixing in mono or stereo, audio
 compression\marginnote{Unless noted otherwise, ``compression'' is used
   in this thesis to describe dynamic range compression, as opposed to
@@ -17,14 +17,14 @@ space just as easily.
 
 \section{Building on the Compression Paradigm}
 The design, implementation, and use of traditional dynamic range
-compression is well documented in the
+compression is well-documented in the
 literature,\cite[]{Giannoulis2012,Case2007,Deruty2014} so we will
-describe dynamic range compression only as much as is needed to
+describe dynamic range compression only to the extent that needed to
 explain the foundation for \thesis. Imagine we are mixing a vocal pop
-performance, and during the verse our vocalist is singing moderately
+performance, and during the verse our vocalist sings moderately
 loud, or \textit{mezzo-forte}. At the beginning of the chorus, our
 singer wants a full and powerful sound, so she adjusts the dynamic to
-very loud, or \textit{fortissimo}. However, the new louder dynamic
+very loud, or \textit{fortissimo}; however, the new louder dynamic
 interrupts the balance between the vocals and the other instruments in
 our mix. We like the powerful sound of our singer's
 \textit{fortissimo} performance, but our balance would be improved if
@@ -62,7 +62,7 @@ with the attack time and release time parameters. These parameters
 determine the speed at which the compressor attenuates (attack time)
 and disengages (release time) when the input signal exceeds the
 threshold. By adjusting the attack and release times, we can change
-the temporal focus of the compressor.
+the temporal focus of the compressor. Consider the following examples:
 \begin{itemize}
 \item Perhaps we want the compressor to engage or disengage at the
   time scale of a musical phrase. We could set our attack time long
@@ -86,8 +86,8 @@ the temporal focus of the compressor.
 \end{itemize}
 The attack and release times listed here are a rough guide only.  The
 exact function of these parameters varies from one model of compressor
-to another, and results also depend on the audio input material and
-on the threshold and ratio settings. The results of audio
+to another, and results also depend on the audio input material, as
+well as the threshold and ratio settings. The results of audio
 compression can sometimes be characterized better by a feeling than a
 formula.
 
@@ -101,10 +101,10 @@ formula.
 \subsection{Side-Chain Compression}
 \label{sec:side-chain-compr}
 Compressors often have an additional operational mode that is the
-primary inspiration for Hypercompression. We know that compressors
-automatically reduce the gain of a signal that exceeds a given
-threshold. Some compressors allow us to attenuate the level of a
-signal when a \emph{different} signal exceeds the threshold
+primary inspiration for Hypercompression. As previously discussed,
+traditional compressors automatically reduce the gain of a signal that
+exceeds a given threshold. Some compressors allow us to attenuate the
+level of a signal when a \emph{different} signal exceeds the threshold
 level. Models that suports side-chain compression have a second audio
 input. When we switch the compressor into side-chain mode, the
 compressor attenuates the first signal only when the second signal
@@ -112,16 +112,15 @@ exceeds the threshold.
 
 Side-chain compression is often used to moderate the balance of kick
 drum and bass guitar. If the bass guitar is briefly attenuated just
-enough just the right amount each time the kick drum hits, we can set
-the kick and bass guitar at exactly the gain levels we want without
-one masking the other. Because the bass guitar is only briefly
-attenuated, it will not be perceived as any quieter.
-
-In this example we use the kick drum to create a gain envelope for our
-bass guitar. The kick \emph{pushes} the bass to make room for
-itself. The attack time and release time parameters give control over
-this behavior in the temporal domain. The next step is to
-expand this model to add control in the spatial domain.
+enough each time the kick drum hits, we can set the kick and bass
+guitar at exactly the gain levels we want without one masking the
+other. Because the bass guitar is only briefly attenuated, it will not
+be perceived as any quieter. In this example we use the kick drum to
+create a gain envelope for our bass guitar. The kick \emph{pushes} the
+bass to make room for itself. The attack time and release time
+parameters give control over this behavior in the temporal domain. The
+next step is to expand this model to add control in the spatial
+domain.
 
 \section{Ambisonics}
 \label{sec:ambisonics}
@@ -129,17 +128,17 @@ Ambisonics is a technique for encoding and decoding three-dimensional
 surround sound audio.\cite[-15mm]{Gerzon1973,Gerzon1985} Ambisonic
 audio differs from other surround sound formats like $5.1$ and $7.1$
 in that it does not depend on a particular speaker configuration. An
-ambisonic recording can be decoded on any surround sound speaker
-configuration without disarranging the spatial contents of the audio
+ambisonic recording can be decoded on many different surround speaker
+configurations without disarranging the spatial contents of the audio
 recording.
 
 Imagine we use an omnidirectional microphone to record an acoustic
 instrument at a sample rate of 44.1 kHz. We sample and record 44100
 samples every second that represent the air pressure at the microphone
 capsule during the recording. Our omni-directional microphone is
-designed to treat sound arriving from all angles equally. The
-omnidirectional microphone sums together sounds arriving from all
-angles and the acoustic directional information is lost.
+designed to treat sound arriving from all angles
+equally. Consequently, all acoustical directional information is lost
+in the process.
 
 If we want to encode, decode, transmit, or play audio that preserves
 full sphere 360 degree information, ambisonics offers a solution.
@@ -264,17 +263,17 @@ ambisonic bus.\cite[-0.4in]{Malham1995}
 \section{Ambisonic Conventions used for Hypercompression}
 \label{sec:ambis-conv-used}
 This thesis follows ambisonic convention for describing axis of
-rotation. The x-axis points forward, the y-axis point left, and the
+rotation: The x-axis points forward, the y-axis point left, and the
 z-axis points up. Polar angles are used to describe orientation with
 $0\degree$ azimuth being forward, and increasing as we move to the
-right. $0\degree$ elevation also points forward, and increases as we
-move upward, with $90\degree$ being strait up along the z-axis. When
+right. $0\degree$ elevation also points forward and increases as we
+move upward, with $90\degree$ being straight up along the z-axis. When
 working with ambisonics, multiple incompatible conventions exist for
 ordering and normalizing spherical harmonics.\cite{Nachbar2011} The
 Hypercompressor uses \textit{Furse-Malham} normalization
 (FuMa)\cite{Malham2003}, and first order ambisonics with
 \textit{B-format}\cite{Hollerweger2008} channel ordering. B-format
-ordering labels the four first-order ambisonic channels as W, X, Y,
+ordering labels the four first order ambisonic channels as W, X, Y,
 and Z, with W being the spherical harmonic of order zero and degree zero,
 and X, Y, and Z being the pressure gradient components along their
 respective axes. 
@@ -289,7 +288,7 @@ respective axes.
 \noindent The Hypercompressor (or ambisonic compressor) combines the traditional
 model of compression with the surround sound capability of
 ambisonics. Given ambisonic input, and an optional ambisonic
-side-chain input, the ambisonic compressor is intended to process our
+side-chain input, the ambisonic compressor is intended to process
 input material in one of two modes:
 \begin{enumerate}
 \item Standard mode: We set a compression threshold, similar to on a
@@ -301,10 +300,10 @@ input material in one of two modes:
   our secondary input exceeds our threshold, we attenuate that same
   region in the the main input, and output the results.
 \end{enumerate}
-In both modes, our ambisonic compressor must attenuate and release
+In both modes, our ambisonic compressor must attenuate and then release
 attenuation according to the attack time and release time
-parameters. The block diagram for our new hypercompressor
-(figure~\ref{fig:hypercomp-block}) can remain largely unchanged from
+parameters. The block diagram for the Hypercompressor
+(figure~\ref{fig:hypercomp-block}) can remain mostly unchanged from
 the the block diagram for our traditional compressor in
 figure~\ref{fig:comp-block}. The most important changes are:
 \begin{itemize}
@@ -339,7 +338,7 @@ one approach for making a visual ambisonic level meter:\cite{Kronlachner2014}
 \item Evaluate each spherical harmonic at every point chosen. Cache
   the results in a matrix. 
 \item With the cached spherical harmonics, it is then possible to
-  calculate the RMS and peak values more efficiently at the audio
+  calculate the root mean square (RMS) and peak values more efficiently at the audio
   rate.
 \item A level meter does not need to refresh the display at the audio
   sample rate, so it is acceptable to interpolate between the points
@@ -349,11 +348,11 @@ one approach for making a visual ambisonic level meter:\cite{Kronlachner2014}
 \end{enumerate}
 \begin{marginfigure}
   \includegraphics{hypercomp/Icosahedron.png}
-  \caption{An icosahedron.}
+  \caption{An icosahedron}
   \label{fig:icosahedron}
 \end{marginfigure}
 A similar approach can be used to make an ambisonic level
-detector. However, a compressor needs to react much quicker than a
+detector; however, a compressor needs to react much more quickly than a
 level meter. The compressor cannot even \emph{begin} to engage until
 the level meter has responded, and attack times faster than 33
 milliseconds are common in conventional compression. Every point on
@@ -370,28 +369,26 @@ computational efficiency, the first level detector I wrote attempted
 to extract overage information with minimal ambisonic decoding and
 signal processing.
 \begin{enumerate}
-\item To accurately play a first order ambisonic encoding, we need a
-  minimum of 6 speakers placed around the listener. In this level
-  detector, we calculate the root mean square (RMS) average at the
-  center of 6 lobes corresponding to the first order spherical
+\item In this level detector, we calculate the RMS average at the
+  center of six lobes corresponding to the first order spherical
   harmonics: front, rear, left, right, top, and bottom.
 \item Calculate a map of the influence of each lobe on the surround
-  image\TODO{Clean}
+  sound image
   (figures~\ref{fig:hypercomp-mathematica},~\ref{fig:hypercomp-inf-maps}). For
   example, pan a monophonic sound directly forward in an ambisonic
   mix, cache an image of the resulting sound sphere. Save one image
-  for each of the 6 lobes.
-\item We have 6 images, each representing one of the 6 lobes of our
+  for each of the six lobes.
+\item We have six images, each representing one of the six lobes of our
   first order ambisonic spherical harmonics. In step 1, we calculated
   the RMS level at each of the corresponding points on our surround
-  sphere. Use the 6 RMS levels to weight each of our 6 maps. The sum
+  sphere. Use the six RMS levels to weight each of our six maps. The sum
   of the weighted maps shows the gain distributed across our ambisonic
   sphere.
 \end{enumerate}
 
 \begin{figure}[]
   \includegraphics[width=\linewidth]{hypercomp/AmbisonicFieldAngle.png}
-  \caption{Calculating the cylindrical projection of single ambisonic panned
+  \caption{Calculation of the cylindrical projection of a single ambisonic panned
     source in the Wolfram Mathematica software package}
   \label{fig:hypercomp-mathematica}
 \end{figure}
@@ -403,7 +400,7 @@ signal processing.
  % \includegraphics[width=3.5cm]{hypercomp/right_x72.png}
  % \includegraphics[width=3.5cm]{hypercomp/below_x72.png}
  % \includegraphics[width=3.5cm]{hypercomp/rear_x72.png}
-  \caption{Influence maps of 3 first-order spherical harmonics: left, top, and
+  \caption{Influence maps of three first order spherical harmonics: left, top, and
     front. Pure white is $-0$~dBFS black is -inf~dBFS. Cylindrical projection.}
   \label{fig:hypercomp-inf-maps}
 \end{figure}
@@ -415,8 +412,9 @@ case, when our ambisonic input material contains multiple sources that
 are each ambisonically panned to different positions, this
 interpolation technique does not accurately calculate the RMS at any
 angle. In simple cases, where we can be sure our input material is
-appropriate, the technique described here might be useful, but in most
-cases, a different approach will be more effective.
+appropriate, the technique described here might be useful. For greater
+spatial resolution (at the expense of performance) the approach
+described in \ref{sec:an-accurate-level} will be more effective.
 
 \begin{figure}[h]
 %  \includegraphics{hypercomp/LevelDetect_front.png}
@@ -468,15 +466,15 @@ F(w)=\left( \begin{array}{cccc}
 \end{equation}
 This transform is intended to focus attention on the region directly
 in front of the listener ($0\degree$ azimuth, $0\degree$ elevation),
-by attenuating the region in the opposite direction, and gently
-warping the surround image toward the front. $w$ is a value between
-$0$ and $\frac{\pi}{2}$~radians, and specifies the intensity of the
-transformation. When $w=0$, the surround field is unchanged. When
-$w=\frac{\pi}{2}$ sounds panned hard to the rear are muted, sounds
-panned to the left and right will be attenuated by 6dB, the entire
-surround image is warped to the front, and the gain facing forward is
-unchanged. This enables us to push one sound out of the way to make
-room for another sound as described in
+by attenuating the region in the opposite direction and gently
+warping the surround sound image toward the front. $w$ is a value
+between $0$ and $\frac{\pi}{2}$~radians and specifies the intensity
+of the transformation. When $w=0$, the surround field is
+unchanged. When $w=\frac{\pi}{2}$ sounds panned hard to the rear are
+muted, sounds panned to the left and right are attenuated by 6dB,
+the entire surround sound image is warped to the front, and the gain facing
+forward is unchanged. This enables us to push one sound out of the way
+to make room for another sound as described in
 section~\ref{sec:hypercomp-design}.
 
 Equation~\ref{eq:focus} attenuates the region behind the listener. 
@@ -508,19 +506,19 @@ control module in the Hypercompressor.
 \paragraph{Ambisonic Gain Control Module Results}
 The focus transform lets us warp the surround field, pushing the
 field to make room for new sounds. In some cases (for example, when
-mastering an ambisonic recording) warping the surround image is
+mastering an ambisonic recording) warping the surround sound image is
 undesirable, and a simple directional gain transform should be used
 instead (an appropriate transform is defined
 elsewhere\cite{Kronlachner2014i}). However, the goal of the
 Hypercompressor is not to compress dynamic range like a traditional
 compressor. The goal is to compress \emph{space}. The focus transform
 is a compromise: We partly attenuate a region, but we also bend the
-surround image so that important parts of our surround texture are
+surround sound image so that important parts of our surround texture are
 panned to a position with fewer competing sounds. This is an effect
 that is not possible with a traditional compressor.
 
 The focus transform also ties attenuation amount to attenuation
-radius. If we use only a single focus transform, is not possible to only
+radius. If we use only a single focus transform, it is not possible to only
 slightly attenuate a large region of the surround sound field. The
 following chapter describes how we used this to our advantage
 during the live performance of \textit{De L'Exp\'{e}rience}.
