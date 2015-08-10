@@ -2,7 +2,7 @@
 \chapter{Introduction}
 \label{ch:introduction}
 In his 1963 book, \textit{Formalized Music}, Composer, Engineer, and
-Architect, Iannis Xenakis described the foundation for his own
+Architect Iannis Xenakis described the foundation for his own
 reinterpretation of conventional music theory:
 \begin{quotation}
   ``All sound is an integration of grains, of elementary sonic
@@ -10,42 +10,47 @@ reinterpretation of conventional music theory:
   threefold nature: duration, frequency, and intensity.''
 \end{quotation}
 Instead of using high-level musical concepts like pitch and meter to
-compose music, Xenakis posited, only the three elementary qualities
+compose music, Xenakis posited that only three elementary qualities
 (frequency, duration and intensity) are necessary. Because it is
 impractical to describe sounds as the sum of hundreds or thousands of
-elementary sonic particles, he proposed that statistical and probabilistic
-models should be used to define sounds at the macroscopic
-level. Additionally, similar mathematical models should describe other
-compositional concepts including rhythm, form, and melody. Xenakis
-named this new style \textit{stochastic}, and he considered it a
-generalization of existing music theory: High-level musical constructs
-such as melody, harmony, and meter are mathematical abstractions of
-the elementary sonic particles, and alternative abstractions such as
-non standard tuning should exist as equals within the same mathematical
+elementary sonic particles, he proposed using statistical and
+probabilistic models to define sounds at the macroscopic level, and
+using similar mathematical models to describe other compositional
+concepts including rhythm, form, and melody. Xenakis named this new
+style \textit{stochastic}, and he considered it a generalization of
+existing music theory: High-level musical constructs such as melody,
+harmony, and meter are mathematical abstractions of the elementary
+sonic particles, and alternative abstractions such as non standard
+tuning should exist as equals within the same mathematical
 framework. Music composition, he claimed, requires a \emph{deep}
 understanding of the mathematical relationship between sonic elements
 and musical abstractions, and music composition necessarily involves
 the formulation of new high-level musical constructs built from the
 low-level elements.
 
-\paragraph{Music and Audio Engineering}
+\paragraph{Music and Mathematics Today}
 % \label{sec:audio-engineering}
 Today, just over 50 years after \textit{Formalized Music} was first
-published, some of Xenakis' ideals are widely accepted, while others
-are largely ignored. As computers, amplifiers, and electronics become
-ubiquitous in the composition, production, and performance of music,
-mathematics and music necessarily become more interconnected, and the
-line between musician and engineer becomes increasingly indistinct.
-As a result, a \textit{deep} understanding of the mathematics of music
-is also increasingly valuable to musicians.  The most common tools for
-shaping sounds typically use mathematical language such as frequency,
-milliseconds, and decibels, requiring us to translate between
-mathematical and musical concepts. The controls for electronic
-synthesizers use words that are synonyms for Xenakis' three sonic
-elements (duration, frequency, and intensity). While countless
-high-level interfaces for manipulating sounds have been designed, it
-would appear that the most useful (and the most widely used) are the
-simplest.
+published, some of Xenakis' ideals have been widely adopted by
+musicians and composers. As computers, amplifiers, and electronics
+become ubiquitous in the composition, production, and performance of
+music, the line between composer and engineer becomes increasingly
+indistinct. As a result, a deep understanding of the mathematics of
+music is also increasingly valuable to musicians. The most common
+tools for shaping sounds typically use mathematical language such as
+frequency, milliseconds, and decibels, requiring us to translate
+between mathematical and musical concepts. For example, the interface
+for a typical electronic synthesizer will include the following
+controls:
+\begin{itemize}
+\item Attack time, a duration measured in milliseconds
+\item Filter frequency, measured in cycles per second
+\item Sustain level, intensity, measured in decibels
+\end{itemize}
+Countless high-level interfaces for manipulating sound have been
+created, but no particular type of abstraction has been widely
+adopted. It would appear that the most useful (and the most widely
+used) engineering tools are the simplest:
 \begin{enumerate}
 \item The equalizer, a frequency specific amplifier
 \item The delay, a temporal shift on the order of milliseconds
@@ -70,22 +75,21 @@ on, or even as effective as acoustic instruments? The three projects
 described in this thesis are directly inspired by Iannis Xenakis, and rest on
 the foundation of stochastic music: \refmod, \polytempic, and
 \thesis. Each project builds on existing paradigms in composition or
-audio engineering, and together they treat space and time as equals,
+audio engineering, and together they treat space and time as equals
 and as true elements of music.
 
 \section{\refmod}
 \label{sec:refmod-intro}
 \newthought {Music and space} are intimately connected. The first
-project, described in \autoref{ch:ref-mod}, explores how we can
-compose music using acoustic reflections in architectural space as a
-medium. \refmod is a software tool that lets us design and experiment
-with abstract acoustic lenses or ``sound mirrors'' in two
-dimensions. It is directly inspired by the music and architecture of
-Xenakis.
+project, described in \autoref{ch:ref-mod}, introduces an interface
+for quickly sketching and visualizing simple architectural and musical
+ideas. \refmod is a software tool that lets us design and experiment
+with abstract shapes loosely based on two-dimensional acoustic lenses
+or ``sound mirrors.'' It is directly inspired by the music and
+architecture of Xenakis.
 
 \section{\polytempic}
 \label{sec:polytempic-intro}
-
 \newthought{Music and Time} are inseparable. All music flows through
 time and depends on temporal constructs - the most common being meter
 and tempo. Accelerating or decelerating tempi are common in many
@@ -109,9 +113,9 @@ to compose previously inaccessible sonorities.
 \newthought{Time and space} are the means and medium of music. \thesis
 explores a new tool built for shaping music in time and space. The
 tool build on the dynamic range compression paradigm.  We usually
-think of compression in terms of \emph{reduction}: We use data
-compression to reduce bit-rates and file sizes and audio compression
-to reduce dynamic range. Record labels' use of dynamic range
+think of compression in terms of \emph{reduction}: Data compression is
+used to reduce bit-rates and file sizes, while audio compression is
+used to reduce dynamic range. Record labels' use of dynamic range
 compression as a weapon in the \emph{loudness
   war}\sidenote[][]{Beginning in the 1990s, record labels have
   attempted to make their music louder than the music released by
@@ -152,7 +156,7 @@ discussed in \autoref{ch:experience}.
 At the MIT Media Lab, we celebrate the study and practice of projects
 that exist outside of established academic disciplines. The Media Lab
 (and the media) have described this approach as interdisciplinary,
-cross-disciplinary, anti-disciplinary, or post-disciplinary; rejecting
+cross-disciplinary, anti-disciplinary, and post-disciplinary; rejecting
 the clich\'{e} that academics must narrowly focus their studies
 learning \textit{more and more about less and less}, and eventually
 knowing \textit{everything about nothing}.  The projects described
