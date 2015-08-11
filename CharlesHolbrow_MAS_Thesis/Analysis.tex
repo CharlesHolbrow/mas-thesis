@@ -1,18 +1,19 @@
 \clearpage
 \chapter{Discussion and Analysis}
 \label{ch:analysis}
-In the previous chapters, we explored three new tools for creating and
-processing music, includig their motivations and implementations. The
-\refmod in chapter \ref{ch:ref-mod}, proposed a tool for sketching
-with sound and space. The \polytempic in chapter \ref{ch:polytempic}
-did the same for musical time and meter. Chapters
-\ref{ch:hypercompressor} and \ref{ch:experience} described and
-implement a technique for moving music in space with time as a
-reference. Each of these projects builds on Iannis Xenakis' theory of
-\textit{stochastic music}, and incorporates elements from other
-disciplines including mathematics, computer science, acoustics, audio
-engineering and mixing, sound reinforcement, multimedia production,
-and live performance.
+In the previous chapters we explored three new tools for creating and
+processing music, including their motivations and implementations.
+\polytempic in \autoref{ch:polytempic} proposed a mathematical
+approach for composing previously inaccessible polytempic music. The
+\refmod in \autoref{ch:ref-mod} introduced an interface for quickly
+sketching abstract architectural and musical ideas.  Chapters
+\ref{ch:hypercompressor} and \ref{ch:experience} described the
+motivations for an implementation of a new technique for moving music in
+space and time. Each of these projects builds on Iannis Xenakis'
+theory of \textit{stochastic music} and incorporates elements from
+other disciplines, including mathematics, computer science, acoustics,
+audio engineering and mixing, sound reinforcement, multimedia
+production, and live performance.
 
 This final chapter discusses how each project succeeded, how each
 project failed, and how future iterations can benefit from lessons
@@ -26,38 +27,40 @@ evaluation.\cite{Saltzer2009} We might evaluate a music recording for
 audio fidelity, for musical proficiency of the artist, for emotional
 impact or resonance, for narrative, for technological inovation, for
 creative vision, or for political and historical insight. This also
-applies to the evaluation of technology.  We can evaluate the
-suitability of a rack-mount analog to digital converter (ADC) for a
-given purpose. A recording engineer may prefer the device impart a
-favorable sound, while an acoustician may prefer that the device be
-as neutral as possible. However, when evaluating an ADC or a music
-recording, what we are most concerned with is the top level interface:
-From most perspectives, we evaluate music by listening to it, and we
-are not concerned which ADC was used to make the recording. When an
-audio engineer, or acoustician evaluates an ADC, the device's
-performance is more important than the exact layout of electronic
-components inside the device.
+applies to the evaluation of technology. Similarly, we can evaluate
+the suitability of an analog to digital converter (ADC) for a given
+purpose. If our purpose is music recording, we might prefer different
+qualities than if our purpose is electrical engineering. A recording
+engineer might prefer the device impart a favorable sound, while an
+acoustician may prefer that the device be as neutral as possible.  
+
+In the evaluation of a music recording, and the evaluation of an ADC,
+we concern ourselves with only the highest level interface: When
+evaluating a music recording, we are listen to the sound of the
+recording, but we do not evaluate the performance of the ADC used to
+make the recording. Evaluation is simplified when we consider fewer
+levels of abstraction.
 
 Stochastic music theory is a \textit{vertical integration} of
 mathematics, the physics of sound, psychoacoustics, and music. The
 theory of stochastic music begins with the lowest level components of
-sound, and ends with a creative musical product. What is a reasonable
+sound and ends with a creative musical product. What is a reasonable
 perspective from which to evaluate stochastic music? From the
-perspective of a listening, or performing the music? From the
+perspective of listening or performing the music? From the
 perspective of a historian, evaluating the environment that led to the
-composition, or studying the impact on music afterwords?  Should we
+composition or studying the impact on music afterwards?  Should we
 try to make sense of the entire technology stack, or try to evaluate
 every layer of abstraction individually? Somehow, between the
 low-level elements of sound and a musical composition or performance,
 we transition from what is numerically quantifiable to what we can
-only attempt to describe. The impossible challenge of quantifying the
-unquantifiable is exactly what makes music technology and audio
-engineering so alluring.
+only attempt to describe.
 
-In my evaluation, I avoid comparative analysis, or evaluation based on
-any kind of rubrik. The motivations are historical precidents were
-detailed in chapter 2, so here I attempt to evalue the results of the
-project according to it's own metrics and motivations.
+In my evaluation, focus on two qualities. First, I study how each
+project achieved it original objectives and how it fell short. Second,
+I consider how each project can influence or inspire future
+iterations. I avoid comparative analysis, or evaluation based on any
+kind of rubric. I attempt to evalueate the results of the project
+according to it's own motivations and historical precedent.
 
 % Does the unit have an appropriate number and type of audio outputs
 % suit our needs (such as TRS, XLR, and USB)? Does it perform
@@ -67,20 +70,109 @@ project according to it's own metrics and motivations.
 % context, the best choice will be different than if we want to use
 % the unit for mixing in a recording studio.
 
+\section{\polytempic}
+This chapter presents a very pure and elegant solution to a very
+complex problem. But is it important? Is it a significant improvement
+on the existing techniques presented in section
+\ref{sec:background-polytempi}? If a performer cannot play precise
+tempo curves anyway, what is this actually for?
+
+Western polytempic music as defined in \autoref{ch:polytempic} has
+existed for only slightly over one century, and there is certainly
+room for new explorations. The oldest example of Western polytempic
+music is by Charles Ives in his 1906 piece, \textit{Central Park in
+  the Dark}.\cite{Greschak2003} In the piece, the string section
+represents nighttime darkness, while the rest of the orchestra
+interprets the sounds of central park at night. Beginning at measure
+64, Ives leaves a note in the score, describing how the orchestra
+accelerates, while the string section continues at a constant tempo:
+\begin{quotation}
+  From measure 64 on, until the rest of the orchestra has played
+  measure 118, the relation of the string orchestra's measures to
+  those of the other instruments need not and cannot be written down
+  exactly, as the gradual accelerando of all but the strings cannot be
+  played in precisely the same tempi each time.
+\end{quotation}
+Ives acknowledges that there is no existing notation to exactly
+describe the effect that he wants, and that musicians are not capable
+of playing the transition in a precise way. In this example, it is not
+important that the simultaneous tempi have a precise rhythmic
+relationship. Ives' use of parallel tempi is a graceful one. He
+achieves a particular effect without requiring the musicians to do
+something as difficult as accelerate and decelerate relative to each
+other, and then resynchronize at certain points.
+
+All polytempic compositions must grapple with the issue of
+synchronicity, and many demand more precision than \textit{Central Park in
+  the Dark}. Stockhausen's \textit{Gruppen} uses polytempi very
+aggressively, going to great lengths to ensure that the three
+orchestras are rhythmically synchronize and desynchronize in just the
+right way.  If Stockhausen had been able to control the synchronicity
+of the tempo precisely, it seems likely that he would have wanted
+to try it.
+
+Some music (and perhaps stochastic music in particular) may be more
+interesting or influential from a theoretical perspective, than for
+the music itself in isolation. It could be that the possibilities
+unlocked through the equations derived in \autoref{ch:polytempic} are
+not different enough from the approximations used by Nancarrow and
+Cage or that it is unrealistic to direct performers to play them
+accurately enough to perceive the difference.
+
+However it is surprising that current digital tools for composition do
+not let us even \emph{try} \polytempic. If we want to hear what tempo
+transitions like the ones describe here sound like using digital
+technology, there is no software that lets us do so, and we are still
+forced to approximate. Audio programming languages like Max and
+SuperCollider let us code formulaic tempi into our compositions, but
+equations like the ones derived here are still required. I could not
+find any technique that lets us create swarms of tempo
+accelerations that fit the constraints described in
+\autoref{ch:polytempic}, or any musical example that proposed to have
+found another solution.
+
+For some cases approximation is perfectly acceptable. If a musician
+is incapable of playing the part, we are also likely incapable of
+hearing the subtleties that distinguish an approximation from a
+perfect performance. However, if we want large collections of
+simultaneous polytempi, like the ones shown in
+figures~\ref{fig:polytempic-transition}
+and~\ref{fig:polytempic-transition-3}, the approximations possible
+with transcriptions, or the approximations of an unassisted human
+performers, are not precise enough.
+
+\paragraph{Next Steps} Bryn Bliska's composition (linked in
+section~\ref{sec:composition}) is a good starting point for future
+explorations, but it was composed with an earlier version of the
+polytempic equation that did not allow for large swarms of tempi. In
+its current state, the polytempic work described in this thesis is
+just a beginning. We have not yet tried to compose a a piece that
+fully incorporates \polytempic. 
+
+Equations alone do not make a musical instrument, and composition is
+difficult without a musical interface. There are a few modern
+examples of polytempic projects (see \autoref{ch:polytempic}), but I
+could not find any examples of interfaces for composing with
+coordinated mass of tempi. The most exciting direction for
+this project is the creation of new musical interfaces for composing
+and manipulating stchastic tempo swarms. 
+
+
 \section{\refmod}
 This project provides a single abstract interface that approaches
 composition of space (architecture) and the composition of music at
 the same time. The forms that it makes are familiar from the ruled
 surfaces seen in Xenakis compositions, and early sketches of the
-Philips Pavilion. In musical mode, we can think of the x and y axes
-representing time and pitch. In architectural mode the canvas might
-represent the floor plan of spaces we are designing.
+Philips Pavilion. From a musical perspective, we can think of the x
+and y axes representing time and pitch. From an architectural
+perspective the canvas might represent the floor plan of spaces we are
+designing.
 
 While it is interesting to switch our perspective between the two
 modes, there is not a clear connection from one to the other. A
 carefully designed surface or reflection in one mode would be quite
 arbitrary in the other mode. The reason that the interface is capable
-of working in both modes is because it is so minimalist, that it does
+of working in both modes is because it is so abstract that it does
 not commit to one or the other. This is not a complete failing: The
 tool was really designed to be a brainstorming aid at the very
 beginning of the design process. It can be much simpler and quicker to
@@ -89,153 +181,66 @@ abstract shapes, similar to sketching on paper, before turning to
 specialized software for more detailed design.
 
 \paragraph{Curves, Constraints, and Simplicity} Despite the
-shortcomings in this project, the parts that worked well and make a
-good starting point for future iterations. There's something
-intangible, but simple and \textit{fun} about the user
-interface. There is only one input action; dragging a control
-point. It is immediately clear what each control point does when it is
-moved. It is easy to not even notice that there are five different
-types of control points and each has slightly different behavior. It
-is very intuitive to adjust a reflection surface such that the red
-beams \textit{focus} on a certain point, and then re-adjust a
-reflection surface so that they diverge chaotically. There is
-something fascinating about how the simple movements intuitively
-produce simultaneously coordinated or chaotic results. The response
-might be described as \textit{stochastic}!
+limitations of this project, the parts that worked well do form a
+strong base for future iterations. There is something simple and
+\textit{fun} about the user interface. There is only one input action;
+dragging a control point. It is immediately clear what each control
+point does when it is moved. It is easy to not even notice that there
+are five different types of control points and each has slightly
+different behavior. It is very intuitive to adjust a reflection
+surface such that the red beams \textit{focus} on a certain point, and
+then re-adjust a reflection surface so that they diverge
+chaotically. There is something fascinating about how the simple
+movements intuitively produce coordinated or chaotic stochastic
+results.
 
 The red ``sound lines'' have three degrees of freedom: Position,
 direction, and length. We can point the rays in any direction we like,
 but, their movement is somewhat constrained.  The projection angle is
-locked to 30 degrees, and the number of beams is always 8. Most of the
-flexibility from the interface comes from the reflective surfaces.
+locked to 30 degrees, and the number of beams is always eight, and
+most of the flexibility from the interface comes from the reflective
+surfaces.
 
-It is easier to draw a curving reflective surface than a straight
-one. If you make a special effort, it is possible to make one of the
-surfaces straight, but just like drawing a line on a paper with a pen,
-curved surfaces come more naturally. However, the curves in the \refmod do not
-come naturally because they are following an input gesture like most
-``drawing'' interfaces, but because of the simple mathematics in the
-of the Bezier curves. Similarly, if we consider the red lines to be
-notes on a time/pitch axis, the default interpretation is stochastic
-glissandi rather than static pitches. Most musical software assumes
-static pitches by default, and most architectural software assumes
-straight lines by default.
+\paragraph{Stochastic by Default} The \refmod interface makes it easier
+to draw a curving reflective surface than a straight one. If you make
+a special effort, it is possible to make one of the surfaces straight,
+but just like drawing a line on a paper with a pen, curved surfaces
+come more naturally. The curves in the \refmod do not come naturally
+because they are following an input gesture like most ``drawing''
+interfaces, but because of the simple mathematics in the of the Bezier
+curves. If we consider the red lines to be notes on a time/pitch axis,
+the default interpretation is stochastic glissandi rather than static
+pitches. Most musical software assumes static pitches by default and
+most architectural software assumes straight lines.
 
 \paragraph{Next Steps}
-The obvious next steps, for this project, are correcting the
+The obvious next steps, for this project involve correcting the
 shortcomings described above. It could be made to work in three
-dimensions, and model precise propagation of sound, rather than a very
+dimensions, and model precise propagation of sound rather than a very
 simplified abstraction: It could become a proper acoustical
-simulator. Another possibility is playing the sound is turning it into
-a musical instrument where we can hear the stochastic glissandi in
-realtime. These options are not necessarily mutually exclusive, but as
-the interface becomes tailored to a more specific application, our
-ability to think about the content as abstract representations also
-breaks down. The ideal of software that is equally well equipped to
-compose music and to imagine architectural spaces is probably
-unrealistic. The beauty of the abstract representation of music
-composition, is that \textit{any} visual representation of music is
-quite abstract.
+simulator. Another possibility is turning it into a compositional or
+performative musical instrument where we can hear the stochastic
+glissandi in realtime. These options are not necessarily mutually
+exclusive, but as the interface becomes tailored to a more specific
+application, our ability to think about the content as abstract
+representations also breaks down. The ideal of software that is
+equally well equipped to compose music and to imagine architectural
+spaces is probably unrealistic. 
 
-However, the direction I would like to take this in different. Each
-red line can be considered pitch, but it can also be considered its
-own time axis. By calculating the red paths, we can creating many time
-lines that follow similar but slightly different trajectories. Each
-red line can be thought of as a time axis for an individual
-pitch. When the lines all hit a curved surface after slightly
-different length, it represents an arpeggiated chord. In contrast, a
-non-arpeggiated chord is represented when the red lines all collide
-with a surface after traveling identical distances.
+Any visual representation of music is quite abstract, and different
+visual representations can encourage us to think about music in new
+and unusual ways. For example each red line can be considered pitch,
+but it can also be considered its own time axis. By calculating the
+red paths, we can creating many time axes that follow similar but
+slightly different trajectories. Each red line can be thought of as a
+time axis for an individual pitch. When the lines collide with a
+curved surface after slightly different length, it represents an
+arpeggiated chord. In contrast, a non-arpeggiated chord is represented
+when the red lines all collide with a surface after traveling
+identical distances. The abstract nature of this interface leaves room
+for our immagination to interperate unexpected new musical
+possibilities. 
 
-
-% Describe where I want to take this.
-\section{\polytempic}
-This chapter presents a very pure and elegant solution to a very
-complex problem. But is it important? Is it not enough to just change
-tempo with any of the other techniques presented in section
-\ref{sec:background-polytempi}? If a performer cannot play precise tempo
-curves anyway, what is this actually for?
-
-Western polytempic music as defined in this chapter has existed for
-only slightly over than one century, and there is certainly room for
-new explorations. The oldest example in of Western polytempic music is
-in by Charles Ives in his 1906 piece, \textit{Central Park in the
-  Dark}.\cite{Greschak2003} In the piece, the string section
-represents nighttime darkness, while the rest of the orchestra
-represents the sounds of central park at night. Beginning at measure
-64, Ives leaves a note in the score, describing how the orchestra
-accelerates, while the string section plays a constant tempo:
-\begin{quotation}
-  From measure 64 on, until the rest of the orchestra has played
-  measure 118, the relation of the string orchestra's measures to
-  those of the other instruments need not and cannot be written down
-  exactly, as the gradual accelerando of all but the strings cannot be
-  played in precisely the same tempi each time.
-\end{quotation}
-Ives acknowledges that there is no notation to describe the effect
-that he wants, and that musicians are not capable of playing the
-transition in a precise way. In this example, it is not important that
-the that the simultaneous tempi have a precise rhythmic
-relationship. Ives' use of paralel tempi is a graceful one. He
-achieves a particular effect without requiring the musicians to do
-something so unnatural as accelerate and decelerate relative to each
-other, and then resynchronize at certain points. 
-
-All polytempic compositions must grapple with the issue of
-synchronicity, and most are less elegant than \textit{Central Park in
-  the Dark}. Stockhausen's \textit{Gruppen} uses polytempi very
-aggressively, going to great lengths to ensure that the three
-orchestras are rhythmically synchronized and desynchronize in just the
-right way.  If Stockhausen had been able to control the synchronicity
-of the tempo precisely, it seems likely that he would have wanted
-to try it. At least he would have been interested in experimenting with
-\polytempic in other compositions.
-
-\paragraph{Next Steps} Some music (and perhaps stochastic music in
-particular) may be more interesting or influential from a theoretical
-perspective than for the music itself in isolation. It could be that
-the possibilities unlocked through the equations derived in
-\autoref{ch:polytempic} are not different enough from the
-approximations used by Nancarrow and Cage. Or that it is unrealistic
-to direct performers to play them accurately enough to perceive the
-difference.
-
-However it is surprising that current digital tools for composition do
-not let us even \emph{try} \polytempic. If we want to hear what tempo
-transitions like the ones describe here sound like using digital
-technology, there is no software that lets us do so, and we are still
-forced to approximate. 
-
-Audio programming languages like Max and SuperCollider let us code
-formulaic tempi into our compositions, but equations like the ones
-derived here are still required. I could not find any any mathematical
-technique that lets us create tempo accelerations that fit the
-constraints described in \autoref{ch:polytempic}, or any musical
-example that proposed to have found another solution.
-
-For simple cases, approximation is probably acceptable. If a musician
-is incapable of playing the part, we are also likely incapable of
-hearing the subtleties that distinguish an approximation from a
-perfect performance. However, if we want lage collections of
-simultaneous polytempi, like the ones shown in
-figures~\ref{fig:polytempic-transition}
-and~\ref{fig:polytempic-transition-3}, the approximations possible
-with transcriptions, or the approximations of an unassisted human
-performers are not precise enough.
-
-Bryn Bliska's composition linked in section~\ref{sec:composition} is a
-good starting point for future explorations, but in it's current
-state, the polytempic work described in this thesis is just a
-beginning. We have not yet tried to compose a a piece that fully
-incorporates \polytempic. The important next step is to use the
-equations derrived here to create fully polytempic music compositions
-with swarms of parallel stochastic tempo modulations.
-
-\paragraph{Stochastic Theory} The study of \polytempic reveals what is
-probably the greatest strength of stochastic music theory. A vertical
-integration of the theory of sound and music lets us experience music
-from a different perspective, and discover missed opportunities along the
-way. 
 
 \section{\thesis}
 The design and development of the Hypercompressor happened in parallel
@@ -300,10 +305,10 @@ electronics especially well. However, the beautiful blend of sounds that
 we achieved would have been possible without many other contributing
 factors, such as the expert composition of the electronic textures.
 
-\paragraph{Next Steps}The positioning sounds in space based on the
-mathematical matrix transforms, that are themselves, driven by other
-sound sources (in our case, a live organ performance), resulting in an
-unpredictable, but defined state throughout the performance
+% \paragraph{Next Steps}The positioning sounds in space based on the
+% mathematical matrix transforms, that are themselves, driven by other
+% sound sources (in our case, a live organ performance), resulting in an
+% unpredictable, but defined state throughout the performance
 
 % We have discussed the advantages and disadvantages of warping and
 % attenuation as techniques for handling surround sound
@@ -313,41 +318,47 @@ unpredictable, but defined state throughout the performance
 % lets us toggle (or adjust continuously) between a warping and
 % attenuation.
 
+
+\paragraph{Stochastic Theory} The study of \polytempic reveals what is
+probably the greatest strength of stochastic music theory. A vertical
+integration of the theory of sound and music lets us experience music
+from a different perspective, and discover missed opportunities along the
+way. 
+
 \clearpage
-\chapter{Epilogue}
+\chapter*{Epilogue}
 \label{ch:epilogue}
 
 % The grant was 99510\EUR{}
-In 2004, the Culture 2000 Programme created by the European Union
+In 2004, the Culture 2000 Programme, created by the European Union
 approved a grant to an Italian multimedia firm for a project called
 Virtual Electronic Poem (VEP).\cite{eu2004} The project proposed the
 creation of a virtual reality simulation in which users could enter a
 simulated version of the experience inside the famous Phillips
-Pavilion. As part of the project, the VEP team when through the
+Pavilion. While developing the VEP, the design team when through the
 archives of Xenakis, Le Corbusier, and Philips, uncovering every
 relevant bit of information in order to make the experience as real as
-possible.\cite{Lombardo2009} Virtual reality technology has changed
-enough between 2004 and 2015, that reviving the VEP project would
-likely involve an additional multimedia archeology expedition as big
-as the first, and it would probably be easier (and more effective) to
-start from scratch using the original documentation. 
+possible.\cite{Lombardo2009} 
 
-The mathamatical language that Xenakis used to describe his
-compositions, is even older than western music notation, and because
-of that it 
+Virtual reality technology changed so much between 2004 and 2015 that
+reviving the VEP project today would likely involve an additional
+multimedia archeology expedition as intensive as the first: It would
+probably be easier (and more effective) to start from scratch using
+the original documentation. This is a common problem with multimedia
+performances. Technology changes so quickly that it quickly becomes
+very difficult to restore even moderately recent
+projects.\cite{Lombardo2006} In contrast, the mathematical language
+that he used to describe his work is as well-established as the
+language of Western music notation. Today, the stochastic works
+of Iannix Xenakis are slightly more accesible than some other
+projects. The three elements of sound he built his compositions with
+(frequency, duration and intensity, as described in
+\autoref{ch:introduction}) are as easy (if not easier) to compose with
+today as they were in his time. It is my hope that the documentation
+in this thesis will provide as dependable and enduring a description
+of modern multimedia composition.
 
-Where many music 
 
-When we treat space as an element of music, 
-
-
-One invaluable side-effect of Xenakis stochastic compositions 
-
-
-Pierre Boulez used a different approach, who disilked 
-
-It would appear that the main challenge with stochastic composition,
-or vertical integration, or that of scope. 
 
 % Having mixed a bunch of stuff, for different contexts, the different
 % panning strategies in discrete channel, ambisonics, don't are not
