@@ -118,6 +118,13 @@
 % Fix really stupid Tufte LaTeX thing
 \morefloats
 
+% Make sure my right margin is large enough
+\geometry{
+  left=1in, % left margin
+  textwidth=25pc, % main text block
+  marginparsep=2pc, % gutter between main text block and margin notes
+  marginparwidth=12pc % width of margin notes
+}
 
 % Title of my thesis project
 \newcommand{\thesis}{Hypercompression\xspace}
@@ -137,6 +144,7 @@
 
 \mainmatter
 \tableofcontents
+
 \include{Introduction}
 \include{Background}
 \include{Polytempic}
